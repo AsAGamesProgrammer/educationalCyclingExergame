@@ -11,8 +11,12 @@ public class RotateSelection : MonoBehaviour {
     public GameObject partS;
     private int currentSelectedSprite = 0;
 
-	// Use this for initialization
-	void Start () {
+    public float progressToUnlock = 100.0f;
+    private bool verticalSelectionActive = false;
+    private float currentVerticalProgress = 0.1f;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -20,8 +24,37 @@ public class RotateSelection : MonoBehaviour {
 	void Update ()
     {
         //Check for input and change sprite selection
-        if (HorizontalInputReceived())
-            ChangeSelection();
+        if (!verticalSelectionActive)
+        {
+            if (HorizontalInputReceived())
+                ChangeSelection();
+        }
+
+        if(Input.GetAxis("Vertical") >0.1f && mainSprite.GetComponent<SpriteRenderer>().sprite != sprites[currentSelectedSprite])
+        {
+            verticalSelectionActive = true;
+
+            VerticalSelection();
+        }
+    }
+
+    void VerticalSelection()
+    {
+        if (currentVerticalProgress < progressToUnlock)
+        {
+            //Debug
+            Debug.Log(currentVerticalProgress);
+
+            //Add current spinning value
+            currentVerticalProgress += Input.GetAxis("Vertical");
+        }
+        else
+        {
+            //Set sprite
+            mainSprite.GetComponent<SpriteRenderer>().sprite = sprites[currentSelectedSprite];
+            currentVerticalProgress = 0.1f;
+            verticalSelectionActive = false;
+        }
     }
 
     //Check for arrow key input
@@ -62,6 +95,6 @@ public class RotateSelection : MonoBehaviour {
         partS.transform.position = new Vector2(spritePositions[currentSelectedSprite].transform.position.x, -4.5f);
 
         //TEMP: change main sprite
-        mainSprite.GetComponent<SpriteRenderer>().sprite = sprites[currentSelectedSprite];
+        //mainSprite.GetComponent<SpriteRenderer>().sprite = sprites[currentSelectedSprite];
     }
 }
