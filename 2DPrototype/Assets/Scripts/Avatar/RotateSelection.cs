@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class RotateSelection : MonoBehaviour {
 
     public Sprite [] sprites;
+    public GameObject[] spritePositions;
     public GameObject mainSprite;
+    public GameObject partS;
     private int currentSelectedSprite = 0;
 
 	// Use this for initialization
@@ -17,7 +19,16 @@ public class RotateSelection : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //float horizontal = Input.GetAxis("Horizontal");
+        //Check for input and change sprite selection
+        if (HorizontalInputReceived())
+            ChangeSelection();
+    }
+
+    //Check for arrow key input
+    //Change currently selected sprite accordingly
+    bool HorizontalInputReceived()
+    {
+        bool changeSpriteSelection = false;
 
         //ARROW RIGHT
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -27,19 +38,30 @@ public class RotateSelection : MonoBehaviour {
             else
                 currentSelectedSprite = 0;
 
-            mainSprite.GetComponent<SpriteRenderer>().sprite = sprites[currentSelectedSprite];
+            changeSpriteSelection = true;
         }
 
         //ARROW LEFT
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (currentSelectedSprite >0)
+            if (currentSelectedSprite > 0)
                 currentSelectedSprite--;
             else
-                currentSelectedSprite = sprites.Length-1;
+                currentSelectedSprite = sprites.Length - 1;
 
-            mainSprite.GetComponent<SpriteRenderer>().sprite = sprites[currentSelectedSprite];
+            changeSpriteSelection = true;
         }
 
+        return changeSpriteSelection;
+    }
+
+    //Respond to arrow key input to indicate which picture is selected
+    void ChangeSelection()
+    {
+        //Move particles
+        partS.transform.position = new Vector2(spritePositions[currentSelectedSprite].transform.position.x, -4.5f);
+
+        //TEMP: change main sprite
+        mainSprite.GetComponent<SpriteRenderer>().sprite = sprites[currentSelectedSprite];
     }
 }
