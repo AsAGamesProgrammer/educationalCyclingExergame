@@ -5,9 +5,16 @@ using UnityEngine.UI;
 
 public class RotateSelection : MonoBehaviour {
 
-    public Sprite [] sprites;
-    public GameObject[] spritePositions;
+    //Array of avatar elements which can be selected
+    public AvatarDescription[] avatarElements;
+
+    //Main avatar sprite, which is changed 
     public GameObject mainSprite;
+
+    //Name of the avatar part
+    public string avatarPart = "AvatarFace";
+
+
     public GameObject partS;
     public GameObject bike;
     public GameObject spriteOnBike;
@@ -26,6 +33,12 @@ public class RotateSelection : MonoBehaviour {
     void Start ()
     {
         initialBikePos = bike.transform.position;
+
+        //Establish connection to the selected sprite part
+        mainSprite = GameObject.FindGameObjectWithTag("MainAvatar").transform.Find(avatarPart).gameObject;
+
+        //Set initial sprite on bike value
+
 	}
 	
     //UPDATE
@@ -40,7 +53,7 @@ public class RotateSelection : MonoBehaviour {
         }
 
         //Vertical input detected
-        if(Input.GetAxis("Vertical") >0.05f && mainSprite.GetComponent<SpriteRenderer>().sprite != sprites[currentSelectedSprite])
+        if (Input.GetAxis("Vertical") > 0.05f && mainSprite.GetComponent<SpriteRenderer>().sprite != avatarElements[currentSelectedSprite].getSprite())
         {
             verticalSelectionActive = true;
 
@@ -64,7 +77,7 @@ public class RotateSelection : MonoBehaviour {
         else
         {
             //Set sprite
-            mainSprite.GetComponent<SpriteRenderer>().sprite = sprites[currentSelectedSprite];
+            mainSprite.GetComponent<SpriteRenderer>().sprite = avatarElements[currentSelectedSprite].getSprite();
             currentVerticalProgress = 0.1f;
             verticalSelectionActive = false;
 
@@ -85,7 +98,7 @@ public class RotateSelection : MonoBehaviour {
         //ARROW RIGHT
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (currentSelectedSprite + 1 < sprites.Length)
+            if (currentSelectedSprite + 1 < avatarElements.Length)
                 currentSelectedSprite++;
             else
                 currentSelectedSprite = 0;
@@ -99,7 +112,7 @@ public class RotateSelection : MonoBehaviour {
             if (currentSelectedSprite > 0)
                 currentSelectedSprite--;
             else
-                currentSelectedSprite = sprites.Length - 1;
+                currentSelectedSprite = avatarElements.Length - 1;
 
             changeSpriteSelection = true;
         }
@@ -111,11 +124,11 @@ public class RotateSelection : MonoBehaviour {
     void ChangeSelection()
     {
         //Move particles
-        partS.transform.position = new Vector2(spritePositions[currentSelectedSprite].transform.position.x, -4.5f);
+        partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, -4.5f);
 
         //Set on bike sprite to a current selection only if it is npt applied yet
-        if (mainSprite.GetComponent<SpriteRenderer>().sprite != sprites[currentSelectedSprite])
-            spriteOnBike.GetComponent<SpriteRenderer>().sprite = sprites[currentSelectedSprite];
+        if (mainSprite.GetComponent<SpriteRenderer>().sprite != avatarElements[currentSelectedSprite].getSprite())
+            spriteOnBike.GetComponent<SpriteRenderer>().sprite = avatarElements[currentSelectedSprite].getSprite();
         else
             spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
 
