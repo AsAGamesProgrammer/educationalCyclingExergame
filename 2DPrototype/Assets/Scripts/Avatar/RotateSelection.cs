@@ -15,7 +15,8 @@ public class RotateSelection : MonoBehaviour {
 
     public float progressToUnlock = 100.0f;
     private bool verticalSelectionActive = false;
-    private float currentVerticalProgress = 0.1f;
+    private float currentVerticalProgress = 0.03f;
+    public float extraSpeedModifier = 0.15f;
 
     private bool bikeSpriteSet = false;
     private Vector2 initialBikePos;
@@ -39,7 +40,7 @@ public class RotateSelection : MonoBehaviour {
         }
 
         //Vertical input detected
-        if(Input.GetAxis("Vertical") >0.1f && mainSprite.GetComponent<SpriteRenderer>().sprite != sprites[currentSelectedSprite])
+        if(Input.GetAxis("Vertical") >0.05f && mainSprite.GetComponent<SpriteRenderer>().sprite != sprites[currentSelectedSprite])
         {
             verticalSelectionActive = true;
 
@@ -58,7 +59,7 @@ public class RotateSelection : MonoBehaviour {
             currentVerticalProgress += Input.GetAxis("Vertical");
 
             //Move bike
-            bike.transform.position += Vector3.right * Input.GetAxis("Vertical") * 0.08f;
+            bike.transform.position += Vector3.right * Input.GetAxis("Vertical") * extraSpeedModifier;
         }
         else
         {
