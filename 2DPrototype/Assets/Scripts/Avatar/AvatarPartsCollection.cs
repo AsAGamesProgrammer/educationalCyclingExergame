@@ -5,19 +5,15 @@ using UnityEditor;
 
 public class AvatarPartsCollection : MonoBehaviour {
 
-    public SpriteInstance[] faces;
-    public SpriteInstance[] skinColours;
     public Sprite test;
-    //public Sprite[] tests;
-
-    //public Dictionary<spriteColour, GameObject[]> faceShapes = new Dictionary<spriteColour, GameObject[]>();
+    public List<SpriteInstance> faceShapes = new List<SpriteInstance>();
 
     // Use this for initialization
     [MenuItem("AssetDatabase/2DPrototype")]
     //[MenuItem("2DPrototype")]
     void Start ()
     {
-        test = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/VisualAssets/AvatarElements/FaceShape/Face2Dark.png", typeof(Sprite));
+        //test = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/VisualAssets/AvatarElements/FaceShape/Face2Dark.png", typeof(Sprite));
         string[] folders = new string[1];
         folders[0] = "Assets/VisualAssets/AvatarElements/FaceShape";
 
@@ -25,11 +21,9 @@ public class AvatarPartsCollection : MonoBehaviour {
         var tests = AssetDatabase.FindAssets("t:Sprite", folders);
         foreach (string guid in tests)
         {
-            Debug.Log("testI: " + AssetDatabase.GUIDToAssetPath(guid));
 
-            //Extract latest sprite
-            test = (Sprite)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guid), typeof(Sprite));
-            //test = AssetDatabase.GUIDToAssetPath(guid).Clone();
+            //Load sprite from path to a list
+            LoadSprite(guid);
         }
     }
 	
@@ -38,13 +32,32 @@ public class AvatarPartsCollection : MonoBehaviour {
 		
 	}
 
+    void LoadSprite(string path)
+    {
+        //Debug
+        Debug.Log(AssetDatabase.GUIDToAssetPath(path));
+
+        //Sprite instance
+        SpriteInstance newInstance = new SpriteInstance();
+
+        //Extract sprite
+        //REDO
+        newInstance.spriteObject = (Sprite)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(path), typeof(Sprite));
+        newInstance.colour = spriteColour.skinWhite;
+        newInstance.type = spriteType.faceShape;
+
+        //Add to list
+        faceShapes.Add(newInstance);
+    }
+
+
 }
 
 //Helper classes
 [System.Serializable]
 public class SpriteInstance
 {
-    public GameObject spriteObject;
+    public Sprite spriteObject;
     public spriteColour colour;
     public spriteType type;
 
