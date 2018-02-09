@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CategorySelection : MonoBehaviour {
 
-    public spriteColour currentSkinColour = spriteColour.skinBrown;
+    spriteColour currentSkinColour = spriteColour.skinBrown;
     private AvatarPartsCollection avatarCollection;
 
     public List<GameObject> selectableItems = new List<GameObject>();
@@ -52,6 +52,7 @@ public class CategorySelection : MonoBehaviour {
 
     public void CreateSelectionItems()
     {
+        Debug.Log("Skin Colour " + currentSkinColour);
         List<SpriteInstance> currentCollection = new List<SpriteInstance>();
 
         switch(currentCategory)
@@ -68,12 +69,12 @@ public class CategorySelection : MonoBehaviour {
                 return;
         }
 
-        Debug.Log(currentCollection.Count);
         foreach(var item in currentCollection)
         {
             //Temp!!! Doesnt work for skin
-            if(item.colour == currentSkinColour)
+            if(ItemIsValid(item))
             {
+                //-------CREATES NEW ITEM--------
                 GameObject newItem = new GameObject();
 
                 //Sprite Renderer
@@ -93,6 +94,25 @@ public class CategorySelection : MonoBehaviour {
 
         //Upload Items to the selection script
         GetComponent<RotateSelection>().SetUpArray(selectableItems);
+    }
+
+    bool ItemIsValid(SpriteInstance item)
+    {
+        //Check skin colour
+        if(item.type==spriteType.faceShape)
+        {
+            if (item.colour == currentSkinColour)
+                return true;
+        }
+
+        //Colour as a type
+        if(item.type==spriteType.skin)
+        {
+            currentSkinColour = item.colour;
+            return true;
+        }
+
+        return false;
     }
 
     public void RepositionSelectionItems()
