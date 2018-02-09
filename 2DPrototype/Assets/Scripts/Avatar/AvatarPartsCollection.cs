@@ -6,14 +6,16 @@ using UnityEditor;
 public class AvatarPartsCollection : MonoBehaviour {
 
     public List<SpriteInstance> faceShapes = new List<SpriteInstance>();
+    public List<SpriteInstance> skinColours = new List<SpriteInstance>();
 
     // Use this for initialization
     [MenuItem("AssetDatabase/2DPrototype")]
 
     void Start ()
     {
-        string[] folders = new string[1];
+        string[] folders = new string[2];
         folders[0] = "Assets/VisualAssets/AvatarElements/FaceShape";
+        folders[1] = "Assets/VisualAssets/AvatarElements/SkinColour";
 
 
         var tests = AssetDatabase.FindAssets("t:Sprite", folders);
@@ -52,32 +54,52 @@ public class AvatarPartsCollection : MonoBehaviour {
         //Switch depending on colour
         if(components.Length>2)
         {
-            switch(components[2])
-            {
-                case "White":
-                    newInstance.colour = spriteColour.skinWhite;
-                    break;
-
-                case "Med":
-                    newInstance.colour = spriteColour.skinBrown;
-                    break;
-
-                case "Dark":
-                    newInstance.colour = spriteColour.skinDark;
-                    break;
-
-                default:
-                    break;
-            }
+            newInstance.colour = GetColourFromComponent(components[2]);
         }
-        //newInstance.colour = spriteColour.skinWhite;
-        newInstance.type = spriteType.faceShape;
 
-        //Add to list
-        faceShapes.Add(newInstance);
+        //Switch depending on the avatar part
+        AssignToListByType(components[0], newInstance);
     }
 
+    //Colour switch
+    spriteColour GetColourFromComponent(string word)
+    {
+        switch (word)
+        {
+            case "White":
+                return spriteColour.skinWhite;
 
+            case "Med":
+                return spriteColour.skinBrown;
+
+            case "Dark":
+                return spriteColour.skinDark;
+
+            default:
+                return spriteColour.none;
+        }
+    }
+
+    //Type switch
+    void AssignToListByType(string word, SpriteInstance instance)
+    {
+        switch (word)
+        {
+            case "Face":
+                instance.type = spriteType.faceShape;
+                faceShapes.Add(instance);
+                return;
+
+            case "SkinColour":
+                instance.type = spriteType.skin;
+                skinColours.Add(instance);
+                return;
+
+            default:
+                instance.type = spriteType.none;
+                return;
+        }
+    }
 }
 
 //Helper classes
@@ -93,7 +115,8 @@ public class SpriteInstance
 public enum spriteType
 {
     faceShape,
-    skin
+    skin,
+    none
 }
 
 [System.Serializable]
@@ -106,6 +129,7 @@ public enum spriteColour
     hairPink,
     hairBlue,
     hairOrange,
-    hairBrown
+    hairBrown,
+    none
 }
 
