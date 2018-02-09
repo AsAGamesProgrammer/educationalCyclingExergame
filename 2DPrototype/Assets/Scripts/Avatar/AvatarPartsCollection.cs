@@ -5,7 +5,6 @@ using UnityEditor;
 
 public class AvatarPartsCollection : MonoBehaviour {
 
-    public Sprite test;
     public List<SpriteInstance> faceShapes = new List<SpriteInstance>();
 
     // Use this for initialization
@@ -38,7 +37,12 @@ public class AvatarPartsCollection : MonoBehaviour {
         Debug.Log(AssetDatabase.GUIDToAssetPath(path));
 
         //Split name to components
-        string[] components = path.Split(' ');
+        string[] fileName = AssetDatabase.GUIDToAssetPath(path).Split('/', '.');
+ 
+        //Split file name to components
+        string[] components = fileName[fileName.Length-2].Split(' ');
+
+  
 
         //Sprite instance
         SpriteInstance newInstance = new SpriteInstance();
@@ -46,8 +50,28 @@ public class AvatarPartsCollection : MonoBehaviour {
         //Assign sprite object
         newInstance.spriteObject = (Sprite)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(path), typeof(Sprite));
 
-        //
-        newInstance.colour = spriteColour.skinWhite;
+        //Switch depending on colour
+        if(components.Length>2)
+        {
+            switch(components[2])
+            {
+                case "White":
+                    newInstance.colour = spriteColour.skinWhite;
+                    break;
+
+                case "Med":
+                    newInstance.colour = spriteColour.skinBrown;
+                    break;
+
+                case "Dark":
+                    newInstance.colour = spriteColour.skinDark;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        //newInstance.colour = spriteColour.skinWhite;
         newInstance.type = spriteType.faceShape;
 
         //Add to list
