@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class CategorySelection : MonoBehaviour {
 
-    public spriteColour currentSkinColour = spriteColour.skinWhite;
+    public spriteColour currentSkinColour = spriteColour.skinBrown;
     private AvatarPartsCollection avatarCollection;
 
     public List<GameObject> selectableItems = new List<GameObject>();
-    public GameObject prefab;
+    //public GameObject prefab;
     public GameObject testCube;
 
 	// Use this for initialization
@@ -36,16 +36,24 @@ public class CategorySelection : MonoBehaviour {
             //Temp!!!
             if(item.colour == currentSkinColour)
             {
-                GameObject newItem = prefab;
+                GameObject newItem = new GameObject();
+
+                //Sprite Renderer
+                newItem.AddComponent<SpriteRenderer>();
                 newItem.GetComponent<SpriteRenderer>().sprite = item.spriteObject;
+
+                //Script
+                newItem.AddComponent<AvatarDescription>();
+
+                //Instantiate
                 selectableItems.Add(newItem);
             }
         }
 
-        InstantiateSelectionItems();
+        //Reposition
     }
 
-    public void InstantiateSelectionItems()
+    public void RepositionSelectionItems()
     {
         foreach(var item in selectableItems)
         {
