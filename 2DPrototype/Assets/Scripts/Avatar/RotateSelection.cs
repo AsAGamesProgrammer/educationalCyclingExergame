@@ -137,4 +137,16 @@ public class RotateSelection : MonoBehaviour {
         //TEMP: change main sprite
         //mainSprite.GetComponent<SpriteRenderer>().sprite = sprites[currentSelectedSprite];
     }
+
+    //Called externally
+    public void SetUpArray(List<GameObject> newItemList)
+    {
+        avatarElements = new AvatarDescription[newItemList.Count];
+
+        //Convert a list of game objects to an array of avatar descriptions
+        for(int i=0; i<avatarElements.Length; i++)
+        {
+            avatarElements[i] = newItemList[i].GetComponent<AvatarDescription>();
+        }
+    }
 }

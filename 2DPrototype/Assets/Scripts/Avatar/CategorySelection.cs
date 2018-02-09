@@ -54,6 +54,9 @@ public class CategorySelection : MonoBehaviour {
 
         //Reposition
         RepositionSelectionItems();
+
+        //Upload Items to the selection script
+        GetComponent<RotateSelection>().SetUpArray(selectableItems);
     }
 
     public void RepositionSelectionItems()
