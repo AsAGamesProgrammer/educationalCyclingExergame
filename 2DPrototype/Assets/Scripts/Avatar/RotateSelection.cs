@@ -134,6 +134,8 @@ public class RotateSelection : MonoBehaviour {
         else
             spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
 
+        //CHANGE FOR SKIN
+
         //TEMP: change main sprite
         //mainSprite.GetComponent<SpriteRenderer>().sprite = sprites[currentSelectedSprite];
     }

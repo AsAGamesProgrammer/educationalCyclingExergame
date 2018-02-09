@@ -52,7 +52,13 @@ public class CategorySelection : MonoBehaviour {
 
     public void CreateSelectionItems()
     {
-        Debug.Log("Skin Colour " + currentSkinColour);
+        //Clear list
+        foreach (var item in selectableItems)
+        {
+            Destroy(item);
+        }
+        selectableItems = new List<GameObject>();
+
         List<SpriteInstance> currentCollection = new List<SpriteInstance>();
 
         switch(currentCategory)
@@ -71,7 +77,6 @@ public class CategorySelection : MonoBehaviour {
 
         foreach(var item in currentCollection)
         {
-            //Temp!!! Doesnt work for skin
             if(ItemIsValid(item))
             {
                 //-------CREATES NEW ITEM--------
@@ -104,11 +109,8 @@ public class CategorySelection : MonoBehaviour {
             if (item.colour == currentSkinColour)
                 return true;
         }
-
-        //Colour as a type
-        if(item.type==spriteType.skin)
+        else
         {
-            currentSkinColour = item.colour;
             return true;
         }
 

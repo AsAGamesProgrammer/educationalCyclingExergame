@@ -9,6 +9,10 @@ public class AvatarDescription : MonoBehaviour {
     public int price;
     public bool isOwned = false;
 
+    //ADD 
+    //colour (for dyes)
+    //layer
+
 	// Use this for initialization
 	void Start () {
 		
