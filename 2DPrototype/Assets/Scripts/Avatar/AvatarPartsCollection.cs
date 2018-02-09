@@ -37,12 +37,16 @@ public class AvatarPartsCollection : MonoBehaviour {
         //Debug
         Debug.Log(AssetDatabase.GUIDToAssetPath(path));
 
+        //Split name to components
+        string[] components = path.Split(' ');
+
         //Sprite instance
         SpriteInstance newInstance = new SpriteInstance();
 
-        //Extract sprite
-        //REDO
+        //Assign sprite object
         newInstance.spriteObject = (Sprite)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(path), typeof(Sprite));
+
+        //
         newInstance.colour = spriteColour.skinWhite;
         newInstance.type = spriteType.faceShape;
 
