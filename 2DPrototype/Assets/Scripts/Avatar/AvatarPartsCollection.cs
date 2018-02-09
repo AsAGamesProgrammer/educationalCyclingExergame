@@ -14,16 +14,22 @@ public class AvatarPartsCollection : MonoBehaviour {
 
     // Use this for initialization
     [MenuItem("AssetDatabase/2DPrototype")]
-    //[MenuItem("Example/FindAssets Example")]
+    //[MenuItem("2DPrototype")]
     void Start ()
     {
         test = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/VisualAssets/AvatarElements/FaceShape/Face2Dark.png", typeof(Sprite));
+        string[] folders = new string[1];
+        folders[0] = "Assets/VisualAssets/AvatarElements/FaceShape";
 
-       
-        var tests = AssetDatabase.FindAssets("t:Sprite");
+
+        var tests = AssetDatabase.FindAssets("t:Sprite", folders);
         foreach (string guid in tests)
         {
             Debug.Log("testI: " + AssetDatabase.GUIDToAssetPath(guid));
+
+            //Extract latest sprite
+            test = (Sprite)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guid), typeof(Sprite));
+            //test = AssetDatabase.GUIDToAssetPath(guid).Clone();
         }
     }
 	
