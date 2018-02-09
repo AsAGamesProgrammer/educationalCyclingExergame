@@ -10,6 +10,8 @@ public class CategorySelection : MonoBehaviour {
 
     public List<GameObject> selectableItems = new List<GameObject>();
 
+    public spriteType currentCategory = spriteType.none;
+
     //Borders
     public GameObject rightBorder;
     public GameObject leftBorder;
@@ -28,14 +30,48 @@ public class CategorySelection : MonoBehaviour {
     public void OnBtnClick(string name)
     {
         Debug.Log(name + "Something Clicked");
-        CreateSelectionItems();
+        switch(name)
+        {
+            case "FaceShape":
+                if (currentCategory != spriteType.faceShape)
+                {
+                    currentCategory = spriteType.faceShape;
+                    CreateSelectionItems();
+                }
+                break;
+
+            case "SkinColour":
+                if (currentCategory != spriteType.skin)
+                {
+                    currentCategory = spriteType.skin;
+                    CreateSelectionItems();
+                }
+                break;
+        }
     }
 
     public void CreateSelectionItems()
     {
-        foreach(var item in avatarCollection.faceShapes)
+        List<SpriteInstance> currentCollection = new List<SpriteInstance>();
+
+        switch(currentCategory)
         {
-            //Temp!!!
+            case spriteType.faceShape:
+                currentCollection = avatarCollection.faceShapes;
+                break;
+
+            case spriteType.skin:
+                currentCollection = avatarCollection.skinColours;
+                break;
+
+            default:
+                return;
+        }
+
+        Debug.Log(currentCollection.Count);
+        foreach(var item in currentCollection)
+        {
+            //Temp!!! Doesnt work for skin
             if(item.colour == currentSkinColour)
             {
                 GameObject newItem = new GameObject();
