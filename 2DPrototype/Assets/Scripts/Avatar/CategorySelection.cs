@@ -9,8 +9,10 @@ public class CategorySelection : MonoBehaviour {
     private AvatarPartsCollection avatarCollection;
 
     public List<GameObject> selectableItems = new List<GameObject>();
-    //public GameObject prefab;
-    public GameObject testCube;
+
+    //Borders
+    public GameObject rightBorder;
+    public GameObject leftBorder;
 
 	// Use this for initialization
 	void Start ()
@@ -51,13 +53,19 @@ public class CategorySelection : MonoBehaviour {
         }
 
         //Reposition
+        RepositionSelectionItems();
     }
 
     public void RepositionSelectionItems()
     {
+        float width = Vector2.Distance(rightBorder.transform.position, leftBorder.transform.position);
+        float modifier = width / selectableItems.Count;
+        float offset = modifier/2;
+
         foreach(var item in selectableItems)
         {
-            Instantiate(item, testCube.transform.position, testCube.transform.rotation);
+            item.transform.position = new Vector2(leftBorder.transform.position.x + offset, leftBorder.transform.position.y);
+            offset += modifier;
         }
     }
 }
