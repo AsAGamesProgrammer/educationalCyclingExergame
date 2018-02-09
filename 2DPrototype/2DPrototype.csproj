@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Avatar\AvatarDescription.cs" />
+    <Compile Include="Assets\Scripts\Avatar\AvatarPartsCollection.cs" />
     <Compile Include="Assets\Scripts\Avatar\CategorySelection.cs" />
     <Compile Include="Assets\Scripts\Avatar\RotateSelection.cs" />
   </ItemGroup>

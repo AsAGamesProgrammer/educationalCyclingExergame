@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Is attached to a selectable sprite
+
 public class AvatarDescription : MonoBehaviour {
 
     public int price;
