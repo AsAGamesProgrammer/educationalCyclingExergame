@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Script is attached to the empty game object named manager
+
 public class RotateSelection : MonoBehaviour {
 
     //Array of avatar elements which can be selected
