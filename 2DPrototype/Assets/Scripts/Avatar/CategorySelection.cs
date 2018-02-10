@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CategorySelection : MonoBehaviour {
 
-    spriteColour currentSkinColour = spriteColour.skinBrown;
+    public spriteColour currentSkinColour = spriteColour.skinBrown;
     private AvatarPartsCollection avatarCollection;
 
     public List<GameObject> selectableItems = new List<GameObject>();
@@ -88,6 +88,12 @@ public class CategorySelection : MonoBehaviour {
 
                 //Script
                 newItem.AddComponent<AvatarDescription>();
+
+                //Dye
+                if(item.type==spriteType.skin)
+                {
+                    newItem.GetComponent<AvatarDescription>().dye = item.colour;
+                }
 
                 //Instantiate
                 selectableItems.Add(newItem);

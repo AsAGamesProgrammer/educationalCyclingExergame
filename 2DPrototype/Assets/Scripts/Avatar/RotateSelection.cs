@@ -65,6 +65,7 @@ public class RotateSelection : MonoBehaviour {
 
     void VerticalSelection()
     {
+        //Bike on the move towards avatar
         if (currentVerticalProgress < progressToUnlock)
         {
             //Debug
@@ -76,7 +77,7 @@ public class RotateSelection : MonoBehaviour {
             //Move bike
             bike.transform.position += Vector3.right * Input.GetAxis("Vertical") * extraSpeedModifier;
         }
-        else
+        else //Bike reached avatar
         {
             //Set sprite
             mainSprite.GetComponent<SpriteRenderer>().sprite = avatarElements[currentSelectedSprite].getSprite();
@@ -86,8 +87,15 @@ public class RotateSelection : MonoBehaviour {
             //Return bike to the beginning
             bike.transform.position = initialBikePos;
 
+
+            //Skin colour REDO
+            if (avatarElements[currentSelectedSprite].dye !=spriteColour.none)
+            {
+                this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].dye;
+            }
+
             //Set selection to none
-            spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
+           spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
         }
     }
 
@@ -130,11 +138,13 @@ public class RotateSelection : MonoBehaviour {
 
         //Set on bike sprite to a current selection only if it is npt applied yet
         if (mainSprite.GetComponent<SpriteRenderer>().sprite != avatarElements[currentSelectedSprite].getSprite())
+        {
             spriteOnBike.GetComponent<SpriteRenderer>().sprite = avatarElements[currentSelectedSprite].getSprite();
+        }
         else
+        {
             spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
-
-        //CHANGE FOR SKIN
+        }
 
         //TEMP: change main sprite
         //mainSprite.GetComponent<SpriteRenderer>().sprite = sprites[currentSelectedSprite];
