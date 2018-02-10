@@ -163,8 +163,21 @@ public class RotateSelection : MonoBehaviour {
     {
         //Query a list by number
         //Look for the skin colour
-        int currentFaceId = GameObject.FindGameObjectWithTag("MainAvatar").transform.Find(spriteType.faceShape.ToString()).gameObject.GetComponent<CurrentAvatarDescription>().spriteId;
+        GameObject faceSprite = GameObject.FindGameObjectWithTag("MainAvatar").transform.Find(spriteType.faceShape.ToString()).gameObject;
+        int currentFaceId = faceSprite.GetComponent<CurrentAvatarDescription>().spriteId;
         Debug.Log(currentFaceId);
+
+        foreach(var face in GetComponent<AvatarPartsCollection>().faceShapes)
+        {
+            if(face.spriteId == currentFaceId)
+            {
+                if(face.colour == GetComponent<CategorySelection>().currentSkinColour)
+                {
+                    faceSprite.GetComponent<SpriteRenderer>().sprite = face.spriteObject;
+                    return;
+                }
+            }
+        }
     }
 
     //Called externally
