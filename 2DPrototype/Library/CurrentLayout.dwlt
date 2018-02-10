@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 23
+  controlID: 93
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 68
+  controlID: 94
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -396,9 +396,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.8764186, y: 0.4259528, z: 0}
+    m_Target: {x: -0.55964214, y: 1.4085308, z: 0}
     speed: 2
-    m_Value: {x: 0.8764186, y: 0.4259528, z: 0}
+    m_Value: {x: -0.55964214, y: 1.4085308, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -425,9 +425,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 4.043712
+    m_Target: 6.0670466
     speed: 2
-    m_Value: 4.043712
+    m_Value: 6.0670466
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -541,7 +541,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 8cf9ffff000000001429000038290000
+    m_ExpandedIDs: c0fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -627,19 +627,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/VisualAssets/AvatarElements/Body
+    - Assets/VisualAssets/AvatarElements/HairColour
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/VisualAssets/AvatarElements/Body
+  - Assets/VisualAssets/AvatarElements/HairColour
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\University\FYP\Repo\educationalCyclingExergame\2DPrototype
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: fe260000
-    m_LastClickedID: 9982
-    m_ExpandedIDs: 00000000782600005a2700004e2800006e280000b0290000b2290000ffffff7f
+    m_SelectedIDs: ec250000
+    m_LastClickedID: 9708
+    m_ExpandedIDs: 00000000d2240000b8250000a6260000c62600000e28000010280000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -667,7 +667,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000782600005a2700004e2800006e280000b0290000b2290000
+    m_ExpandedIDs: 00000000d2240000b8250000a6260000c62600000e28000010280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
