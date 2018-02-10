@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Script is attached to the empty game object named manager
+/// <summary>
+/// TARGET: Empty game object - Manager, 
+///         which has AvatarPartCollection, CategorySelection and RotateSelection scripts attached
+/// PURPOSE: - React to arrow keys and pedalling
+/// </summary>
 
 public class RotateSelection : MonoBehaviour {
 

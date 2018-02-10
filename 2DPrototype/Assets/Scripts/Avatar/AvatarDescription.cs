@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Is attached to a selectable sprite
+/// <summary>
+/// TARGET: Each displayed sprite among the selectable items
+/// PURPOSE: - Store information on price, ownership, dye etc.
+/// </summary>
 
 public class AvatarDescription : MonoBehaviour {
 

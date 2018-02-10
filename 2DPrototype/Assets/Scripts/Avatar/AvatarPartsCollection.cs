@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+
+/// <summary>
+/// TARGET: Empty game object - Manager, 
+///         which has AvatarPartCollection, CategorySelection and RotateSelection scripts attached
+/// PURPOSE: - Convert avatar sprites from the asset folder to SpriteInstance objects position those in the correct 
+///          - Position converted SpriteInstances into respective lists
+/// </summary>
 public class AvatarPartsCollection : MonoBehaviour {
 
     public List<SpriteInstance> faceShapes = new List<SpriteInstance>();
@@ -42,8 +49,6 @@ public class AvatarPartsCollection : MonoBehaviour {
  
         //Split file name to components
         string[] components = fileName[fileName.Length-2].Split(' ');
-
-  
 
         //Sprite instance
         SpriteInstance newInstance = new SpriteInstance();
@@ -102,7 +107,7 @@ public class AvatarPartsCollection : MonoBehaviour {
     }
 }
 
-//Helper classes
+//---------------HELPER CLASSES----------------
 [System.Serializable]
 public class SpriteInstance
 {

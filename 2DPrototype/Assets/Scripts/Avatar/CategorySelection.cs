@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// TARGET: Empty game object - Manager, 
+///         which has AvatarPartCollection, CategorySelection and RotateSelection scripts attached
+/// PURPOSE: - React on button clicks (avatar categories)
+/// </summary>
+
 public class CategorySelection : MonoBehaviour {
 
     public spriteColour currentSkinColour = spriteColour.skinBrown;
