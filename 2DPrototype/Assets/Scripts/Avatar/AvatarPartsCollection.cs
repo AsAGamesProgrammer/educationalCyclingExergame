@@ -123,6 +123,7 @@ public enum spriteType
     skin,
     hairUp,
     hairDown,
+    hairColour,
     none
 }
 

@@ -83,25 +83,24 @@ public class RotateSelection : MonoBehaviour {
         }
         else //Bike reached avatar
         {
-            //Set sprite
+            //SPECIAL CASES
+            //Skin colour 
+            if (avatarElements[currentSelectedSprite].SkinDye != spriteColour.none)
+            {
+                this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].SkinDye;
+            }
+            else
+            if (avatarElements[currentSelectedSprite].HairDye != spriteColour.none)
+            {
+                this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].HairDye;
+            }
+
             mainSprite.GetComponent<SpriteRenderer>().sprite = avatarElements[currentSelectedSprite].getSprite();
             currentVerticalProgress = 0.1f;
             verticalSelectionActive = false;
 
             //Return bike to the beginning
             bike.transform.position = initialBikePos;
-
-            //SPECIAL CASES
-            //Skin colour 
-            if (avatarElements[currentSelectedSprite].SkinDye !=spriteColour.none)
-            {
-                this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].SkinDye;
-            }
-
-            if (avatarElements[currentSelectedSprite].HairDye != spriteColour.none)
-            {
-                this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].HairDye;
-            }
 
             //Set selection to none
             spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
@@ -154,7 +153,7 @@ public class RotateSelection : MonoBehaviour {
         {
             spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
         }
-
+        
         //TEMP: change main sprite
         //mainSprite.GetComponent<SpriteRenderer>().sprite = sprites[currentSelectedSprite];
     }
@@ -169,5 +168,10 @@ public class RotateSelection : MonoBehaviour {
         {
             avatarElements[i] = newItemList[i].GetComponent<AvatarDescription>();
         }
+
+
+        Debug.Log(this.GetComponent<CategorySelection>().currentCategory.ToString());
+
+        mainSprite = GameObject.FindGameObjectWithTag("MainAvatar").transform.Find(this.GetComponent<CategorySelection>().currentCategory.ToString()).gameObject;
     }
 }
