@@ -17,10 +17,6 @@ public class RotateSelection : MonoBehaviour {
     //Main avatar sprite, which is changed 
     public GameObject mainSprite;
 
-    //Name of the avatar part
-    public string avatarPart = "AvatarFace";
-
-
     public GameObject partS;
     public GameObject bike;
     public GameObject spriteOnBike;
@@ -41,7 +37,7 @@ public class RotateSelection : MonoBehaviour {
         initialBikePos = bike.transform.position;
 
         //Establish connection to the selected sprite part
-        mainSprite = GameObject.FindGameObjectWithTag("MainAvatar").transform.Find(avatarPart).gameObject;
+        //mainSprite = GameObject.FindGameObjectWithTag("MainAvatar").transform.Find(avatarPart).gameObject;
 
         //Set initial sprite on bike value
 
@@ -88,6 +84,8 @@ public class RotateSelection : MonoBehaviour {
             if (avatarElements[currentSelectedSprite].SkinDye != spriteColour.none)
             {
                 this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].SkinDye;
+
+                //Change face
             }
             else
             if (avatarElements[currentSelectedSprite].HairDye != spriteColour.none)
@@ -156,6 +154,13 @@ public class RotateSelection : MonoBehaviour {
         
         //TEMP: change main sprite
         //mainSprite.GetComponent<SpriteRenderer>().sprite = sprites[currentSelectedSprite];
+    }
+
+    void ChangeFaceToMatchSkin()
+    {
+        //Keep number of the face in avatar description
+        //Query a list by number
+        //Look for the skin colour
     }
 
     //Called externally
