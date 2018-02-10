@@ -14,15 +14,29 @@ public class AvatarPartsCollection : MonoBehaviour {
 
     public List<SpriteInstance> faceShapes = new List<SpriteInstance>();
     public List<SpriteInstance> skinColours = new List<SpriteInstance>();
+    public List<SpriteInstance> hairColours = new List<SpriteInstance>();
+    public List<SpriteInstance> hairUp = new List<SpriteInstance>();
+    public List<SpriteInstance> hairDown = new List<SpriteInstance>();
+    public List<SpriteInstance> bodies = new List<SpriteInstance>();
+    public List<SpriteInstance> eyes = new List<SpriteInstance>();
+    public List<SpriteInstance> noses = new List<SpriteInstance>();
+    public List<SpriteInstance> mouths = new List<SpriteInstance>();
 
     // Use this for initialization
     [MenuItem("AssetDatabase/2DPrototype")]
 
     void Start ()
     {
-        string[] folders = new string[2];
+        string[] folders = new string[9];
         folders[0] = "Assets/VisualAssets/AvatarElements/FaceShape";
         folders[1] = "Assets/VisualAssets/AvatarElements/SkinColour";
+        folders[2] = "Assets/VisualAssets/AvatarElements/Body";
+        folders[3] = "Assets/VisualAssets/AvatarElements/Eyes";
+        folders[4] = "Assets/VisualAssets/AvatarElements/HairColour";
+        folders[5] = "Assets/VisualAssets/AvatarElements/HairDown";
+        folders[6] = "Assets/VisualAssets/AvatarElements/HairUp";
+        folders[7] = "Assets/VisualAssets/AvatarElements/Mouth";
+        folders[8] = "Assets/VisualAssets/AvatarElements/Nose";
 
 
         var tests = AssetDatabase.FindAssets("t:Sprite", folders);
@@ -103,6 +117,41 @@ public class AvatarPartsCollection : MonoBehaviour {
                 skinColours.Add(instance);
                 return;
 
+            case "Body":
+                instance.type = spriteType.body;
+                bodies.Add(instance);
+                return;
+
+            case "Eyes":
+                instance.type = spriteType.eyes;
+                eyes.Add(instance);
+                return;
+
+            case "HairColour":
+                instance.type = spriteType.hairColour;
+                hairColours.Add(instance);
+                return;
+
+            case "HairDown":
+                instance.type = spriteType.hairDown;
+                hairDown.Add(instance);
+                return;
+
+            case "HairUp":
+                instance.type = spriteType.hairUp;
+                hairUp.Add(instance);
+                return;
+
+            case "Mouth":
+                instance.type = spriteType.mouth;
+                mouths.Add(instance);
+                return;
+
+            case "Nose":
+                instance.type = spriteType.nose;
+                noses.Add(instance);
+                return;
+
             default:
                 instance.type = spriteType.none;
                 return;
@@ -127,6 +176,10 @@ public enum spriteType
     hairUp,
     hairDown,
     hairColour,
+    nose,
+    mouth,
+    eyes,
+    body,
     none
 }
 
