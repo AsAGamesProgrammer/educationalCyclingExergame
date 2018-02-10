@@ -53,6 +53,9 @@ public class AvatarPartsCollection : MonoBehaviour {
         //Sprite instance
         SpriteInstance newInstance = new SpriteInstance();
 
+        //ID
+        newInstance.spriteId = int.Parse(components[1]);
+
         //Assign sprite object
         newInstance.spriteObject = (Sprite)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(path), typeof(Sprite));
 
@@ -114,7 +117,7 @@ public class SpriteInstance
     public Sprite spriteObject;
     public spriteColour colour;
     public spriteType type;
-
+    public int spriteId = -1;
 }
 
 public enum spriteType

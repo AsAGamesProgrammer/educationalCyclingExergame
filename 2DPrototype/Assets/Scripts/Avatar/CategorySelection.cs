@@ -12,12 +12,12 @@ using UnityEngine.UI;
 
 public class CategorySelection : MonoBehaviour {
 
-    public spriteColour currentSkinColour = spriteColour.skinBrown;
     private AvatarPartsCollection avatarCollection;
-
     public List<GameObject> selectableItems = new List<GameObject>();
 
+    //Currents
     public spriteType currentCategory = spriteType.none;
+    public spriteColour currentSkinColour = spriteColour.skinBrown;
 
     //Borders
     public GameObject rightBorder;
@@ -95,6 +95,9 @@ public class CategorySelection : MonoBehaviour {
 
                 //Script
                 newItem.AddComponent<AvatarDescription>();
+
+                //ID
+                newItem.GetComponent<AvatarDescription>().spriteId = item.spriteId;
 
                 //Dye
                 if(item.type==spriteType.skin)

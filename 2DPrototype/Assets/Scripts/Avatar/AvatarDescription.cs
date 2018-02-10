@@ -16,6 +16,8 @@ public class AvatarDescription : MonoBehaviour {
     public spriteColour SkinDye = spriteColour.none;
     public spriteColour HairDye = spriteColour.none;
 
+    public int spriteId = -1;
+
     //ADD 
     //colour (for dyes)
     //layer

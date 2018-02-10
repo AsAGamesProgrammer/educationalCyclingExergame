@@ -84,7 +84,7 @@ public class RotateSelection : MonoBehaviour {
             if (avatarElements[currentSelectedSprite].SkinDye != spriteColour.none)
             {
                 this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].SkinDye;
-
+                ChangeFaceToMatchSkin();
                 //Change face
             }
             else
@@ -93,7 +93,12 @@ public class RotateSelection : MonoBehaviour {
                 this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].HairDye;
             }
 
+            //Change sprite picture
             mainSprite.GetComponent<SpriteRenderer>().sprite = avatarElements[currentSelectedSprite].getSprite();
+
+            //Change ID
+            mainSprite.GetComponent<CurrentAvatarDescription>().spriteId = avatarElements[currentSelectedSprite].spriteId;
+
             currentVerticalProgress = 0.1f;
             verticalSelectionActive = false;
 
@@ -152,15 +157,14 @@ public class RotateSelection : MonoBehaviour {
             spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
         }
         
-        //TEMP: change main sprite
-        //mainSprite.GetComponent<SpriteRenderer>().sprite = sprites[currentSelectedSprite];
     }
 
     void ChangeFaceToMatchSkin()
     {
-        //Keep number of the face in avatar description
         //Query a list by number
         //Look for the skin colour
+        int currentFaceId = GameObject.FindGameObjectWithTag("MainAvatar").transform.Find(spriteType.faceShape.ToString()).gameObject.GetComponent<CurrentAvatarDescription>().spriteId;
+        Debug.Log(currentFaceId);
     }
 
     //Called externally

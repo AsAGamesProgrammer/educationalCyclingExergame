@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Avatar\AvatarDescription.cs" />
     <Compile Include="Assets\Scripts\Avatar\AvatarPartsCollection.cs" />
     <Compile Include="Assets\Scripts\Avatar\CategorySelection.cs" />
+    <Compile Include="Assets\Scripts\Avatar\CurrentAvatarDescription.cs" />
     <Compile Include="Assets\Scripts\Avatar\RotateSelection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
