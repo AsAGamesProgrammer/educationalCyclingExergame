@@ -99,7 +99,13 @@ public class CategorySelection : MonoBehaviour {
                 //Dye
                 if(item.type==spriteType.skin)
                 {
-                    newItem.GetComponent<AvatarDescription>().dye = item.colour;
+                    newItem.GetComponent<AvatarDescription>().SkinDye = item.colour;
+                }
+
+                //Hair
+                if (item.type == spriteType.hairDown || item.type == spriteType.hairUp)
+                {
+                    newItem.GetComponent<AvatarDescription>().HairDye = item.colour;
                 }
 
                 //Instantiate

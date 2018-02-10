@@ -13,14 +13,15 @@ public class AvatarDescription : MonoBehaviour {
     public bool isOwned = false;
 
     //Indicates if applying this sprite should change current colour for any category
-    public spriteColour dye = spriteColour.none;
+    public spriteColour SkinDye = spriteColour.none;
+    public spriteColour HairDye = spriteColour.none;
 
     //ADD 
     //colour (for dyes)
     //layer
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	

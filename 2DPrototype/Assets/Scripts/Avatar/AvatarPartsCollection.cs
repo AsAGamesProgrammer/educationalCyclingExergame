@@ -121,6 +121,8 @@ public enum spriteType
 {
     faceShape,
     skin,
+    hairUp,
+    hairDown,
     none
 }
 

@@ -91,15 +91,20 @@ public class RotateSelection : MonoBehaviour {
             //Return bike to the beginning
             bike.transform.position = initialBikePos;
 
-
-            //Skin colour REDO
-            if (avatarElements[currentSelectedSprite].dye !=spriteColour.none)
+            //SPECIAL CASES
+            //Skin colour 
+            if (avatarElements[currentSelectedSprite].SkinDye !=spriteColour.none)
             {
-                this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].dye;
+                this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].SkinDye;
+            }
+
+            if (avatarElements[currentSelectedSprite].HairDye != spriteColour.none)
+            {
+                this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].HairDye;
             }
 
             //Set selection to none
-           spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
+            spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
         }
     }
 
