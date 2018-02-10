@@ -54,6 +54,62 @@ public class CategorySelection : MonoBehaviour {
                     CreateSelectionItems();
                 }
                 break;
+
+            case "Eyes":
+                if (currentCategory != spriteType.eyes)
+                {
+                    currentCategory = spriteType.eyes;
+                    CreateSelectionItems();
+                }
+                break;
+
+            case "Mouth":
+                if (currentCategory != spriteType.mouth)
+                {
+                    currentCategory = spriteType.mouth;
+                    CreateSelectionItems();
+                }
+                break;
+
+            case "Nose":
+                if (currentCategory != spriteType.nose)
+                {
+                    currentCategory = spriteType.nose;
+                    CreateSelectionItems();
+                }
+                break;
+
+            case "HairColour":
+                if (currentCategory != spriteType.hairColour)
+                {
+                    currentCategory = spriteType.hairColour;
+                    CreateSelectionItems();
+                }
+                break;
+
+            case "HairUp":
+                if (currentCategory != spriteType.hairUp)
+                {
+                    currentCategory = spriteType.hairUp;
+                    CreateSelectionItems();
+                }
+                break;
+
+            case "HairDown":
+                if (currentCategory != spriteType.hairDown)
+                {
+                    currentCategory = spriteType.hairDown;
+                    CreateSelectionItems();
+                }
+                break;
+
+            case "Body":
+                if (currentCategory != spriteType.body)
+                {
+                    currentCategory = spriteType.body;
+                    CreateSelectionItems();
+                }
+                break;
         }
     }
 
@@ -76,6 +132,34 @@ public class CategorySelection : MonoBehaviour {
 
             case spriteType.skin:
                 currentCollection = avatarCollection.skinColours;
+                break;
+
+            case spriteType.eyes:
+                currentCollection = avatarCollection.eyes;
+                break;
+
+            case spriteType.mouth:
+                currentCollection = avatarCollection.mouths;
+                break;
+
+            case spriteType.nose:
+                currentCollection = avatarCollection.noses;
+                break;
+
+            case spriteType.body:
+                currentCollection = avatarCollection.bodies;
+                break;
+
+            case spriteType.hairColour:
+                currentCollection = avatarCollection.hairColours;
+                break;
+
+            case spriteType.hairUp:
+                currentCollection = avatarCollection.hairUp;
+                break;
+
+            case spriteType.hairDown:
+                currentCollection = avatarCollection.hairDown;
                 break;
 
             default:
