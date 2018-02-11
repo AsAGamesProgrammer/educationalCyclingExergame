@@ -191,7 +191,7 @@ public class CategorySelection : MonoBehaviour {
                 }
 
                 //Hair
-                if (item.type == spriteType.hairDown || item.type == spriteType.hairUp)
+                if (item.type == spriteType.hairColour)
                 {
                     newItem.GetComponent<AvatarDescription>().HairDye = item.colour;
                 }

@@ -85,7 +85,7 @@ public class RotateSelection : MonoBehaviour {
             else
             if (avatarElements[currentSelectedSprite].HairDye != spriteColour.none)
             {
-                this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].HairDye;
+                this.GetComponent<CategorySelection>().currentHairColour = avatarElements[currentSelectedSprite].HairDye;
             }
 
             //Change sprite picture
