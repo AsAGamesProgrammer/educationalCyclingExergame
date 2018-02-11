@@ -76,15 +76,15 @@ public class AvatarPartsCollection : MonoBehaviour {
         //Switch depending on colour
         if(components.Length>2)
         {
-            newInstance.colour = GetColourFromComponent(components[2]);
+            //newInstance.colour = GetColourFromComponent(components[2]);
         }
 
         //Switch depending on the avatar part
-        AssignToListByType(components[0], newInstance);
+        AssignToListByType(components[0], components[2], newInstance);
     }
 
     //Colour switch
-    spriteColour GetColourFromComponent(string word)
+    spriteColour GetSkinColourFromComponent(string word)
     {
         switch (word)
         {
@@ -102,58 +102,93 @@ public class AvatarPartsCollection : MonoBehaviour {
         }
     }
 
+    //Get hair colour
+    spriteColour GetHairColourFromComponent(string word)
+    {
+        switch (word)
+        {
+            case "White":
+                return spriteColour.hairWhite;
+
+            case "Blue":
+                return spriteColour.hairBlue;
+
+            case "Brown":
+                return spriteColour.hairBrown;
+
+            case "Ginger":
+                return spriteColour.hairOrange;
+
+            case "Pink":
+                return spriteColour.hairPink;
+
+            default:
+                return spriteColour.none;
+        }
+    }
+
     //Type switch
-    void AssignToListByType(string word, SpriteInstance instance)
+    void AssignToListByType(string word, string colour, SpriteInstance instance)
     {
         switch (word)
         {
             case "Face":
                 instance.type = spriteType.faceShape;
+                instance.colour = GetSkinColourFromComponent(colour);
                 faceShapes.Add(instance);
                 return;
 
             case "SkinColour":
                 instance.type = spriteType.skin;
+                instance.colour = GetSkinColourFromComponent(colour);
                 skinColours.Add(instance);
                 return;
 
             case "Body":
                 instance.type = spriteType.body;
+                instance.colour = GetSkinColourFromComponent(colour);
                 bodies.Add(instance);
                 return;
 
             case "Eyes":
                 instance.type = spriteType.eyes;
+                instance.colour = spriteColour.none;
                 eyes.Add(instance);
                 return;
 
             case "HairColour":
                 instance.type = spriteType.hairColour;
+                instance.colour = GetHairColourFromComponent(colour);
                 hairColours.Add(instance);
                 return;
 
             case "HairDown":
                 instance.type = spriteType.hairDown;
+                instance.colour = GetHairColourFromComponent(colour);
                 hairDown.Add(instance);
                 return;
 
             case "HairUp":
                 instance.type = spriteType.hairUp;
+                instance.colour = GetHairColourFromComponent(colour);
                 hairUp.Add(instance);
                 return;
 
             case "Mouth":
                 instance.type = spriteType.mouth;
+                instance.colour = spriteColour.none;
                 mouths.Add(instance);
                 return;
 
             case "Nose":
                 instance.type = spriteType.nose;
+                instance.colour = spriteColour.none;
                 noses.Add(instance);
                 return;
 
             default:
                 instance.type = spriteType.none;
+                instance.colour = spriteColour.none;
                 return;
         }
     }

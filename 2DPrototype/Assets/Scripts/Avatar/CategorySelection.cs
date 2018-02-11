@@ -47,7 +47,7 @@ public class CategorySelection : MonoBehaviour {
                 }
                 break;
 
-            case "SkinColour":
+            case "skin":
                 if (currentCategory != spriteType.skin)
                 {
                     currentCategory = spriteType.skin;
@@ -209,17 +209,21 @@ public class CategorySelection : MonoBehaviour {
 
     bool ItemIsValid(SpriteInstance item)
     {
+        Debug.Log("Validation start");
+
         //Check skin colour
-        if(item.type==spriteType.faceShape)
+        if(item.type == spriteType.faceShape || item.type == spriteType.body)
         {
             if (item.colour == currentSkinColour)
                 return true;
         }
         else
         {
+            Debug.Log("Valid");
             return true;
         }
 
+        Debug.Log("Invalid");
         return false;
     }
 

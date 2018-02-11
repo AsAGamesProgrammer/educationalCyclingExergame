@@ -35,12 +35,6 @@ public class RotateSelection : MonoBehaviour {
     void Start ()
     {
         initialBikePos = bike.transform.position;
-
-        //Establish connection to the selected sprite part
-        //mainSprite = GameObject.FindGameObjectWithTag("MainAvatar").transform.Find(avatarPart).gameObject;
-
-        //Set initial sprite on bike value
-
 	}
 	
     //UPDATE

@@ -18,10 +18,6 @@ public class AvatarDescription : MonoBehaviour {
 
     public int spriteId = -1;
 
-    //ADD 
-    //colour (for dyes)
-    //layer
-
     // Use this for initialization
     void Start () {
 		
