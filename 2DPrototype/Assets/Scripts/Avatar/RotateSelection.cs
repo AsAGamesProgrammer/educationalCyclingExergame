@@ -79,6 +79,7 @@ public class RotateSelection : MonoBehaviour {
             {
                 this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].SkinDye;
                 ChangeFaceToMatchSkin();
+                ChangeBodyToMatchSkin();
                 //Change face
             }
             else
@@ -166,6 +167,27 @@ public class RotateSelection : MonoBehaviour {
             if(face.spriteId == currentFaceId)
             {
                 if(face.colour == GetComponent<CategorySelection>().currentSkinColour)
+                {
+                    faceSprite.GetComponent<SpriteRenderer>().sprite = face.spriteObject;
+                    return;
+                }
+            }
+        }
+    }
+
+    void ChangeBodyToMatchSkin()
+    {
+        //Query a list by number
+        //Look for the skin colour
+        GameObject faceSprite = GameObject.FindGameObjectWithTag("MainAvatar").transform.Find(spriteType.body.ToString()).gameObject;
+        int currentFaceId = faceSprite.GetComponent<CurrentAvatarDescription>().spriteId;
+        Debug.Log(currentFaceId);
+
+        foreach (var face in GetComponent<AvatarPartsCollection>().bodies)
+        {
+            if (face.spriteId == currentFaceId)
+            {
+                if (face.colour == GetComponent<CategorySelection>().currentSkinColour)
                 {
                     faceSprite.GetComponent<SpriteRenderer>().sprite = face.spriteObject;
                     return;
