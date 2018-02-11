@@ -78,14 +78,22 @@ public class RotateSelection : MonoBehaviour {
             if (avatarElements[currentSelectedSprite].SkinDye != spriteColour.none)
             {
                 this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].SkinDye;
-                ChangeFaceToMatchSkin();
-                ChangeBodyToMatchSkin();
+
                 //Change face
+                ChangeToMatchColour(spriteType.faceShape, GetComponent<AvatarPartsCollection>().faceShapes, "skin");
+                //Body
+                ChangeToMatchColour(spriteType.body, GetComponent<AvatarPartsCollection>().bodies, "skin");
             }
-            else
+
             if (avatarElements[currentSelectedSprite].HairDye != spriteColour.none)
             {
+                Debug.Log("time to change hair colour to " + avatarElements[currentSelectedSprite].HairDye);
                 this.GetComponent<CategorySelection>().currentHairColour = avatarElements[currentSelectedSprite].HairDye;
+
+                //Change hair up
+                ChangeToMatchColour(spriteType.hairUp, GetComponent<AvatarPartsCollection>().hairUp, "hair");
+                //Change hair down
+                ChangeToMatchColour(spriteType.hairDown, GetComponent<AvatarPartsCollection>().hairDown, "hair");
             }
 
             //Change sprite picture
@@ -154,47 +162,43 @@ public class RotateSelection : MonoBehaviour {
         
     }
 
-    void ChangeFaceToMatchSkin()
+    void ChangeToMatchColour(spriteType avatarElement, List<SpriteInstance> collection, string dyeType)
     {
         //Query a list by number
         //Look for the skin colour
-        GameObject faceSprite = GameObject.FindGameObjectWithTag("MainAvatar").transform.Find(spriteType.faceShape.ToString()).gameObject;
+        GameObject faceSprite = GameObject.FindGameObjectWithTag("MainAvatar").transform.Find(avatarElement.ToString()).gameObject;
         int currentFaceId = faceSprite.GetComponent<CurrentAvatarDescription>().spriteId;
         Debug.Log(currentFaceId);
 
-        foreach(var face in GetComponent<AvatarPartsCollection>().faceShapes)
-        {
-            if(face.spriteId == currentFaceId)
-            {
-                if(face.colour == GetComponent<CategorySelection>().currentSkinColour)
-                {
-                    faceSprite.GetComponent<SpriteRenderer>().sprite = face.spriteObject;
-                    return;
-                }
-            }
-        }
-    }
-
-    void ChangeBodyToMatchSkin()
-    {
-        //Query a list by number
-        //Look for the skin colour
-        GameObject faceSprite = GameObject.FindGameObjectWithTag("MainAvatar").transform.Find(spriteType.body.ToString()).gameObject;
-        int currentFaceId = faceSprite.GetComponent<CurrentAvatarDescription>().spriteId;
-        Debug.Log(currentFaceId);
-
-        foreach (var face in GetComponent<AvatarPartsCollection>().bodies)
+        foreach (var face in collection)
         {
             if (face.spriteId == currentFaceId)
             {
-                if (face.colour == GetComponent<CategorySelection>().currentSkinColour)
+                if (dyeType == "skin")
                 {
-                    faceSprite.GetComponent<SpriteRenderer>().sprite = face.spriteObject;
-                    return;
+                    if (face.colour == GetComponent<CategorySelection>().currentSkinColour)
+                    {
+                        faceSprite.GetComponent<SpriteRenderer>().sprite = face.spriteObject;
+                        return;
+                    }
                 }
+                else
+                {
+                    if(dyeType == "hair")
+                    {
+                        if (face.colour == GetComponent<CategorySelection>().currentHairColour)
+                        {
+                            faceSprite.GetComponent<SpriteRenderer>().sprite = face.spriteObject;
+                            return;
+                        }
+                    }
+
+                }
+
             }
         }
     }
+    
 
     //Called externally
     public void SetUpArray(List<GameObject> newItemList)
