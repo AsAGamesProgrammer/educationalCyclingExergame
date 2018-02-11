@@ -18,6 +18,7 @@ public class CategorySelection : MonoBehaviour {
     //Currents
     public spriteType currentCategory = spriteType.none;
     public spriteColour currentSkinColour = spriteColour.skinBrown;
+    public spriteColour currentHairColour = spriteColour.hairBlue;
 
     //Borders
     public GameObject rightBorder;
@@ -211,20 +212,27 @@ public class CategorySelection : MonoBehaviour {
     {
         Debug.Log("Validation start");
 
+        bool itemValidFlag = true;
+
         //Check skin colour
         if(item.type == spriteType.faceShape || item.type == spriteType.body)
         {
-            if (item.colour == currentSkinColour)
-                return true;
-        }
-        else
-        {
-            Debug.Log("Valid");
-            return true;
+            if (item.colour != currentSkinColour)
+            {
+                itemValidFlag = false;
+            }
         }
 
-        Debug.Log("Invalid");
-        return false;
+        //Check hair colour
+        if (item.type == spriteType.hairDown || item.type == spriteType.hairUp)
+        {
+            if (item.colour != currentHairColour)
+            {
+                itemValidFlag = false;
+            }
+        }
+
+        return itemValidFlag;
     }
 
     public void RepositionSelectionItems()
