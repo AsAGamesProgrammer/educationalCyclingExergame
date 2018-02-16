@@ -35,7 +35,8 @@ public class RotateSelection : MonoBehaviour {
     void Start ()
     {
         initialBikePos = bike.transform.position;
-	}
+        partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, -4.5f);
+    }
 	
     //UPDATE
 	// Update is called once per frame
@@ -111,6 +112,13 @@ public class RotateSelection : MonoBehaviour {
             //Set selection to none
             spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
         }
+    }
+
+    //This is a public function which is called when a category is changed
+    public void RepositionParticles()
+    {
+        currentSelectedSprite = 0;
+        partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, -4.5f);
     }
 
     //Check for arrow key input

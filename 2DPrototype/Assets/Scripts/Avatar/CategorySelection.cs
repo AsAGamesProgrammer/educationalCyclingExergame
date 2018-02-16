@@ -206,6 +206,9 @@ public class CategorySelection : MonoBehaviour {
 
         //Upload Items to the selection script
         GetComponent<RotateSelection>().SetUpArray(selectableItems);
+
+        //Reposition particles
+        GetComponent<RotateSelection>().RepositionParticles();
     }
 
     bool ItemIsValid(SpriteInstance item)
