@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class CheckAnswer : MonoBehaviour {
 
-    public string correctAnswer = "56p";
+    public float correctAnswer = 56;
+    float enteredAnswer;
     public Text feedback;
     public InputField inputField;
 
@@ -17,11 +18,13 @@ public class CheckAnswer : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(inputField.text == correctAnswer)
+        if (float.TryParse(inputField.text, out enteredAnswer))
         {
-            feedback.text = "Yes";
+            if (enteredAnswer == correctAnswer)
+            {
+                feedback.text = "Yes";
+            }
         }
-
 		
 	}
 }
