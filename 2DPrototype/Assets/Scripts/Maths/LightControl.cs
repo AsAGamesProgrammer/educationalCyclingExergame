@@ -29,9 +29,10 @@ public class LightControl : MonoBehaviour {
         {
             currentVisibility -= lightSpeedDec;
         }
-        else
+        else if (temp >0.1 && currentVisibility<=1f)
         {
-            currentVisibility = Input.GetAxis("Vertical") * 2;
+            //currentVisibility = Input.GetAxis("Vertical") * 2;
+            currentVisibility += lightSpeedInc;
         }
 
         textColour.a = currentVisibility;
