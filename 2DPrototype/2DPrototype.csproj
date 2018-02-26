@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\Avatar\CategorySelection.cs" />
     <Compile Include="Assets\Scripts\Avatar\CurrentAvatarDescription.cs" />
     <Compile Include="Assets\Scripts\Avatar\RotateSelection.cs" />
+    <Compile Include="Assets\Scripts\Maths\CheckAnswer.cs" />
     <Compile Include="Assets\Scripts\Maths\LightControl.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
