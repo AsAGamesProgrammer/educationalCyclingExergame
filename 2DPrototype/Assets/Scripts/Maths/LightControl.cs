@@ -10,9 +10,6 @@ public class LightControl : MonoBehaviour {
     public float lightSpeedInc = 0.05f;
     public float lightSpeedDec = 0.01f;
 
-    public float lastValue = 0.0f;
-    public float currentValue = 0.0f;
-
     // Use this for initialization
     void Start () {
 		
@@ -25,13 +22,12 @@ public class LightControl : MonoBehaviour {
 
         float temp = Input.GetAxis("Vertical");
 
-        if (temp < 0.1 && currentVisibility >= 0f)
+        if (temp < 0.05 && currentVisibility >= 0f)
         {
             currentVisibility -= lightSpeedDec;
         }
-        else if (temp >0.1 && currentVisibility<=1f)
+        else if (temp >0.05 && currentVisibility<=1f)
         {
-            //currentVisibility = Input.GetAxis("Vertical") * 2;
             currentVisibility += lightSpeedInc;
         }
 
