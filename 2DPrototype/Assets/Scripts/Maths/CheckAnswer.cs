@@ -10,6 +10,7 @@ public class CheckAnswer : MonoBehaviour {
     float enteredAnswer;
     public InputField inputField;
     public Text balanceText;
+    public Chests chestScript;
 
     //Money
     int reward = 10;
@@ -39,6 +40,9 @@ public class CheckAnswer : MonoBehaviour {
 
                 //Feedback
                 inputField.text = "";
+
+                //Open chest
+                chestScript.AdvanceChest();
 
                 //Generate new question
                 questionScript.generateNewQuestion();

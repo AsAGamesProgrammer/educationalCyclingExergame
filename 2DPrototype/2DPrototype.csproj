@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Avatar\CurrentAvatarDescription.cs" />
     <Compile Include="Assets\Scripts\Avatar\RotateSelection.cs" />
     <Compile Include="Assets\Scripts\Maths\CheckAnswer.cs" />
+    <Compile Include="Assets\Scripts\Maths\Chests.cs" />
     <Compile Include="Assets\Scripts\Maths\LightControl.cs" />
     <Compile Include="Assets\Scripts\Maths\Question.cs" />
     <Compile Include="Assets\Scripts\Money\PlayerMoney.cs" />
