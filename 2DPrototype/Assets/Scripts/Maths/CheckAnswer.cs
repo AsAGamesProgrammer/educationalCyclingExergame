@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CheckAnswer : MonoBehaviour {
 
+    public Question questionScript;
     public float correctAnswer = 56;
     float enteredAnswer;
     public Text feedback;
@@ -23,8 +24,14 @@ public class CheckAnswer : MonoBehaviour {
             if (enteredAnswer == correctAnswer)
             {
                 feedback.text = "Yes";
+                questionScript.generateNewQuestion();
             }
         }
 		
 	}
+
+    public void setCorrectAnswer(float answer)
+    {
+        correctAnswer = answer;
+    }
 }
