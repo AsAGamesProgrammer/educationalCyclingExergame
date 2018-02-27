@@ -42,6 +42,7 @@ public class Question : MonoBehaviour {
 
     }
 
+
     public void generateNewQuestion()
     {
         generateQuestion();

@@ -6,14 +6,21 @@ using UnityEngine.UI;
 public class CheckAnswer : MonoBehaviour {
 
     public Question questionScript;
-    public float correctAnswer = 56;
+    float correctAnswer = 56;
     float enteredAnswer;
-    public Text feedback;
     public InputField inputField;
+    public Text balanceText;
+
+    //Money
+    int reward = 10;
+    
+
+    PlayerMoney moneyScript;
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+    {
+        moneyScript = GameObject.Find("MoneyManager").GetComponent<PlayerMoney>();
 	}
 	
 	// Update is called once per frame
@@ -21,9 +28,19 @@ public class CheckAnswer : MonoBehaviour {
     {
         if (float.TryParse(inputField.text, out enteredAnswer))
         {
+            //Correct Answer
             if (enteredAnswer == correctAnswer)
             {
-                feedback.text = "Yes";
+                //Add money
+                moneyScript.addMoney(reward);
+
+                //Display money
+                balanceText.text = moneyScript.getBalance().ToString();
+
+                //Feedback
+                inputField.text = "";
+
+                //Generate new question
                 questionScript.generateNewQuestion();
             }
         }

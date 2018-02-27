@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMoney : MonoBehaviour {
 
+    int balance = 0;
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -13,4 +16,14 @@ public class PlayerMoney : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void addMoney (int money)
+    {
+        balance += money;
+    }
+
+    public int getBalance()
+    {
+        return balance;
+    }
 }
