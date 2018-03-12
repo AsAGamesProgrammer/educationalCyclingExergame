@@ -6,6 +6,9 @@ public class ParticleManager : MonoBehaviour {
 
     public ParticleSystem[] particles;
 
+    //DEBUG
+    public bool DEBUGPlayOnce = false;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -27,12 +30,26 @@ public class ParticleManager : MonoBehaviour {
 
         foreach(var element in particles)
         {
-            element.Play();
+            element.Emit(100);
+        }
+    }
+
+    private void DEBUGPlay()
+    {
+        if(DEBUGPlayOnce)
+        {
+            DEBUGPlayOnce = false;
+
+            foreach (var element in particles)
+            {
+                element.Emit(1000);
+            }
         }
     }
 
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+        DEBUGPlay();
 	}
 }
