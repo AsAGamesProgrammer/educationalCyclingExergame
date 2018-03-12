@@ -4,23 +4,16 @@ using UnityEngine;
 
 public class Chests : MonoBehaviour {
 
+    //Chests in a middle of a screen
     public GameObject[] chests;
     public Sprite[] chestSprites;
     int currentChest = 0;
     int currentPhase = 0;
 
-	// Use this for initialization
-	void Start ()
-    {
+    //Chest panel
+    public ChestPanel chestPanelScript;
 
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
-
+    //Chests in a middle of a screen
     public void AdvanceChest()
     {
         //Open up
@@ -32,6 +25,10 @@ public class Chests : MonoBehaviour {
         else
         {
             currentPhase = 1;
+
+            //test
+            chestPanelScript.addChest();
+
             if (currentChest < chests.Length-1)
             {
                 currentChest++;
