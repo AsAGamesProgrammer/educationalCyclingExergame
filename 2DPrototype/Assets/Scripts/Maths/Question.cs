@@ -30,6 +30,8 @@ public class Question : MonoBehaviour {
         questionText.text = numberA.ToString() + "p + " + numberB + "p";
         answerScript.setCorrectAnswer(numberA + numberB);
 
+        Debug.Log(numberA + numberB);
+
         //TYPE A
         //Number A + Number B
         //get random int between 1-90

@@ -22,24 +22,54 @@ public class Chests : MonoBehaviour {
         //Open up
         if (currentPhase < chestSprites.Length-1)
         {
-            currentPhase++;
-            chests[currentChest].GetComponent<SpriteRenderer>().sprite = chestSprites[currentPhase];
+            openCurrentChest();
         }
         else
         {
-            currentPhase = 1;
+            currentPhase = 0;
 
-            //Add chest to the right panel
-            chestPanelScript.addChest();
-            //Play particles
-            particleScript.playOnceAt(chests[currentChest].transform.position);
+            //Finished a chest
+            sendChestToBonus();
 
-
+            //Advance to next chest
             if (currentChest < chests.Length-1)
             {
                 currentChest++;
-                chests[currentChest].GetComponent<SpriteRenderer>().sprite = chestSprites[currentPhase];
+                //chests[currentChest].GetComponent<SpriteRenderer>().sprite = chestSprites[currentPhase];
+            }
+            else
+            {
+                currentChest = 0;
             }
         }
+    }
+
+    //Open current: swap sprites on the current chest
+    private void openCurrentChest()
+    {
+        //Increase phase
+        currentPhase++;
+        //Swap sprite
+        chests[currentChest].GetComponent<SpriteRenderer>().sprite = chestSprites[currentPhase];
+
+        //Close previous chest
+        if(currentChest>0)
+        {
+            chests[currentChest-1].GetComponent<SpriteRenderer>().sprite = chestSprites[0];
+        }
+        else
+        {
+            chests[chests.Length-1].GetComponent<SpriteRenderer>().sprite = chestSprites[0];
+        }
+
+    }
+
+    //Finsihed chest
+    private void sendChestToBonus()
+    {
+        //Add chest to the right panel
+        chestPanelScript.addChest();
+        //Play particles
+        particleScript.playOnceAt(chests[currentChest].transform.position);
     }
 }
