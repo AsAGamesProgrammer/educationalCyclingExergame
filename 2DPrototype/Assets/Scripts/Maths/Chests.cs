@@ -13,6 +13,9 @@ public class Chests : MonoBehaviour {
     //Chest panel
     public ChestPanel chestPanelScript;
 
+    //Particles
+    public ParticleManager particleScript;
+
     //Chests in a middle of a screen
     public void AdvanceChest()
     {
@@ -26,8 +29,11 @@ public class Chests : MonoBehaviour {
         {
             currentPhase = 1;
 
-            //test
+            //Add chest to the right panel
             chestPanelScript.addChest();
+            //Play particles
+            particleScript.playOnceAt(chests[currentChest].transform.position);
+
 
             if (currentChest < chests.Length-1)
             {
