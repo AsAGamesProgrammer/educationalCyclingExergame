@@ -9,6 +9,7 @@ public class BonusChallenge : MonoBehaviour {
     public GameObject bonusPanel;
     public GameObject firstPage;
     public GameObject questionPage;
+    public GameObject losePage;
 
     //Timer
     public Text timerText;          //timer text
@@ -22,6 +23,9 @@ public class BonusChallenge : MonoBehaviour {
     //Scripts
     Question questionScript;
     CheckAnswer answerScript;
+
+    //Lose
+    public Text correctAnswer;
 
 	// Use this for initialization
 	void Start ()
@@ -38,7 +42,14 @@ public class BonusChallenge : MonoBehaviour {
         {
             if(currentTime<=0)
             {
+                //Stop timer
                 currentTime = 0;
+                countdownEnabled = false;
+
+                //Show lose page
+                enableLosePage();
+                //Show correct answer
+                correctAnswer.text = answerScript.getCorrectAnswer().ToString();
                 Debug.Log("GameOver");
             }
 
@@ -53,8 +64,11 @@ public class BonusChallenge : MonoBehaviour {
     //Set panel to be visible
     public void ShowPanel()
     {
-        if(bonusExists)
+        if (bonusExists)
+        {
             bonusPanel.SetActive(true);
+            enableFirstPage();
+        }
     }
 
     //Set panel to be invisible and return to the game
@@ -67,8 +81,7 @@ public class BonusChallenge : MonoBehaviour {
     public void StartChallenge()
     {
         //Manage object visibility
-        firstPage.SetActive(false);
-        questionPage.SetActive(true);
+        enableQuestionPage();
 
         //Request a question
         questionScript.generateBonusAddition();
@@ -77,6 +90,28 @@ public class BonusChallenge : MonoBehaviour {
         //Timer
         currentTime = maximumTime;
         countdownEnabled = true;
+    }
+
+    //--------------HELPERS
+    private void enableFirstPage()
+    {
+        firstPage.SetActive(true);
+        questionPage.SetActive(false);
+        losePage.SetActive(false);
+    }
+
+    private void enableQuestionPage()
+    {
+        firstPage.SetActive(false);
+        questionPage.SetActive(true);
+        losePage.SetActive(false);
+    }
+
+    private void enableLosePage()
+    {
+        firstPage.SetActive(false);
+        questionPage.SetActive(false);
+        losePage.SetActive(true);
     }
 
 }

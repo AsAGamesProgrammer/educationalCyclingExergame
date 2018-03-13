@@ -67,9 +67,16 @@ public class CheckAnswer : MonoBehaviour {
 		
 	}
 
+    //Set answer
     public void setCorrectAnswer(float answer)
     {
         correctAnswer = answer;
+    }
+
+    //Get Answer
+    public float getCorrectAnswer()
+    {
+        return correctAnswer;
     }
 
     //Switch between modes
