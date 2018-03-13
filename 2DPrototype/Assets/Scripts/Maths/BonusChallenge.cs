@@ -7,18 +7,29 @@ public class BonusChallenge : MonoBehaviour {
 
     //GUI elements
     public GameObject bonusPanel;
+    public GameObject firstPage;
+    public GameObject returnBtn;
+    public GameObject startBtn;
+    public GameObject questionPage;
 
     //Indicates if bonus challenge is available
     public bool bonusExists = false;
 
+    //Scripts
+    Question questionScript;
+    CheckAnswer answerScript;
+
 	// Use this for initialization
-	void Start () {
-		
-	}
+	void Start ()
+    {
+        questionScript = GetComponent<Question>();
+        answerScript = GetComponent<CheckAnswer>();
+    }
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+
 	}
 
     //Set panel to be visible
@@ -37,6 +48,15 @@ public class BonusChallenge : MonoBehaviour {
     //Start challenge
     public void StartChallenge()
     {
+        //Manage object visibility
+        firstPage.SetActive(false);
+        returnBtn.SetActive(false);
+        startBtn.SetActive(false);
+        questionPage.SetActive(true);
 
+        //Request a question
+        questionScript.generateBonusAddition();
+        answerScript.bonusModeEnabled(true);
     }
+
 }
