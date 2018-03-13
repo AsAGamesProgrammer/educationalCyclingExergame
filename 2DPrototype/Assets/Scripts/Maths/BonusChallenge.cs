@@ -8,8 +8,6 @@ public class BonusChallenge : MonoBehaviour {
     //GUI elements
     public GameObject bonusPanel;
     public GameObject firstPage;
-    public GameObject returnBtn;
-    public GameObject startBtn;
     public GameObject questionPage;
 
     //Timer
@@ -70,8 +68,6 @@ public class BonusChallenge : MonoBehaviour {
     {
         //Manage object visibility
         firstPage.SetActive(false);
-        returnBtn.SetActive(false);
-        startBtn.SetActive(false);
         questionPage.SetActive(true);
 
         //Request a question
