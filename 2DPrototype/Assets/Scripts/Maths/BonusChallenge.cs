@@ -12,6 +12,12 @@ public class BonusChallenge : MonoBehaviour {
     public GameObject startBtn;
     public GameObject questionPage;
 
+    //Timer
+    public Text timerText;          //timer text
+    public float maximumTime = 30;    //Constant
+    float currentTime;                //How muh time is left
+    bool countdownEnabled = false;  //Is the countdown on
+
     //Indicates if bonus challenge is available
     public bool bonusExists = false;
 
@@ -22,6 +28,7 @@ public class BonusChallenge : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        //Get scripts
         questionScript = GetComponent<Question>();
         answerScript = GetComponent<CheckAnswer>();
     }
@@ -29,7 +36,20 @@ public class BonusChallenge : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if(countdownEnabled)
+        {
+            if(currentTime<=0)
+            {
+                currentTime = 0;
+                Debug.Log("GameOver");
+            }
 
+            //Decrease time
+            currentTime -= Time.deltaTime;
+
+            //Update label
+            timerText.text = currentTime.ToString();
+        }
 	}
 
     //Set panel to be visible
@@ -57,6 +77,10 @@ public class BonusChallenge : MonoBehaviour {
         //Request a question
         questionScript.generateBonusAddition();
         answerScript.bonusModeEnabled(true);
+
+        //Timer
+        currentTime = maximumTime;
+        countdownEnabled = true;
     }
 
 }
