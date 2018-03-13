@@ -9,6 +9,9 @@ public class ChestPanel : MonoBehaviour {
     public Sprite openChest;
     int availableChestNumber = 0;
 
+    //Script for bonus challenge
+    public BonusChallenge bonusChallenge;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -21,6 +24,10 @@ public class ChestPanel : MonoBehaviour {
 
     public void addChest()
     {
+        //Indicate that chests exist and bonus challenge is available
+        bonusChallenge.bonusExists = true;
+
+        //Add a new chest if there is space
         if (availableChestNumber < chests.Length)
         {
             chests[availableChestNumber].sprite = openChest;
