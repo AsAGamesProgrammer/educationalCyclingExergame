@@ -10,6 +10,7 @@ public class BonusChallenge : MonoBehaviour {
     public GameObject firstPage;
     public GameObject questionPage;
     public GameObject losePage;
+    public GameObject winPage;
 
     //Timer
     public Text timerText;          //timer text
@@ -98,6 +99,7 @@ public class BonusChallenge : MonoBehaviour {
         firstPage.SetActive(true);
         questionPage.SetActive(false);
         losePage.SetActive(false);
+        winPage.SetActive(false);
     }
 
     private void enableQuestionPage()
@@ -105,6 +107,7 @@ public class BonusChallenge : MonoBehaviour {
         firstPage.SetActive(false);
         questionPage.SetActive(true);
         losePage.SetActive(false);
+        winPage.SetActive(false);
     }
 
     private void enableLosePage()
@@ -112,6 +115,16 @@ public class BonusChallenge : MonoBehaviour {
         firstPage.SetActive(false);
         questionPage.SetActive(false);
         losePage.SetActive(true);
+        winPage.SetActive(false);
+    }
+
+    //Called from the check answer script
+    public void enableWinPage()
+    {
+        firstPage.SetActive(false);
+        questionPage.SetActive(false);
+        losePage.SetActive(false);
+        winPage.SetActive(true);
     }
 
 }

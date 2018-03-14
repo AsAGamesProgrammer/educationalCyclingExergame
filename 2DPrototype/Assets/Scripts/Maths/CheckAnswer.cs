@@ -11,6 +11,7 @@ public class CheckAnswer : MonoBehaviour {
 
     public Chests chestScript;
 
+    //Input fields
     public InputField regularField;
     public InputField bonusField;
     InputField inputField;
@@ -27,6 +28,9 @@ public class CheckAnswer : MonoBehaviour {
     //Modes
     bool bonusMode = false;
 
+    //Bonus challenge script
+    BonusChallenge bonusChallengeScript;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -35,6 +39,9 @@ public class CheckAnswer : MonoBehaviour {
         //Set input field to regular
         inputField = regularField;
         reward = regularReward;
+
+        //Bonus challenge script
+        bonusChallengeScript = GetComponent<BonusChallenge>();
 	}
 	
 	// Update is called once per frame
@@ -61,6 +68,11 @@ public class CheckAnswer : MonoBehaviour {
 
                     //Generate new question
                     questionScript.generateNewQuestion();
+                }
+                else
+                {
+                    //Show bonus challenge win page
+                    bonusChallengeScript.enableWinPage();
                 }
             }
         }
