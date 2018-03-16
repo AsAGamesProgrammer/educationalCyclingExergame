@@ -94,7 +94,6 @@ public class CheckAnswer : MonoBehaviour {
     //Switch between modes
     public void bonusModeEnabled(bool isEnabled)
     {
-
         if(isEnabled)         //Bonus
         {
             inputField = bonusField;

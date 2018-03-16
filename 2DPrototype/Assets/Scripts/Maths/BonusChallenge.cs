@@ -24,6 +24,7 @@ public class BonusChallenge : MonoBehaviour {
     //Scripts
     Question questionScript;
     CheckAnswer answerScript;
+    public ChestPanel chestPanelScript;
 
     //Lose
     public Text correctAnswer;
@@ -91,6 +92,15 @@ public class BonusChallenge : MonoBehaviour {
         //Timer
         currentTime = maximumTime;
         countdownEnabled = true;
+    }
+
+    //--------------BUTTON CLICKS
+    public void closeAfterWin()
+    {
+        chestPanelScript.removeChest();         //remove chest
+        answerScript.bonusModeEnabled(false);   //change main input field
+        HidePanel();
+        questionScript.generateNewQuestion();   //generate new non bonus question
     }
 
     //--------------HELPERS
