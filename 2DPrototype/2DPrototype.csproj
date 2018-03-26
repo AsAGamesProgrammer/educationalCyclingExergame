@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Maths\CheckAnswer.cs" />
     <Compile Include="Assets\Scripts\Maths\ChestPanel.cs" />
     <Compile Include="Assets\Scripts\Maths\Chests.cs" />
+    <Compile Include="Assets\Scripts\Maths\ExtraUIControls.cs" />
     <Compile Include="Assets\Scripts\Maths\LightControl.cs" />
     <Compile Include="Assets\Scripts\Maths\ParticleManager.cs" />
     <Compile Include="Assets\Scripts\Maths\Question.cs" />
