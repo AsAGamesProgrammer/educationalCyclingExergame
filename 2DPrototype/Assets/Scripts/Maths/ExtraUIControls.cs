@@ -9,12 +9,19 @@ using UnityEngine.SceneManagement;
 /// *GO BACK button
 /// </summary>
 
+    ///TODO
+    ///Script which holds avatar picture names
+
 public class ExtraUIControls : MonoBehaviour {
 
+    public GameObject avatar;
+
 	// Use this for initialization
-	void Start () {
-		
-	}
+	void Start ()
+    {
+        avatar = GameObject.FindGameObjectWithTag("MainAvatar");
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -23,6 +30,10 @@ public class ExtraUIControls : MonoBehaviour {
 
     public void OnGoBackClick()
     {
-        SceneManager.LoadScene("avatarCreation");
+        //Money manager
+        DontDestroyOnLoad(GameObject.FindGameObjectWithTag("MoneyManager"));
+        //Avatar
+        DontDestroyOnLoad(avatar);
+        SceneManager.LoadScene("avatarCreation", LoadSceneMode.Single);
     }
 }
