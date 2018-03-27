@@ -7,10 +7,15 @@ public class AvatarUI : MonoBehaviour {
 
     AvatarTransfer avatarTransferScript;
 
-    public void OnAdventureBtnClick()
+    private void Start()
     {
         avatarTransferScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarTransfer>();
 
+    }
+
+    public void OnAdventureBtnClick()
+    {
+       
         //Money manager
         DontDestroyOnLoad(GameObject.FindGameObjectWithTag("MoneyManager"));
 
