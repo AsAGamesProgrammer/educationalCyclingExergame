@@ -213,8 +213,6 @@ public class CategorySelection : MonoBehaviour {
 
     bool ItemIsValid(SpriteInstance item)
     {
-        Debug.Log("Validation start");
-
         bool itemValidFlag = true;
 
         //Check skin colour

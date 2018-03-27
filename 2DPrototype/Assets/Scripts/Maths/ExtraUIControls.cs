@@ -32,6 +32,8 @@ public class ExtraUIControls : MonoBehaviour {
     {
         //Money manager
         DontDestroyOnLoad(GameObject.FindGameObjectWithTag("MoneyManager"));
+        GameObject.FindGameObjectWithTag("MoneyManager").GetComponent<PlayerMoney>().isNewest = true;
+
         //Avatar
         DontDestroyOnLoad(avatar);
         SceneManager.LoadScene("avatarCreation", LoadSceneMode.Single);

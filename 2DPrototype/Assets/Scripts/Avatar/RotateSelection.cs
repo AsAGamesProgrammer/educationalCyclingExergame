@@ -17,7 +17,7 @@ public class RotateSelection : MonoBehaviour {
     //Main avatar sprite, which is changed 
     public GameObject mainSprite;
 
-    public GameObject partS;
+    public GameObject partS;    //Selection item
     public GameObject bike;
     public GameObject spriteOnBike;
     private int currentSelectedSprite = 0;
@@ -35,7 +35,8 @@ public class RotateSelection : MonoBehaviour {
     void Start ()
     {
         initialBikePos = bike.transform.position;
-        partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, -4.5f);
+
+        //partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, -4.5f);
     }
 	
     //UPDATE
@@ -118,7 +119,7 @@ public class RotateSelection : MonoBehaviour {
     public void RepositionParticles()
     {
         currentSelectedSprite = 0;
-        partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, -4.5f);
+        partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, avatarElements[currentSelectedSprite].getPosition().y);
     }
 
     //Check for arrow key input
@@ -156,7 +157,7 @@ public class RotateSelection : MonoBehaviour {
     void ChangeSelection()
     {
         //Move particles
-        partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, -4.5f);
+        partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, avatarElements[currentSelectedSprite].getPosition().y);
 
         //Set on bike sprite to a current selection only if it is npt applied yet
         if (mainSprite.GetComponent<SpriteRenderer>().sprite != avatarElements[currentSelectedSprite].getSprite())

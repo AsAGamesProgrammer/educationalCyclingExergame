@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerMoney : MonoBehaviour {
 
-    int balance = 0;
-
+    public int balance = 0;
+    public bool isNewest = false;
 
 	// Use this for initialization
 	void Start () {
