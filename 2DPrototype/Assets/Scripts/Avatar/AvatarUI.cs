@@ -5,20 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class AvatarUI : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public AvatarTransfer avatarTransferScript;
 
     public void OnAdventureBtnClick()
     {
         //Money manager
         DontDestroyOnLoad(GameObject.FindGameObjectWithTag("MoneyManager"));
+
+        //Avatar transfer
+        avatarTransferScript.uploadSprites();
 
         SceneManager.LoadScene("mathsQuestions");
     }

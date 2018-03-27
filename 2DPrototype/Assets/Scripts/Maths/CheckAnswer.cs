@@ -20,7 +20,6 @@ public class CheckAnswer : MonoBehaviour {
     int regularReward = 10;
     int bonusReward = 50;
     int reward;
-    //public Text balanceText;
 
     //Money script
     PlayerMoney moneyScript;
@@ -54,9 +53,6 @@ public class CheckAnswer : MonoBehaviour {
             {
                 //Add money
                 moneyScript.addMoney(reward);
-
-                //Display money
-                //balanceText.text = moneyScript.getBalance().ToString();
 
                 //Feedback
                 inputField.text = "";

@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerMoney : MonoBehaviour {
 
-    public int balance = 0;
+    int balance = 0;
+
+    //Flag used to remove duplicates
     public bool isNewest = false;
 
     //UI
@@ -23,19 +25,25 @@ public class PlayerMoney : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        //After scene changed and the object was not destroyed refind the component
 		if(balanceText == null)
         {
+            //Find game object
             balanceText = GameObject.FindGameObjectWithTag("BalanceText").GetComponent<Text>();
+
+            //Display current balance
             balanceText.text = balance.ToString();
         }
 	}
 
+    //ADD MONEY
     public void addMoney (int money)
     {
         balance += money;
         balanceText.text = balance.ToString();
     }
 
+    //RETURN VALUE
     public int getBalance()
     {
         return balance;
