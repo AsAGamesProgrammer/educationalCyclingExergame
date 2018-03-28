@@ -282,16 +282,27 @@ public class RotateSelection : MonoBehaviour {
         mainSprite = GameObject.FindGameObjectWithTag("MainAvatar").transform.Find(this.GetComponent<CategorySelection>().currentCategory.ToString()).gameObject;
     }
 
-    //BUTTON CLICK
+    //--------------------------------------------------------------------------
+    //--- BUY ITEMS ---
+    //--------------------------------------------------------------------------
+    //Button click
     public void OnBuyItemClick()
     {
-        //Oficially desclare item bought
-        avatarElements[currentSelectedSprite].isOwned = true;
+        PlayerMoney playerMoney = GameObject.FindGameObjectWithTag("MoneyManager").GetComponent<PlayerMoney>();
 
-        //Remember that this item is owned
-        boughtItemsScript.AddItemToCategory(GetComponent<CategorySelection>().currentCategory, currentSelectedSprite);
+        if (playerMoney.getBalance() > avatarElements[currentSelectedSprite].price)
+        {
+            //Reduce balane
+            playerMoney.pay(avatarElements[currentSelectedSprite].price);
 
-        //Change selection item
-        ModifySelectionItem();
+            //Oficially desclare item bought
+            avatarElements[currentSelectedSprite].isOwned = true;
+
+            //Remember that this item is owned
+            boughtItemsScript.AddItemToCategory(GetComponent<CategorySelection>().currentCategory, currentSelectedSprite);
+
+            //Change selection item
+            ModifySelectionItem();
+        }
     }
 }

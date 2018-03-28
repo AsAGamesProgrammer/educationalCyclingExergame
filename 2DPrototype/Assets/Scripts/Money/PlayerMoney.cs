@@ -43,6 +43,13 @@ public class PlayerMoney : MonoBehaviour {
         balanceText.text = balance.ToString();
     }
 
+    //REMOVE MONEY
+    public void pay(int money)
+    {
+        balance -= money;
+        balanceText.text = balance.ToString();
+    }
+
     //RETURN VALUE
     public int getBalance()
     {
