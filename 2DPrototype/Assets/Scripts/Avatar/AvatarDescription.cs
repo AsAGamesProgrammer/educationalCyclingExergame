@@ -18,15 +18,12 @@ public class AvatarDescription : MonoBehaviour {
 
     public int spriteId = -1;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void Start()
+    {
+        //Own the first item
+        if (spriteId < 2)
+            isOwned = true;
+    }
 
     //Public getters used by other scripts
     public Sprite getSprite()

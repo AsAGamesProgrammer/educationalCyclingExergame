@@ -188,6 +188,9 @@ public class CategorySelection : MonoBehaviour {
                 if(item.type==spriteType.skin)
                 {
                     newItem.GetComponent<AvatarDescription>().SkinDye = item.colour;
+
+                    //Ownership
+                    newItem.GetComponent<AvatarDescription>().isOwned = true;
                 }
 
                 //Hair

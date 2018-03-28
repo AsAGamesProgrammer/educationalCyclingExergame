@@ -47,11 +47,6 @@ public class AvatarPartsCollection : MonoBehaviour {
             LoadSprite(guid);
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void LoadSprite(string path)
     {
