@@ -262,4 +262,15 @@ public class RotateSelection : MonoBehaviour {
 
         mainSprite = GameObject.FindGameObjectWithTag("MainAvatar").transform.Find(this.GetComponent<CategorySelection>().currentCategory.ToString()).gameObject;
     }
+
+    //BUTTON CLICK
+    public void OnBuyItemClick()
+    {
+        //Oficially desclare item bought
+        avatarElements[currentSelectedSprite].isOwned = true;
+
+        //Change selection item
+        ModifySelectionItem();
+
+    }
 }
