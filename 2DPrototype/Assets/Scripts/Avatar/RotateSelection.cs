@@ -274,7 +274,7 @@ public class RotateSelection : MonoBehaviour {
         avatarElements[currentSelectedSprite].isOwned = true;
 
         //Remember that this item is owned
-        
+        boughtItemsScript.AddItemToCategory(GetComponent<CategorySelection>().currentCategory, currentSelectedSprite);
 
         //Change selection item
         ModifySelectionItem();

@@ -40,6 +40,7 @@ public class ListOfBoughtItems : MonoBehaviour {
         }
     }
 	
+    //Return respective array
     public bool[] GetArrayFromCategory(spriteType type)
     {
         switch (type)
@@ -78,10 +79,54 @@ public class ListOfBoughtItems : MonoBehaviour {
         return null;
     }
 
-    //public List<int> GetBoughtItemsFromCategory
+    //Add item
+    public void AddItemToCategory(spriteType type, int idNumber)
+    {
+        switch (type)
+        {
+            case spriteType.faceShape:
+                boughtFaceShape[idNumber] = true;
+                break;
 
-	// Update is called once per frame
-	void Update () {
+            case spriteType.eyes:
+                boughtEyes[idNumber] = true;
+                break;
+
+            case spriteType.mouth:
+                boughtMouth[idNumber] = true;
+                break;
+
+            case spriteType.nose:
+                boughtNose[idNumber] = true;
+                break;
+
+            case spriteType.body:
+                boughtBody[idNumber] = true;
+                break;
+
+            case spriteType.hairColour:
+                boughtHairrDye[idNumber] = true;
+                break;
+
+            case spriteType.hairUp:
+                boughtHairUp[idNumber] = true;
+                break;
+
+            case spriteType.hairDown:
+                boughtHairDown[idNumber] = true;
+                break;
+
+            case spriteType.skin:
+                boughtSkin[idNumber] = true;
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }
