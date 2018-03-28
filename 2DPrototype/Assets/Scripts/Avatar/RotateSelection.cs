@@ -17,7 +17,10 @@ public class RotateSelection : MonoBehaviour {
     //Main avatar sprite, which is changed 
     public GameObject mainSprite;
 
+    //Selection item
     public GameObject partS;    //Selection item
+    public Text priceTag;
+
     public GameObject bike;
     public GameObject spriteOnBike;
     private int currentSelectedSprite = 0;
@@ -156,8 +159,8 @@ public class RotateSelection : MonoBehaviour {
     //Respond to arrow key input to indicate which picture is selected
     void ChangeSelection()
     {
-        //Move particles
-        partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, avatarElements[currentSelectedSprite].getPosition().y);
+        //Move Selection item
+        ModifySelectionItem();
 
         //Set on bike sprite to a current selection only if it is npt applied yet
         if (mainSprite.GetComponent<SpriteRenderer>().sprite != avatarElements[currentSelectedSprite].getSprite())
@@ -169,6 +172,16 @@ public class RotateSelection : MonoBehaviour {
             spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
         }
         
+    }
+
+    //Change selection item depending on if its owned or not
+    void ModifySelectionItem()
+    {
+        //Move particles
+        partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, avatarElements[currentSelectedSprite].getPosition().y);
+
+        //Price tag
+        priceTag.text = avatarElements[currentSelectedSprite].price.ToString();
     }
 
     void ChangeToMatchColour(spriteType avatarElement, List<SpriteInstance> collection, string dyeType)

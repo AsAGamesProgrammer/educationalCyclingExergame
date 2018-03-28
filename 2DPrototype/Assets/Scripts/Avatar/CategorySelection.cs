@@ -260,6 +260,8 @@ public class CategorySelection : MonoBehaviour {
         return itemValidFlag;
     }
 
+
+    //Find deal position for N items
     public void RepositionSelectionItems()
     {
         float width = Vector2.Distance(rightBorder.transform.position, leftBorder.transform.position);
