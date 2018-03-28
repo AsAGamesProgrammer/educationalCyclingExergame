@@ -17,6 +17,7 @@ public class ListOfBoughtItems : MonoBehaviour {
     bool[] boughtMouth;
     bool[] boughtEyes;
     bool[] boughtBody;
+    bool[] boughtSkin;
 
     // Use this for initialization
     void Awake ()
@@ -35,6 +36,7 @@ public class ListOfBoughtItems : MonoBehaviour {
             boughtMouth = new bool[] { true, false, false, false, false, false, false, false };
             boughtEyes = new bool[] { true, false, false, false, false, false, false, false };
             boughtBody = new bool[] { true, false, false, false, false, false, false, false };
+            boughtSkin= new bool[] { true, true, true};
         }
     }
 	
@@ -65,6 +67,9 @@ public class ListOfBoughtItems : MonoBehaviour {
 
             case spriteType.hairDown:
                 return boughtHairDown;
+
+            case spriteType.skin:
+                return boughtSkin;
 
             default:
                 break;

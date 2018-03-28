@@ -142,21 +142,12 @@ public class CategorySelection : MonoBehaviour {
                 newItem.GetComponent<AvatarDescription>().spriteId = item.spriteId;
 
                 //POPULATE AVATAR DESCIPTION
-                //Preowned TODO: REDO MONEY
-                if(item.spriteId <2 && item.type !=spriteType.hairColour)
-                {
-                    Debug.Log("Changed" + item.spriteId + " item to be owned");
-                    //Ownership
-                    newItem.GetComponent<AvatarDescription>().isOwned = true;
-                }
+                //TODO: REDO MONEY
                     
                 //Skin
                 if(item.type==spriteType.skin)
                 {
                     newItem.GetComponent<AvatarDescription>().SkinDye = item.colour;
-
-                    //Ownership
-                    newItem.GetComponent<AvatarDescription>().isOwned = true;
                 }
 
                 //Hair Dye
@@ -166,10 +157,6 @@ public class CategorySelection : MonoBehaviour {
 
                     //Price
                     newItem.GetComponent<AvatarDescription>().price = 500;
-
-                    //Ownership
-                    if(item.colour == spriteColour.hairBlue)
-                        newItem.GetComponent<AvatarDescription>().isOwned = true;
                 }
 
                 //Nose, eyes, mouth
