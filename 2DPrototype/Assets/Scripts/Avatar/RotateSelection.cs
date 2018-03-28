@@ -160,7 +160,7 @@ public class RotateSelection : MonoBehaviour {
     }
 
     //Respond to arrow key input to indicate which picture is selected
-    void ChangeSelection()
+    public void ChangeSelection()
     {
         //Move Selection item
         ModifySelectionItem();

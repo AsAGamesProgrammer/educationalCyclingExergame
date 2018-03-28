@@ -245,6 +245,9 @@ public class CategorySelection : MonoBehaviour {
 
         //Reposition particles
         GetComponent<RotateSelection>().RepositionParticles();
+
+        //Sprite on bike
+        GetComponent<RotateSelection>().ChangeSelection();
     }
 
     bool ItemIsValid(SpriteInstance item)
