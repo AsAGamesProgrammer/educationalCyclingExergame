@@ -27,14 +27,10 @@ public class CategorySelection : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        avatarCollection = GetComponent<AvatarPartsCollection>();	
+        avatarCollection = GetComponent<AvatarPartsCollection>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
+    //CLICK on a category button
     public void OnBtnClick(string name)
     {
         Debug.Log(name + "Something Clicked");
@@ -184,6 +180,7 @@ public class CategorySelection : MonoBehaviour {
                 //ID
                 newItem.GetComponent<AvatarDescription>().spriteId = item.spriteId;
 
+                //CATEGORIES
                 //Dye
                 if(item.type==spriteType.skin)
                 {
@@ -193,10 +190,34 @@ public class CategorySelection : MonoBehaviour {
                     newItem.GetComponent<AvatarDescription>().isOwned = true;
                 }
 
-                //Hair
+                //Hair Dye
                 if (item.type == spriteType.hairColour)
                 {
                     newItem.GetComponent<AvatarDescription>().HairDye = item.colour;
+
+                    //Price
+                    newItem.GetComponent<AvatarDescription>().price = 500;
+                }
+
+                //Nose, eyes, mouth
+                if (item.type == spriteType.eyes || item.type == spriteType.nose || item.type == spriteType.mouth)
+                {
+                    //Price
+                    newItem.GetComponent<AvatarDescription>().price = 5 * item.spriteId;
+                }
+
+                //Hair
+                if (item.type == spriteType.hairDown|| item.type == spriteType.hairUp)
+                {
+                    //Price
+                    newItem.GetComponent<AvatarDescription>().price = 350 * item.spriteId;
+                }
+
+                //Body
+                if (item.type == spriteType.body)
+                {
+                    //Price
+                    newItem.GetComponent<AvatarDescription>().price = 1000 * item.spriteId;
                 }
 
                 //Instantiate
