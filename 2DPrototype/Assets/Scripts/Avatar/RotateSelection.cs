@@ -34,13 +34,17 @@ public class RotateSelection : MonoBehaviour {
     private bool bikeSpriteSet = false;
     private Vector2 initialBikePos;
 
+    //Bought Items
+    ListOfBoughtItems boughtItemsScript;
+
     //START
     // Use this for initialization
     void Start ()
     {
         initialBikePos = bike.transform.position;
 
-        //partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, -4.5f);
+        //Script
+        boughtItemsScript = GameObject.FindGameObjectWithTag("MoneyManager").GetComponent<ListOfBoughtItems>();
     }
 	
     //UPDATE
@@ -269,8 +273,10 @@ public class RotateSelection : MonoBehaviour {
         //Oficially desclare item bought
         avatarElements[currentSelectedSprite].isOwned = true;
 
+        //Remember that this item is owned
+        
+
         //Change selection item
         ModifySelectionItem();
-
     }
 }

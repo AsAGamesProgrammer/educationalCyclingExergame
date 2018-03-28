@@ -24,10 +24,15 @@ public class CategorySelection : MonoBehaviour {
     public GameObject rightBorder;
     public GameObject leftBorder;
 
+    //Bought Items
+    ListOfBoughtItems boughtItemScript;
+
 	// Use this for initialization
 	void Start ()
     {
         avatarCollection = GetComponent<AvatarPartsCollection>();
+
+        boughtItemScript = GameObject.FindGameObjectWithTag("MoneyManager").GetComponent<ListOfBoughtItems>();
 	}
 	
     //CLICK on a category button
@@ -110,60 +115,16 @@ public class CategorySelection : MonoBehaviour {
         }
     }
 
+    //CREATE ITEMS
     public void CreateSelectionItems()
     {
         //Clear list
-        foreach (var item in selectableItems)
-        {
-            Destroy(item);
-        }
-        selectableItems = new List<GameObject>();
+        ClearCurrentList();
 
-        List<SpriteInstance> currentCollection = new List<SpriteInstance>();
+        //Obtain current collection from avatar collection scirpt
+        List<SpriteInstance> currentCollection = ObtainCurrentCollection();
 
-        switch(currentCategory)
-        {
-            case spriteType.faceShape:
-                currentCollection = avatarCollection.faceShapes;
-                break;
-
-            case spriteType.skin:
-                currentCollection = avatarCollection.skinColours;
-                break;
-
-            case spriteType.eyes:
-                currentCollection = avatarCollection.eyes;
-                break;
-
-            case spriteType.mouth:
-                currentCollection = avatarCollection.mouths;
-                break;
-
-            case spriteType.nose:
-                currentCollection = avatarCollection.noses;
-                break;
-
-            case spriteType.body:
-                currentCollection = avatarCollection.bodies;
-                break;
-
-            case spriteType.hairColour:
-                currentCollection = avatarCollection.hairColours;
-                break;
-
-            case spriteType.hairUp:
-                currentCollection = avatarCollection.hairUp;
-                break;
-
-            case spriteType.hairDown:
-                currentCollection = avatarCollection.hairDown;
-                break;
-
-            default:
-                return;
-        }
-
-        foreach(var item in currentCollection)
+        foreach (var item in currentCollection)
         {
             if(ItemIsValid(item))
             {
@@ -180,7 +141,7 @@ public class CategorySelection : MonoBehaviour {
                 //ID
                 newItem.GetComponent<AvatarDescription>().spriteId = item.spriteId;
 
-                //CATEGORIES
+                //POPULATE AVATAR DESCIPTION
                 //Preowned TODO: REDO MONEY
                 if(item.spriteId <2 && item.type !=spriteType.hairColour)
                 {
@@ -244,6 +205,13 @@ public class CategorySelection : MonoBehaviour {
             }
         }
 
+        //Bought items
+        var boughtItems = boughtItemScript.GetArrayFromCategory(currentCategory);
+        for (int i=0; i<selectableItems.Count; i++)
+        {
+            selectableItems[i].GetComponent<AvatarDescription>().isOwned = boughtItems[i];
+        }
+
         //Reposition
         RepositionSelectionItems();
 
@@ -255,6 +223,69 @@ public class CategorySelection : MonoBehaviour {
 
         //Sprite on bike
         GetComponent<RotateSelection>().ChangeSelection();
+    }
+
+    //Remove all the items from the previous category
+    void ClearCurrentList()
+    {
+        //Clear list
+        foreach (var item in selectableItems)
+        {
+            Destroy(item);
+        }
+        selectableItems = new List<GameObject>();
+    }
+
+    //Depending on the current category get a collection of items
+    List<SpriteInstance> ObtainCurrentCollection()
+    {
+        //Create empty list
+        List<SpriteInstance> currentCollection = new List<SpriteInstance>();
+
+        //Get one collection from avatar colelction script 
+        switch (currentCategory)
+        {
+            case spriteType.faceShape:
+                currentCollection = avatarCollection.faceShapes;
+                break;
+
+            case spriteType.skin:
+                currentCollection = avatarCollection.skinColours;
+                break;
+
+            case spriteType.eyes:
+                currentCollection = avatarCollection.eyes;
+                break;
+
+            case spriteType.mouth:
+                currentCollection = avatarCollection.mouths;
+                break;
+
+            case spriteType.nose:
+                currentCollection = avatarCollection.noses;
+                break;
+
+            case spriteType.body:
+                currentCollection = avatarCollection.bodies;
+                break;
+
+            case spriteType.hairColour:
+                currentCollection = avatarCollection.hairColours;
+                break;
+
+            case spriteType.hairUp:
+                currentCollection = avatarCollection.hairUp;
+                break;
+
+            case spriteType.hairDown:
+                currentCollection = avatarCollection.hairDown;
+                break;
+
+            default:
+                break;
+        }
+
+        return currentCollection;
     }
 
     bool ItemIsValid(SpriteInstance item)

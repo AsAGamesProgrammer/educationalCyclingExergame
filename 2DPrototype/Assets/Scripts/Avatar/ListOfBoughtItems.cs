@@ -8,14 +8,15 @@ public class ListOfBoughtItems : MonoBehaviour {
     private static bool created = false;
 
     //List which hold bought items
-    List<int> boughtFaceShape = new List<int>();
-    List<int> boughtHairrDye = new List<int>();
-    List<int> boughtHairUp = new List<int>();
-    List<int> boughtHairDown = new List<int>();
-    List<int> boughtNose = new List<int>();
-    List<int> boughtFaceMouth = new List<int>();
-    List<int> boughtFaceEyes = new List<int>();
-    List<int> boughtFaceBody = new List<int>();
+    //TODO: make define size by script
+    public bool[] boughtFaceShape;
+    bool[] boughtHairrDye;
+    bool[] boughtHairUp;
+    bool[] boughtHairDown;
+    bool[] boughtNose;
+    bool[] boughtMouth;
+    bool[] boughtEyes;
+    bool[] boughtBody;
 
     // Use this for initialization
     void Awake ()
@@ -24,9 +25,54 @@ public class ListOfBoughtItems : MonoBehaviour {
         {
             DontDestroyOnLoad(this.gameObject);
             created = true;
+
+            //Ugly initialization
+            boughtFaceShape = new bool[] {true, false, false, false, false, false, false, false };
+            boughtHairrDye = new bool[] { true, false, false, false, false, false, false, false };
+            boughtHairUp = new bool[] {true, false, false, false, false, false, false, false };
+            boughtHairDown = new bool[] {true, false, false, false, false, false, false, false };
+            boughtNose = new bool[] { true, false, false, false, false, false, false, false };
+            boughtMouth = new bool[] { true, false, false, false, false, false, false, false };
+            boughtEyes = new bool[] { true, false, false, false, false, false, false, false };
+            boughtBody = new bool[] { true, false, false, false, false, false, false, false };
         }
     }
 	
+    public bool[] GetArrayFromCategory(spriteType type)
+    {
+        switch (type)
+        {
+            case spriteType.faceShape:
+                return boughtFaceShape;
+
+            case spriteType.eyes:
+                return boughtEyes;
+
+            case spriteType.mouth:
+                return boughtMouth;
+
+            case spriteType.nose:
+                return boughtNose;
+
+            case spriteType.body:
+                return boughtBody;
+
+            case spriteType.hairColour:
+                return boughtHairrDye;
+
+            case spriteType.hairUp:
+                return boughtHairUp;
+
+            case spriteType.hairDown:
+                return boughtHairDown;
+
+            default:
+                break;
+        }
+
+        return null;
+    }
+
     //public List<int> GetBoughtItemsFromCategory
 
 	// Update is called once per frame
