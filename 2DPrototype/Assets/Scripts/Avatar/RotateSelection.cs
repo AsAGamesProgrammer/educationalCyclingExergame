@@ -123,7 +123,9 @@ public class RotateSelection : MonoBehaviour {
     public void RepositionParticles()
     {
         currentSelectedSprite = 0;
-        partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, avatarElements[currentSelectedSprite].getPosition().y);
+
+        //Position selection item at the beginning of the row
+        ModifySelectionItem();
     }
 
     //Check for arrow key input
@@ -180,6 +182,8 @@ public class RotateSelection : MonoBehaviour {
     {
         //Move particles
         partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, avatarElements[currentSelectedSprite].getPosition().y);
+
+        Debug.Log("Sprite " + currentSelectedSprite + "is owned " + avatarElements[currentSelectedSprite].isOwned);
 
         //If owned
         if(avatarElements[currentSelectedSprite].isOwned)
