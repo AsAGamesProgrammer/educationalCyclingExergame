@@ -27,6 +27,8 @@ public class ListOfBoughtItems : MonoBehaviour {
         }
     }
 	
+    //public List<int> GetBoughtItemsFromCategory
+
 	// Update is called once per frame
 	void Update () {
 		
