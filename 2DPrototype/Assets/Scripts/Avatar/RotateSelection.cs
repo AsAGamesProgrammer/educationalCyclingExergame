@@ -17,9 +17,10 @@ public class RotateSelection : MonoBehaviour {
     //Main avatar sprite, which is changed 
     public GameObject mainSprite;
 
-    //Selection item
+    //Selection item TODO: make it prettier
     public GameObject partS;    //Selection item
     public Text priceTag;
+    public GameObject buyBtn;
 
     public GameObject bike;
     public GameObject spriteOnBike;
@@ -180,8 +181,27 @@ public class RotateSelection : MonoBehaviour {
         //Move particles
         partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, avatarElements[currentSelectedSprite].getPosition().y);
 
-        //Price tag
-        priceTag.text = avatarElements[currentSelectedSprite].price.ToString();
+        //If owned
+        if(avatarElements[currentSelectedSprite].isOwned)
+        {
+            //Dont show buy btn
+            buyBtn.SetActive(false);
+
+            //Change colour of the overlay
+            partS.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        else //Not owned
+        {
+            //Show buy btn
+            buyBtn.SetActive(true);
+
+            //Price tag
+            priceTag.text = avatarElements[currentSelectedSprite].price.ToString();
+
+            //Change colour of the overlay
+            partS.GetComponent<SpriteRenderer>().color = Color.cyan;
+
+        }
     }
 
     void ChangeToMatchColour(spriteType avatarElement, List<SpriteInstance> collection, string dyeType)
