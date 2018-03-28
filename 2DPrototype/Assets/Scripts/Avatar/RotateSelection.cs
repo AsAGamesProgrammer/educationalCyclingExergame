@@ -52,11 +52,8 @@ public class RotateSelection : MonoBehaviour {
 	void Update ()
     {
         //Check for input and change sprite selection
-        if (!verticalSelectionActive)
-        {
-            if (HorizontalInputReceived())
-                ChangeSelection();
-        }
+       if (HorizontalInputReceived())
+          ChangeSelection();
 
         //Vertical input detected
         if (Input.GetAxis("Vertical") > 0.05f && mainSprite.GetComponent<SpriteRenderer>().sprite != avatarElements[currentSelectedSprite].getSprite())
@@ -69,59 +66,77 @@ public class RotateSelection : MonoBehaviour {
 
     void VerticalSelection()
     {
-        //Bike on the move towards avatar
-        if (currentVerticalProgress < progressToUnlock)
+        //If item is owned
+        if (avatarElements[currentSelectedSprite].isOwned)
         {
-            //Debug
-            Debug.Log(currentVerticalProgress);
-
-            //Add current spinning value
-            currentVerticalProgress += Input.GetAxis("Vertical");
-
-            //Move bike
-            bike.transform.position += Vector3.right * Input.GetAxis("Vertical") * extraSpeedModifier;
-        }
-        else //Bike reached avatar
-        {
-            //SPECIAL CASES
-            //Skin colour 
-            if (avatarElements[currentSelectedSprite].SkinDye != spriteColour.none)
+            //Bike on the move towards avatar
+            if (currentVerticalProgress < progressToUnlock)
             {
-                this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].SkinDye;
+                //Add current spinning value
+                currentVerticalProgress += Input.GetAxis("Vertical");
 
-                //Change face
-                ChangeToMatchColour(spriteType.faceShape, GetComponent<AvatarPartsCollection>().faceShapes, "skin");
-                //Body
-                ChangeToMatchColour(spriteType.body, GetComponent<AvatarPartsCollection>().bodies, "skin");
+                //Move bike
+                bike.transform.position += Vector3.right * Input.GetAxis("Vertical") * extraSpeedModifier;
             }
-
-            if (avatarElements[currentSelectedSprite].HairDye != spriteColour.none)
+            else //Bike reached avatar
             {
-                Debug.Log("time to change hair colour to " + avatarElements[currentSelectedSprite].HairDye);
-                this.GetComponent<CategorySelection>().currentHairColour = avatarElements[currentSelectedSprite].HairDye;
+                //SPECIAL CASES
+                CheckIfSkinChanged();            //Skin colour 
+                CheckIfHairDyeChanged();         //Hair colour
 
-                //Change hair up
-                ChangeToMatchColour(spriteType.hairUp, GetComponent<AvatarPartsCollection>().hairUp, "hair");
-                //Change hair down
-                ChangeToMatchColour(spriteType.hairDown, GetComponent<AvatarPartsCollection>().hairDown, "hair");
+                //Change sprite picture
+                mainSprite.GetComponent<SpriteRenderer>().sprite = avatarElements[currentSelectedSprite].getSprite();
+
+                //Change ID
+                mainSprite.GetComponent<CurrentAvatarDescription>().spriteId = avatarElements[currentSelectedSprite].spriteId;
+
+                currentVerticalProgress = 0.1f;
+                verticalSelectionActive = false;
+
+                //Return bike to the beginning
+                bike.transform.position = initialBikePos;
+
+                //Set selection to none
+                spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
             }
-
-            //Change sprite picture
-            mainSprite.GetComponent<SpriteRenderer>().sprite = avatarElements[currentSelectedSprite].getSprite();
-
-            //Change ID
-            mainSprite.GetComponent<CurrentAvatarDescription>().spriteId = avatarElements[currentSelectedSprite].spriteId;
-
-            currentVerticalProgress = 0.1f;
-            verticalSelectionActive = false;
-
-            //Return bike to the beginning
-            bike.transform.position = initialBikePos;
-
-            //Set selection to none
-            spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
         }
     }
+
+    //--------------------------------------------------------------------------
+    //--- SPECIAL CASES ---
+    //--------------------------------------------------------------------------
+
+    //SKIN
+    //If a skin colour was moved to avatar, apply changes to face and body
+    void CheckIfSkinChanged()
+    {
+        if (avatarElements[currentSelectedSprite].SkinDye != spriteColour.none)
+        {
+            this.GetComponent<CategorySelection>().currentSkinColour = avatarElements[currentSelectedSprite].SkinDye;
+
+            //Change face
+            ChangeToMatchColour(spriteType.faceShape, GetComponent<AvatarPartsCollection>().faceShapes, "skin");
+            //Body
+            ChangeToMatchColour(spriteType.body, GetComponent<AvatarPartsCollection>().bodies, "skin");
+        }
+    }
+
+    //HAIR DYE
+    void CheckIfHairDyeChanged()
+    {
+        if (avatarElements[currentSelectedSprite].HairDye != spriteColour.none)
+        {
+            Debug.Log("time to change hair colour to " + avatarElements[currentSelectedSprite].HairDye);
+            this.GetComponent<CategorySelection>().currentHairColour = avatarElements[currentSelectedSprite].HairDye;
+
+            //Change hair up
+            ChangeToMatchColour(spriteType.hairUp, GetComponent<AvatarPartsCollection>().hairUp, "hair");
+            //Change hair down
+            ChangeToMatchColour(spriteType.hairDown, GetComponent<AvatarPartsCollection>().hairDown, "hair");
+        }
+    }
+
+    //--------------------------------------------------------------------------
 
     //This is a public function which is called when a category is changed
     public void RepositionParticles()
