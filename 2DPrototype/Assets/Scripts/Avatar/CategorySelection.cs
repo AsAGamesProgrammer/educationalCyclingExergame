@@ -218,6 +218,13 @@ public class CategorySelection : MonoBehaviour {
                     newItem.GetComponent<AvatarDescription>().price = 5 * item.spriteId;
                 }
 
+                //Face shape
+                if(item.type == spriteType.faceShape)
+                {
+                    //Price
+                    newItem.GetComponent<AvatarDescription>().price = 50 * item.spriteId;
+                }
+
                 //Hair
                 if (item.type == spriteType.hairDown|| item.type == spriteType.hairUp)
                 {

@@ -12,6 +12,7 @@ using UnityEngine;
 /// Nose, eyes, mouth = 5 * id
 /// Hair = 350 * id
 /// Body = 1000 * id
+/// Face shape = 50 * id
 /// </summary>
 
 public class AvatarDescription : MonoBehaviour {

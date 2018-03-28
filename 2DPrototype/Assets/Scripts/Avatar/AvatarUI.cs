@@ -15,10 +15,6 @@ public class AvatarUI : MonoBehaviour {
 
     public void OnAdventureBtnClick()
     {
-       
-        //Money manager
-        DontDestroyOnLoad(GameObject.FindGameObjectWithTag("MoneyManager"));
-
         //Avatar transfer
         avatarTransferScript.uploadSprites();
 
