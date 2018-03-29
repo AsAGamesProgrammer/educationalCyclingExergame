@@ -16,16 +16,23 @@ public class Chests : MonoBehaviour {
     //Particles
     public ParticleManager particleScript;
 
+    //Stages
+    int currentStage = 0;
+
+
     //Chests in a middle of a screen
     public void AdvanceChest()
     {
-        //Open up
-        if (currentPhase < chestSprites.Length-1)
+        Debug.Log("Chest " + currentChest + " at phase " + currentPhase + ", stage " + currentStage);
+
+        //Open chest 
+        openCurrentChest();
+
+        //Reached the end of the chest
+        if (currentPhase > currentStage)
         {
-            openCurrentChest();
-        }
-        else
-        {
+            Debug.Log("reached the end " + currentPhase);
+
             currentPhase = 0;
 
             //Finished a chest
@@ -40,6 +47,9 @@ public class Chests : MonoBehaviour {
             else
             {
                 currentChest = 0;
+
+                //Insrease stage 
+                currentStage++;
             }
         }
     }
@@ -57,7 +67,7 @@ public class Chests : MonoBehaviour {
         {
             chests[currentChest-1].GetComponent<SpriteRenderer>().sprite = chestSprites[0];
         }
-        else
+        else //First chest
         {
             chests[chests.Length-1].GetComponent<SpriteRenderer>().sprite = chestSprites[0];
         }
