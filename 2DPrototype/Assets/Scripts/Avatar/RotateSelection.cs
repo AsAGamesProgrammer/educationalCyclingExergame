@@ -62,6 +62,12 @@ public class RotateSelection : MonoBehaviour {
 
             VerticalSelection();
         }
+
+        //Space bar to buy
+        if(Input.GetKeyUp("space"))
+        {
+            OnBuyItemClick();
+        }
     }
 
     void VerticalSelection()
