@@ -25,17 +25,10 @@ public class Question : MonoBehaviour {
     void generateQuestion()
     {
         //TYPE A
-        generateSimpleAddition();
-
-        //TYPE A
-        //Number A + Number B
-        //get random int between 1-90
-        //get random int between 100-prevInt
-        //Randm places
-        //Add
+        //generateSimpleAddition();
 
         //TYPE B
-        //Decimal A + Pences
+        generateSimpleSubstraction();
 
     }
 
@@ -54,12 +47,37 @@ public class Question : MonoBehaviour {
         int numberA = Random.Range(1, 90);              //get random int between 1-90
 
         int difference = 100 - numberA;                 //get the maximum value of the second int
-        int numberB = Random.Range(1, difference);      //randomly generate ssecond int
+        int numberB = Random.Range(1, difference);      //randomly generate second int
 
         questionText.text = numberA.ToString() + "p + " + numberB + "p";
         answerScript.setCorrectAnswer(numberA + numberB);  //Set answer
 
         Debug.Log(numberA + numberB);
+    }
+
+    //TYPE B
+    //Example: 20p - 4p
+    void generateSimpleSubstraction()
+    {
+        int numberA = Random.Range(1, 90);              //get random int between 1-90
+
+        int difference = 100 - numberA;                 //get the maximum value of the second int
+        int numberB = Random.Range(1, difference);      //randomly generate second int
+
+        if (numberA > numberB)                          //Substract smaller number from the greater one
+        {
+            questionText.text = numberA.ToString() + "p - " + numberB + "p";
+            answerScript.setCorrectAnswer(numberA - numberB);  //Set answer
+            Debug.Log(numberA - numberB);
+        }
+        else
+        {
+            questionText.text = numberB.ToString() + "p - " + numberA + "p";
+            answerScript.setCorrectAnswer(numberB - numberA);  //Set answer
+            Debug.Log(numberB - numberA);
+        }
+
+ 
     }
 
     //BONUS------------------------------------------------------------
