@@ -69,6 +69,9 @@ public class CheckAnswer : MonoBehaviour {
                 {
                     //Show bonus challenge win page
                     bonusChallengeScript.enableWinPage();
+
+                    //Stop timer
+                    bonusChallengeScript.countdownEnabled = false;
                 }
             }
         }

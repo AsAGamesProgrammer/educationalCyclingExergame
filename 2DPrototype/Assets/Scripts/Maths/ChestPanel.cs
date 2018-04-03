@@ -5,14 +5,18 @@ using UnityEngine.UI;
 
 public class ChestPanel : MonoBehaviour {
 
+    //Images
     public Image lighthouse;
     public Sprite[] lighthouseParts;
-    //public Sprite openChest;
-    //public Sprite transparentSprite;
+
+    //Current picture indicator
     int currentSpriteNumber = -1;
 
     //Script for bonus challenge
     public BonusChallenge bonusChallenge;
+
+    //Button for lvl up
+    public GameObject lvlUpBtn;
 
 	// Use this for initialization
 	void Start () {
@@ -26,14 +30,20 @@ public class ChestPanel : MonoBehaviour {
 
     public void addChest()
     {
-        //Indicate that chests exist and bonus challenge is available
-        bonusChallenge.bonusExists = true;
-
+        //Open up next piece of the lighthouse
         if (currentSpriteNumber < lighthouseParts.Length - 1)
         {
             Debug.Log("Applying picture " + currentSpriteNumber);
             currentSpriteNumber++;
             lighthouse.sprite = lighthouseParts[currentSpriteNumber];
+        }
+        
+        //Enable bonus
+        if(currentSpriteNumber >= lighthouseParts.Length - 1)
+        {
+            //Test is available
+            bonusChallenge.bonusExists = true; //change flag
+            lvlUpBtn.SetActive(true);          //enable btn
         }
     }
 

@@ -16,7 +16,7 @@ public class BonusChallenge : MonoBehaviour {
     public Text timerText;          //timer text
     public float maximumTime = 30;    //Constant
     float currentTime;                //How muh time is left
-    bool countdownEnabled = false;  //Is the countdown on
+    public bool countdownEnabled = false;  //Is the countdown on
 
     //Indicates if bonus challenge is available
     public bool bonusExists = false;
