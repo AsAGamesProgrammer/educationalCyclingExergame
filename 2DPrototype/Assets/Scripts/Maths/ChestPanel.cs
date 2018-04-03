@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class ChestPanel : MonoBehaviour {
 
-    public Image[] chests;
-    public Sprite openChest;
-    public Sprite transparentSprite;
-    int availableChestNumber = 0;
+    public Image lighthouse;
+    public Sprite[] lighthouseParts;
+    //public Sprite openChest;
+    //public Sprite transparentSprite;
+    int currentSpriteNumber = -1;
 
     //Script for bonus challenge
     public BonusChallenge bonusChallenge;
@@ -28,23 +29,23 @@ public class ChestPanel : MonoBehaviour {
         //Indicate that chests exist and bonus challenge is available
         bonusChallenge.bonusExists = true;
 
-        //Add a new chest if there is space
-        if (availableChestNumber < chests.Length)
+        if (currentSpriteNumber < lighthouseParts.Length - 1)
         {
-            chests[availableChestNumber].sprite = openChest;
-            availableChestNumber++;
+            Debug.Log("Applying picture " + currentSpriteNumber);
+            currentSpriteNumber++;
+            lighthouse.sprite = lighthouseParts[currentSpriteNumber];
         }
     }
 
     //Removes the chest from the bonus panel after it was claimed
-    public void removeChest()
-    {
-        availableChestNumber--;
-        chests[availableChestNumber].sprite = transparentSprite;
+    //public void removeChest()
+    //{
+    //    availableChestNumber--;
+    //    chests[availableChestNumber].sprite = transparentSprite;
 
-        if (availableChestNumber <= 0)
-        {
-            bonusChallenge.bonusExists = false;
-        }
-    }
+    //    if (availableChestNumber <= 0)
+    //    {
+    //        bonusChallenge.bonusExists = false;
+    //    }
+    //}
 }

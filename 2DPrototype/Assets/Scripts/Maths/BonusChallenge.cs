@@ -97,7 +97,7 @@ public class BonusChallenge : MonoBehaviour {
     //--------------BUTTON CLICKS
     public void closeAfterWin()
     {
-        chestPanelScript.removeChest();         //remove chest
+        //chestPanelScript.removeChest();         //remove chest
         answerScript.bonusModeEnabled(false);   //change main input field
         HidePanel();
         questionScript.generateNewQuestion();   //generate new non bonus question

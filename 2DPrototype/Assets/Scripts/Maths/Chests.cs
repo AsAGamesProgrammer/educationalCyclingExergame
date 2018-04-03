@@ -58,7 +58,6 @@ public class Chests : MonoBehaviour {
                 currentStage += 3 + officialStage;
                 officialStage++;
                 initialPhase = currentStage - officialStage;
-                Debug.Log(initialPhase + "Initial phase");
                 currentPhase = initialPhase;
 
                 //If all the stages of the level were complete
@@ -75,7 +74,6 @@ public class Chests : MonoBehaviour {
                 if (currentChest == 0)
                 {
                     //Replace sprites
-                    Debug.Log("Opening all chests");
                     foreach (var chest in chests)
                     {
                         chest.GetComponent<SpriteRenderer>().sprite = chestSprites[initialPhase];
@@ -98,8 +96,6 @@ public class Chests : MonoBehaviour {
     //Makes all the key variables to be equal to 0
     void ResetChestSequence()
     {
-        Debug.Log("Reset"); //Debug msg
-
         currentChest = 0;   
         currentPhase = 0;
         currentStage = 0;
@@ -116,8 +112,8 @@ public class Chests : MonoBehaviour {
     {
         //Increase phase
         currentPhase++;
-        //Swap sprite
-        Debug.Log("Opening chest " + currentChest + " at phase " + currentPhase + ", stage " + currentStage);
+
+        //Swap sprites
         chests[currentChest].GetComponent<SpriteRenderer>().sprite = chestSprites[currentPhase];
     }
 
