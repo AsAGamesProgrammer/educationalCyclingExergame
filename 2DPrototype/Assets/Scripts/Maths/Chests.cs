@@ -9,6 +9,7 @@ public class Chests : MonoBehaviour {
     public Sprite[] chestSprites;
     int currentChest = 0;
     int currentPhase = 0;
+    int initialPhase = 0;
 
     //Chest panel
     public ChestPanel chestPanelScript;
@@ -23,8 +24,18 @@ public class Chests : MonoBehaviour {
     //Chests in a middle of a screen
     public void AdvanceChest()
     {
-        Debug.Log("Chest " + currentChest + " at phase " + currentPhase + ", stage " + currentStage);
 
+        /*
+         Set all chests to first sprite
+         Open all the phases
+
+        if(there is another chest)
+         Advance to next chest
+         else
+         Fireworks
+         replace all sprites
+         
+         */
         //Open chest 
         openCurrentChest();
 
@@ -33,7 +44,8 @@ public class Chests : MonoBehaviour {
         {
             Debug.Log("reached the end " + currentPhase);
 
-            currentPhase = 0;
+            //Test
+            currentPhase = initialPhase;
 
             //Finished a chest
             sendChestToBonus();
@@ -44,12 +56,25 @@ public class Chests : MonoBehaviour {
                 currentChest++;
                 //chests[currentChest].GetComponent<SpriteRenderer>().sprite = chestSprites[currentPhase];
             }
-            else
+            else //Go to the first chest
             {
                 currentChest = 0;
 
-                //Insrease stage 
-                currentStage++;
+                //Insrease stage TEST
+                currentStage+=3;
+                initialPhase = currentStage - 1;
+
+                //Beginning
+                if (currentChest == 0)
+                {
+                    //Replace sprites
+                    Debug.Log("Opening all chests");
+                    foreach (var chest in chests)
+                    {
+                        chest.GetComponent<SpriteRenderer>().sprite = chestSprites[initialPhase];
+                    }
+                }
+
             }
         }
     }
@@ -60,6 +85,7 @@ public class Chests : MonoBehaviour {
         //Increase phase
         currentPhase++;
         //Swap sprite
+        Debug.Log("Opening chest " + currentChest + " at phase " + currentPhase + ", stage " + currentStage);
         chests[currentChest].GetComponent<SpriteRenderer>().sprite = chestSprites[currentPhase];
 
         //Close previous chest
