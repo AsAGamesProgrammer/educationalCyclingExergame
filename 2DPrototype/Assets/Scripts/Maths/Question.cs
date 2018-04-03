@@ -11,30 +11,60 @@ public class Question : MonoBehaviour {
 
     public CheckAnswer answerScript;
 
+    //Avatar progress script
+    public AvatarProgress progressScript;
+
 	// Use this for initialization
 	void Start ()
     {
-        generateQuestion();
-	}
+        //Find script
+        progressScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarProgress>();
+
+        generateNewQuestion();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
-    void generateQuestion()
+    void generateSimpleMix()
     {
-        //TYPE A
-        //generateSimpleAddition();
+        int flag = Random.Range(0, 2);  //Generate random value true/false
 
-        //TYPE B
-        generateSimpleSubstraction();
-
+        if (flag == 0)
+            generateSimpleAddition();   //Generate addition if flag is 0
+        else
+            generateSimpleSubstraction(); //Generate substraction if flag is 1
     }
 
+    //Generate question
+    // Level 0 - addition
+    // Level 1 - substraction
+    // Level 2 - mix
     public void generateNewQuestion()
     {
-        generateQuestion();
+        //Generate question based on level
+        switch(progressScript.level)
+        {
+            case 0:                         
+                generateSimpleAddition();
+                break;
+
+            case 1:
+                generateSimpleSubstraction();   
+                break;
+
+            case 2:
+                generateSimpleMix();
+                break;
+
+            default:
+                generateSimpleMix();
+                break;
+
+        }
     }
 
     //-----------------------QUESTION TYPES-------------------------

@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Avatar\CurrentAvatarDescription.cs" />
     <Compile Include="Assets\Scripts\Avatar\ListOfBoughtItems.cs" />
     <Compile Include="Assets\Scripts\Avatar\RotateSelection.cs" />
+    <Compile Include="Assets\Scripts\General\AvatarProgress.cs" />
     <Compile Include="Assets\Scripts\General\AvatarTransfer.cs" />
     <Compile Include="Assets\Scripts\General\MoneyManagerDuplicate.cs" />
     <Compile Include="Assets\Scripts\General\SetAvatarSprites.cs" />

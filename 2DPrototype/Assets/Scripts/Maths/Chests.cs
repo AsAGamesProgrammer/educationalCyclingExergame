@@ -22,6 +22,14 @@ public class Chests : MonoBehaviour {
     //Stages
     int currentStage = 0;
 
+    //Avatar progress script
+    public AvatarProgress progressScript;
+
+    public void Start()
+    {
+        //Find script
+        progressScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarProgress>();
+    }
 
     //Chests in a middle of a screen
     public void AdvanceChest()
@@ -66,6 +74,9 @@ public class Chests : MonoBehaviour {
                     initialPhase = 0;
                     currentStage = 0;
                     officialStage = 0;
+
+                    //Level
+                    progressScript.level++;
                 }
 
                 //Beginning
@@ -77,6 +88,7 @@ public class Chests : MonoBehaviour {
                     {
                         chest.GetComponent<SpriteRenderer>().sprite = chestSprites[initialPhase];
                     }
+
                 }
 
             }
