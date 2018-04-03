@@ -11,6 +11,8 @@ public class Chests : MonoBehaviour {
     int currentPhase = 0;
     int initialPhase = 0;
 
+    public int officialStage = 0;
+
     //Chest panel
     public ChestPanel chestPanelScript;
 
@@ -24,18 +26,6 @@ public class Chests : MonoBehaviour {
     //Chests in a middle of a screen
     public void AdvanceChest()
     {
-
-        /*
-         Set all chests to first sprite
-         Open all the phases
-
-        if(there is another chest)
-         Advance to next chest
-         else
-         Fireworks
-         replace all sprites
-         
-         */
         //Open chest 
         openCurrentChest();
 
@@ -61,8 +51,11 @@ public class Chests : MonoBehaviour {
                 currentChest = 0;
 
                 //Insrease stage TEST
-                currentStage+=3;
-                initialPhase = currentStage - 1;
+                currentStage += 3 + officialStage;
+                officialStage++;
+                initialPhase = currentStage - officialStage;
+                Debug.Log(initialPhase + "Initial phase");
+                currentPhase = initialPhase;
 
                 //Beginning
                 if (currentChest == 0)
