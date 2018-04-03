@@ -7,20 +7,19 @@ public class Chests : MonoBehaviour {
     //Chests in a middle of a screen
     public GameObject[] chests;
     public Sprite[] chestSprites;
-    int currentChest = 0;
-    int currentPhase = 0;
-    int initialPhase = 0;
 
-    public int officialStage = 0;
+    //Variables
+    int currentChest = 0; //id of the current chest
+    int currentPhase = 0; //Phase of inidividual chest
+    int currentStage = 0; //Highest sprite index
+    int initialPhase = 0; //What sprite the chest sequence starts at
+    public int officialStage = 0; //Round number (wooden = 0, blue = 1, purple = 2)
 
     //Chest panel
     public ChestPanel chestPanelScript;
 
     //Particles
     public ParticleManager particleScript;
-
-    //Stages
-    int currentStage = 0;
 
     //Avatar progress script
     public AvatarProgress progressScript;
@@ -40,9 +39,7 @@ public class Chests : MonoBehaviour {
         //Reached the end of the chest
         if (currentPhase > currentStage)
         {
-            Debug.Log("reached the end " + currentPhase);
-
-            //Test
+            //Reset phase of the chest 
             currentPhase = initialPhase;
 
             //Finished a chest
@@ -52,7 +49,6 @@ public class Chests : MonoBehaviour {
             if (currentChest < chests.Length-1)
             {
                 currentChest++;
-                //chests[currentChest].GetComponent<SpriteRenderer>().sprite = chestSprites[currentPhase];
             }
             else //Go to the first chest
             {
@@ -65,15 +61,11 @@ public class Chests : MonoBehaviour {
                 Debug.Log(initialPhase + "Initial phase");
                 currentPhase = initialPhase;
 
-                if (initialPhase >= chestSprites.Length) //No more stages left
+                //If all the stages of the level were complete
+                if (initialPhase >= chestSprites.Length) 
                 {
-
-                    Debug.Log("Reset");
-                    currentChest = 0;
-                    currentPhase = 0;
-                    initialPhase = 0;
-                    currentStage = 0;
-                    officialStage = 0;
+                    //Reset variables
+                    ResetChestSequence();
 
                     //Level
                     progressScript.level++;
@@ -95,6 +87,18 @@ public class Chests : MonoBehaviour {
         }
     }
 
+    //Makes all the key variables to be equal to 0
+    void ResetChestSequence()
+    {
+        Debug.Log("Reset"); //Debug msg
+
+        currentChest = 0;   
+        currentPhase = 0;
+        currentStage = 0;
+        initialPhase = 0;   //What sprite the chest sequence starts at
+        officialStage = 0;  //Round number (wooden = 0, blue = 1, purple = 2)
+    }
+
     //Open current: swap sprites on the current chest
     private void openCurrentChest()
     {
@@ -103,17 +107,6 @@ public class Chests : MonoBehaviour {
         //Swap sprite
         Debug.Log("Opening chest " + currentChest + " at phase " + currentPhase + ", stage " + currentStage);
         chests[currentChest].GetComponent<SpriteRenderer>().sprite = chestSprites[currentPhase];
-
-        //Close previous chest
-        //if(currentChest>0)
-        //{
-        //    chests[currentChest-1].GetComponent<SpriteRenderer>().sprite = chestSprites[0];
-        //}
-        //else //First chest
-        //{
-        //    chests[chests.Length-1].GetComponent<SpriteRenderer>().sprite = chestSprites[0];
-        //}
-
     }
 
     //Finsihed chest
