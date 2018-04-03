@@ -63,14 +63,14 @@ public class Chests : MonoBehaviour {
         chests[currentChest].GetComponent<SpriteRenderer>().sprite = chestSprites[currentPhase];
 
         //Close previous chest
-        if(currentChest>0)
-        {
-            chests[currentChest-1].GetComponent<SpriteRenderer>().sprite = chestSprites[0];
-        }
-        else //First chest
-        {
-            chests[chests.Length-1].GetComponent<SpriteRenderer>().sprite = chestSprites[0];
-        }
+        //if(currentChest>0)
+        //{
+        //    chests[currentChest-1].GetComponent<SpriteRenderer>().sprite = chestSprites[0];
+        //}
+        //else //First chest
+        //{
+        //    chests[chests.Length-1].GetComponent<SpriteRenderer>().sprite = chestSprites[0];
+        //}
 
     }
 
