@@ -57,6 +57,17 @@ public class Chests : MonoBehaviour {
                 Debug.Log(initialPhase + "Initial phase");
                 currentPhase = initialPhase;
 
+                if (initialPhase >= chestSprites.Length) //No more stages left
+                {
+
+                    Debug.Log("Reset");
+                    currentChest = 0;
+                    currentPhase = 0;
+                    initialPhase = 0;
+                    currentStage = 0;
+                    officialStage = 0;
+                }
+
                 //Beginning
                 if (currentChest == 0)
                 {
