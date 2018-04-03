@@ -21,10 +21,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 711, y: 421}
-  m_MaxSize: {x: 18006, y: 14021}
+  m_MinSize: {x: 713, y: 495}
+  m_MaxSize: {x: 18008, y: 14045}
   vertical: 0
-  controlID: 8128
+  controlID: 11441
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 421}
   m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
-  controlID: 8106
+  controlID: 11442
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -179,14 +179,14 @@ MonoBehaviour:
     width: 845
     height: 422
   m_SceneLighting: 1
-  lastFramingTime: 6646.800048750675
+  lastFramingTime: 445160.8508770578
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.896113, y: 0.52068734, z: 0}
+    m_Target: {x: 5.5714793, y: -0.31620952, z: 0}
     speed: 2
-    m_Value: {x: -0.896113, y: 0.52068734, z: 0}
+    m_Value: {x: 5.5714793, y: -0.31620952, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -213,9 +213,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 3.4466872
+    m_Target: 14.446885
     speed: 2
-    m_Value: 3.4466872
+    m_Value: 14.446885
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -344,10 +344,10 @@ MonoBehaviour:
     y: 0
     width: 506
     height: 947
-  m_MinSize: {x: 234, y: 371}
-  m_MaxSize: {x: 10004, y: 14021}
+  m_MinSize: {x: 234, y: 495}
+  m_MaxSize: {x: 10004, y: 14045}
   vertical: 1
-  controlID: 8059
+  controlID: 11405
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -366,14 +366,14 @@ MonoBehaviour:
     y: 0
     width: 506
     height: 555
-  m_MinSize: {x: 100, y: 100}
+  m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 12}
+  m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 11}
   - {fileID: 12}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -402,9 +402,9 @@ MonoBehaviour:
     height: 534
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 109fffff669fffff02a0ffffe4a0ffff0ca4ffffeaa4ffff6eacffffe4fbffff00000000082a0000f07b0000
+    m_SelectedIDs: a27d0000
+    m_LastClickedID: 32162
+    m_ExpandedIDs: 109fffff669fffff02a0ffffe4a0ffff0ca4ffffeaa4ffff6eacffffe4fbffff00000000082a0000b27b0000b87c0000147d0000fa7d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -515,19 +515,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/VisualAssets/Maths
+    - Assets/VisualAssets/Maths/Lighthouse
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/VisualAssets/Maths
+  - Assets/VisualAssets/Maths/Lighthouse
   m_LastFoldersGridSize: 96
   m_LastProjectPath: D:\University\FYP\Repo\educationalCyclingExergame\2DPrototype
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b2260000
-    m_LastClickedID: 9906
-    m_ExpandedIDs: 00000000dc240000d225000020260000be270000702a0000722a0000742a0000762a0000782a00007a2a0000ffffff7f
+    m_SelectedIDs: 44260100
+    m_LastClickedID: 75332
+    m_ExpandedIDs: 00000000dc240000d225000020260000b2260000be270000702a0000722a0000742a0000762a0000782a00007a2a0000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -555,7 +555,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000dc240000d225000020260000be270000702a0000722a0000742a0000762a0000782a00007a2a0000ffffff7f
+    m_ExpandedIDs: 00000000dc240000d225000020260000b2260000be270000702a0000722a0000742a0000762a0000782a00007a2a0000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -580,10 +580,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: e04effff9426000000000000b6260000
+    m_SelectedInstanceIDs: a27d0000
+    m_LastClickedInstanceID: 32162
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: e04effff9426000000000000b626000042270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -607,7 +607,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 410}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 96
   m_DirectoriesAreaWidth: 168
 --- !u!114 &15
