@@ -81,6 +81,14 @@ public class Chests : MonoBehaviour {
                         chest.GetComponent<SpriteRenderer>().sprite = chestSprites[initialPhase];
                     }
 
+                    //Special case: purple 
+                    if (officialStage == 2)
+                    {
+                        chests[0].SetActive(false);
+                        chests[1].SetActive(false);
+                        currentChest = 2;
+                    }
+
                 }
 
             }
@@ -97,6 +105,10 @@ public class Chests : MonoBehaviour {
         currentStage = 0;
         initialPhase = 0;   //What sprite the chest sequence starts at
         officialStage = 0;  //Round number (wooden = 0, blue = 1, purple = 2)
+
+        //Reactivate chests
+        chests[0].SetActive(true);
+        chests[1].SetActive(true);
     }
 
     //Open current: swap sprites on the current chest
