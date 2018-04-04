@@ -18,8 +18,11 @@ public class ChestPanel : MonoBehaviour {
     //Button for lvl up
     public GameObject lvlUpBtn;
 
-	// Use this for initialization
-	void Start () {
+    //Indicates if bonus challenge is available
+    public bool bonusExists = false;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -42,7 +45,7 @@ public class ChestPanel : MonoBehaviour {
         if(currentSpriteNumber >= lighthouseParts.Length - 1)
         {
             //Test is available
-            bonusChallenge.bonusExists = true; //change flag
+            bonusExists = true;                //change flag
             lvlUpBtn.SetActive(true);          //enable btn
         }
     }

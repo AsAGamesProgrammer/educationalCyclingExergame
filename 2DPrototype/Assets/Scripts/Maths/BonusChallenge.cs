@@ -12,14 +12,14 @@ public class BonusChallenge : MonoBehaviour {
     public GameObject losePage;
     public GameObject winPage;
 
+    //Button for lvl up
+    public GameObject lvlUpBtn;
+
     //Timer
     public Text timerText;          //timer text
     public float maximumTime = 30;    //Constant
     float currentTime;                //How muh time is left
     public bool countdownEnabled = false;  //Is the countdown on
-
-    //Indicates if bonus challenge is available
-    public bool bonusExists = false;
 
     //Scripts
     Question questionScript;
@@ -66,11 +66,8 @@ public class BonusChallenge : MonoBehaviour {
     //Set panel to be visible
     public void ShowPanel()
     {
-        if (bonusExists)
-        {
-            bonusPanel.SetActive(true);
-            enableFirstPage();
-        }
+       bonusPanel.SetActive(true);
+       enableFirstPage();
     }
 
     //Set panel to be invisible and return to the game
@@ -100,6 +97,7 @@ public class BonusChallenge : MonoBehaviour {
         //chestPanelScript.removeChest();         //remove chest
         answerScript.bonusModeEnabled(false);   //change main input field
         HidePanel();
+        lvlUpBtn.SetActive(false);
         questionScript.generateNewQuestion();   //generate new non bonus question
     }
 
