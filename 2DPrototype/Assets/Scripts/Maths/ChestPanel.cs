@@ -84,7 +84,7 @@ public class ChestPanel : MonoBehaviour {
         }
 
         //Enable bonus
-        if (currentSpriteNumber >= lighthouseParts.Length - 1)
+        if (currentSpriteNumber >= currentParts.Length - 1)
         {
             //Test is available
             bonusExists = true;                //change flag
