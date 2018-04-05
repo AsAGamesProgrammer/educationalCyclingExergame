@@ -22,7 +22,7 @@ public class CheckAnswer : MonoBehaviour {
     int reward;
 
     //Money script
-    PlayerMoney moneyScript;
+    //PlayerMoney moneyScript;
 
     //Modes
     bool bonusMode = false;
@@ -33,7 +33,7 @@ public class CheckAnswer : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        moneyScript = GameObject.Find("MoneyManager").GetComponent<PlayerMoney>();
+        //moneyScript = GameObject.Find("MoneyManager").GetComponent<PlayerMoney>();
 
         //Set input field to regular
         inputField = regularField;
@@ -51,8 +51,8 @@ public class CheckAnswer : MonoBehaviour {
             //Correct Answer
             if (enteredAnswer == correctAnswer)
             {
-                //Add money
-                moneyScript.addMoney(reward);
+                ////Add money
+                //moneyScript.addMoney(reward);
 
                 //Feedback
                 inputField.text = "";

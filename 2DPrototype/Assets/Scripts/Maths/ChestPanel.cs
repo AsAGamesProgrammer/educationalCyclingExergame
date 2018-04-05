@@ -21,10 +21,15 @@ public class ChestPanel : MonoBehaviour {
     //Indicates if bonus challenge is available
     public bool bonusExists = false;
 
+    //Money script
+    PlayerMoney moneyScript;
+    int reward = 10;
+
     // Use this for initialization
-    void Start () {
-		
-	}
+    void Start ()
+    {
+        moneyScript = GameObject.Find("MoneyManager").GetComponent<PlayerMoney>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -48,6 +53,9 @@ public class ChestPanel : MonoBehaviour {
             bonusExists = true;                //change flag
             lvlUpBtn.SetActive(true);          //enable btn
         }
+
+        //Add money
+        moneyScript.addMoney(reward);
     }
 
     //Removes the chest from the bonus panel after it was claimed
