@@ -7,7 +7,14 @@ public class ChestPanel : MonoBehaviour {
 
     //Images
     public Image lighthouse;
+    public Image shipImage;
+
+    //Arrays
     public Sprite[] lighthouseParts;
+    public Sprite[] shipParts;
+
+    private Sprite[] currentParts;
+    private Image currentImage;
 
     //Current picture indicator
     int currentSpriteNumber = -1;
@@ -29,6 +36,10 @@ public class ChestPanel : MonoBehaviour {
     void Start ()
     {
         moneyScript = GameObject.Find("MoneyManager").GetComponent<PlayerMoney>();
+
+        //Initial challenge
+        currentParts = lighthouseParts;
+        currentImage = lighthouse;
     }
 	
 	// Update is called once per frame
@@ -36,18 +47,44 @@ public class ChestPanel : MonoBehaviour {
 		
 	}
 
+    public void LevelUp(int level)
+    {
+        currentSpriteNumber = -1;
+        currentImage.gameObject.SetActive(false);
+
+        switch (level)
+        {
+            case 1:
+                currentParts = lighthouseParts;
+                currentImage = lighthouse;
+                break;
+
+            case 2:
+                currentParts = shipParts;
+                currentImage = shipImage;
+                break;
+
+            default:
+                currentParts = shipParts;
+                currentImage = shipImage;
+                break;
+        }
+
+        currentImage.gameObject.SetActive(true);
+    }
+
     public void addChest()
     {
         //Open up next piece of the lighthouse
-        if (currentSpriteNumber < lighthouseParts.Length - 1)
+        if (currentSpriteNumber < currentParts.Length - 1)
         {
             Debug.Log("Applying picture " + currentSpriteNumber);
             currentSpriteNumber++;
-            lighthouse.sprite = lighthouseParts[currentSpriteNumber];
+            currentImage.sprite = currentParts[currentSpriteNumber];
         }
-        
+
         //Enable bonus
-        if(currentSpriteNumber >= lighthouseParts.Length - 1)
+        if (currentSpriteNumber >= lighthouseParts.Length - 1)
         {
             //Test is available
             bonusExists = true;                //change flag
@@ -58,15 +95,5 @@ public class ChestPanel : MonoBehaviour {
         moneyScript.addMoney(reward);
     }
 
-    //Removes the chest from the bonus panel after it was claimed
-    //public void removeChest()
-    //{
-    //    availableChestNumber--;
-    //    chests[availableChestNumber].sprite = transparentSprite;
 
-    //    if (availableChestNumber <= 0)
-    //    {
-    //        bonusChallenge.bonusExists = false;
-    //    }
-    //}
 }

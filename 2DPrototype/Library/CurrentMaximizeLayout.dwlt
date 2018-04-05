@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 495}
   m_MaxSize: {x: 18008, y: 14045}
   vertical: 0
-  controlID: 1921
+  controlID: 4071
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -121,10 +121,10 @@ MonoBehaviour:
     y: 0
     width: 847
     height: 947
-  m_MinSize: {x: 202, y: 442}
-  m_MaxSize: {x: 4002, y: 8042}
+  m_MinSize: {x: 202, y: 421}
+  m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
-  controlID: 1862
+  controlID: 3979
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 495}
   m_MaxSize: {x: 10004, y: 14045}
   vertical: 1
-  controlID: 1885
+  controlID: 4035
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -402,8 +402,8 @@ MonoBehaviour:
     height: 534
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 80290000
-    m_LastClickedID: 10624
+    m_SelectedIDs: 042b0000
+    m_LastClickedID: 11012
     m_ExpandedIDs: e4fbffff00000000c22800003c2a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -524,10 +524,10 @@ MonoBehaviour:
   m_LastProjectPath: D:\University\FYP\Repo\educationalCyclingExergame\2DPrototype
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 34}
     m_SelectedIDs: 8a270000
     m_LastClickedID: 10122
-    m_ExpandedIDs: 00000000de240000e6250000ec2600001a280000962b0000982b00009a2b00009c2b00009e2b0000a02b0000ffffff7f
+    m_ExpandedIDs: 00000000de240000e625000048260000ec2600001a280000962b0000982b00009a2b00009c2b00009e2b0000a02b0000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -555,7 +555,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000de240000e6250000ec2600001a280000962b0000982b00009a2b00009c2b00009e2b0000a02b0000ffffff7f
+    m_ExpandedIDs: 00000000de240000e625000048260000ec2600001a280000962b0000982b00009a2b00009c2b00009e2b0000a02b0000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -580,9 +580,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 80290000
-    m_LastClickedInstanceID: 10624
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 042b0000
+    m_LastClickedInstanceID: 11012
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: e04effff9426000000000000b626000042270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -607,7 +607,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 62}
+    m_ScrollPosition: {x: 0, y: 187}
     m_GridSize: 96
   m_DirectoriesAreaWidth: 168
 --- !u!114 &15
