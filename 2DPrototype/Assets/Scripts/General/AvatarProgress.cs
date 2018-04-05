@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AvatarProgress : MonoBehaviour {
 
@@ -8,7 +9,8 @@ public class AvatarProgress : MonoBehaviour {
     public int stage = 0;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		
 	}
 	
@@ -16,4 +18,14 @@ public class AvatarProgress : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void NextLevel()
+    {
+        level++;
+
+        GameObject.FindGameObjectWithTag("LevelInfo").GetComponent<Text>().text = "Level " + (level + 1).ToString();
+
+        //TODO
+        //Reset chest sequence
+    }
 }

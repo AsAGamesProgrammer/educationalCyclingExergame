@@ -67,7 +67,7 @@ public class Chests : MonoBehaviour {
                     ResetChestSequence();
 
                     //Level
-                    progressScript.level++;
+                    //progressScript.level++;
                 }
 
                 //Beginning

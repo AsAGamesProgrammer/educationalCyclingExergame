@@ -26,6 +26,9 @@ public class BonusChallenge : MonoBehaviour {
     CheckAnswer answerScript;
     public ChestPanel chestPanelScript;
 
+    //Avatar progress script
+    public AvatarProgress progressScript;
+
     //Lose
     public Text correctAnswer;
 
@@ -35,6 +38,7 @@ public class BonusChallenge : MonoBehaviour {
         //Get scripts
         questionScript = GetComponent<Question>();
         answerScript = GetComponent<CheckAnswer>();
+        progressScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarProgress>();
     }
 	
 	// Update is called once per frame
@@ -99,6 +103,10 @@ public class BonusChallenge : MonoBehaviour {
         HidePanel();
         lvlUpBtn.SetActive(false);
         questionScript.generateNewQuestion();   //generate new non bonus question
+
+        //Level up
+        //Level
+        progressScript.NextLevel();
     }
 
     //--------------HELPERS
