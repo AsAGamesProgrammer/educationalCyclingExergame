@@ -93,6 +93,18 @@ public class Chests : MonoBehaviour {
         }
     }
 
+    //Public function
+    public void StartRound()
+    {
+        ResetChestSequence();
+
+        //Replace sprites
+        foreach (var chest in chests)
+        {
+            chest.GetComponent<SpriteRenderer>().sprite = chestSprites[initialPhase];
+        }
+    }
+
     //Makes all the key variables to be equal to 0
     void ResetChestSequence()
     {

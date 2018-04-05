@@ -25,6 +25,7 @@ public class BonusChallenge : MonoBehaviour {
     Question questionScript;
     CheckAnswer answerScript;
     public ChestPanel chestPanelScript;
+    public Chests chestScript;
 
     //Avatar progress script
     public AvatarProgress progressScript;
@@ -102,11 +103,15 @@ public class BonusChallenge : MonoBehaviour {
         answerScript.bonusModeEnabled(false);   //change main input field
         HidePanel();
         lvlUpBtn.SetActive(false);
-        questionScript.generateNewQuestion();   //generate new non bonus question
 
         //Level up
-        //Level
         progressScript.NextLevel();
+        //Reset chests
+        chestScript.StartRound();
+
+        //New question
+        questionScript.generateNewQuestion();   //generate new non bonus question
+
     }
 
     //--------------HELPERS
