@@ -108,7 +108,7 @@ public class BonusChallenge : MonoBehaviour {
         progressScript.NextLevel();
 
         //Change task
-        chestPanelScript.LevelUp(progressScript.level + 1);
+        chestPanelScript.LevelUp(progressScript.level);
 
         //Reset chests
         chestScript.StartRound();

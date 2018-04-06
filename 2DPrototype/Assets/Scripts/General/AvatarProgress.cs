@@ -23,7 +23,7 @@ public class AvatarProgress : MonoBehaviour {
     {
         level++;
 
-        GameObject.FindGameObjectWithTag("LevelInfo").GetComponent<Text>().text = "Level " + level.ToString();
+        GameObject.FindGameObjectWithTag("LevelInfo").GetComponent<Text>().text = "Level " + (level + 1).ToString();
 
         //TODO
         //Reset chest sequence
