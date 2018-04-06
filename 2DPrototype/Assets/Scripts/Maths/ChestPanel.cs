@@ -8,8 +8,10 @@ public class ChestPanel : MonoBehaviour {
     //Images
     public Image lighthouse;
     public Image shipImage;
+    public Image mapImage;
 
     //Arrays
+    public Sprite[] mapParts;
     public Sprite[] lighthouseParts;
     public Sprite[] shipParts;
 
@@ -38,8 +40,8 @@ public class ChestPanel : MonoBehaviour {
         moneyScript = GameObject.Find("MoneyManager").GetComponent<PlayerMoney>();
 
         //Initial challenge
-        currentParts = lighthouseParts;
-        currentImage = lighthouse;
+        currentParts = mapParts;
+        currentImage = mapImage;
     }
 	
 	// Update is called once per frame
