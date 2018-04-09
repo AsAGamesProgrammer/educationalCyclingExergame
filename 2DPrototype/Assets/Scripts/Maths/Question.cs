@@ -132,4 +132,25 @@ public class Question : MonoBehaviour {
         answerScript.setCorrectAnswer(numberA + numberB);  //Set answer
     }
 
+
+    //TODO: Link and check book
+    void generateBonusSubstraction()
+    {
+        int numberA = Random.Range(1, 90);              //get random int between 1-90
+
+        int difference = 100 - numberA;                 //get the maximum value of the second int
+        int numberB = Random.Range(1, difference);      //randomly generate second int
+
+        if (numberA > numberB)                          //Substract smaller number from the greater one
+        {
+            bonusQuestionText.text = numberA.ToString() + "p - " + numberB + "p";
+            answerScript.setCorrectAnswer(numberA - numberB);  //Set answer
+        }
+        else
+        {
+            bonusQuestionText.text = numberB.ToString() + "p - " + numberA + "p";
+            answerScript.setCorrectAnswer(numberB - numberA);  //Set answer
+        }
+
+    }
 }
