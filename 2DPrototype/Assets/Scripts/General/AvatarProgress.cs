@@ -20,10 +20,13 @@ public class AvatarProgress : MonoBehaviour {
 
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public void NextStage(int officialStage)
+    {
+        stage = officialStage;
+
+        if (stage >= 3)
+            stage = 0;
+    }
 
     public void NextLevel()
     {

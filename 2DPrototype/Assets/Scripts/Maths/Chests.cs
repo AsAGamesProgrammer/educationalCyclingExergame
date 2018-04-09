@@ -57,6 +57,7 @@ public class Chests : MonoBehaviour {
                 //Insrease stage TEST
                 currentStage += 3 + officialStage;
                 officialStage++;
+                progressScript.NextStage(officialStage);
                 initialPhase = currentStage - officialStage;
                 currentPhase = initialPhase;
 
@@ -65,9 +66,6 @@ public class Chests : MonoBehaviour {
                 {
                     //Reset variables
                     ResetChestSequence();
-
-                    //Level
-                    //progressScript.level++;
                 }
 
                 //Beginning
