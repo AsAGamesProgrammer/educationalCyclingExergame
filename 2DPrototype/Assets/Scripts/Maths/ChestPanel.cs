@@ -52,11 +52,6 @@ public class ChestPanel : MonoBehaviour {
         //Check against progress script
         LevelUp(progressScript.level);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void LevelUp(int level)
     {

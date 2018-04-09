@@ -6,15 +6,17 @@ public class ChangeBackground : MonoBehaviour {
 
     public GameObject[] backgrounds = new GameObject[3];
 
+    AvatarProgress progressScript;
+
 	// Use this for initialization
-	void Start () {
-		
-	}
+	void Start ()
+    {
+        //Progress script
+        progressScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarProgress>();
+
+        ChangeLevel(progressScript.level);
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void ChangeLevel(int level)
     {
