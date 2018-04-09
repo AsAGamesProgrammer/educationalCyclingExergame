@@ -33,6 +33,9 @@ public class BonusChallenge : MonoBehaviour {
     //Lose
     public Text correctAnswer;
 
+    //Audio
+    MathsAudio audioManager;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -40,6 +43,9 @@ public class BonusChallenge : MonoBehaviour {
         questionScript = GetComponent<Question>();
         answerScript = GetComponent<CheckAnswer>();
         progressScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarProgress>();
+
+        //Audio
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MathsAudio>();
     }
 	
 	// Update is called once per frame
@@ -119,6 +125,9 @@ public class BonusChallenge : MonoBehaviour {
         //Progress
         progressScript.readyToLevel = false;
         progressScript.stage = 0;
+
+        //Change background music
+        audioManager.ChangeBackgroundMusic(progressScript.level);
 
     }
 
