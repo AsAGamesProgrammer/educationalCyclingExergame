@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\General\MoneyManagerDuplicate.cs" />
     <Compile Include="Assets\Scripts\General\SetAvatarSprites.cs" />
     <Compile Include="Assets\Scripts\Maths\BonusChallenge.cs" />
+    <Compile Include="Assets\Scripts\Maths\ChangeBackground.cs" />
     <Compile Include="Assets\Scripts\Maths\CheckAnswer.cs" />
     <Compile Include="Assets\Scripts\Maths\ChestPanel.cs" />
     <Compile Include="Assets\Scripts\Maths\Chests.cs" />

@@ -11,8 +11,9 @@ public class AvatarProgress : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-		
-	}
+        //background change
+        GameObject.FindGameObjectWithTag("Manager").GetComponent<ChangeBackground>().ChangeLevel(level);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -23,9 +24,11 @@ public class AvatarProgress : MonoBehaviour {
     {
         level++;
 
+        //Banner text
         GameObject.FindGameObjectWithTag("LevelInfo").GetComponent<Text>().text = "Level " + (level + 1).ToString();
 
-        //TODO
-        //Reset chest sequence
+        //background change
+        GameObject.FindGameObjectWithTag("Manager").GetComponent<ChangeBackground>().ChangeLevel(level);
+
     }
 }
