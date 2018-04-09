@@ -51,6 +51,8 @@ public class ChestPanel : MonoBehaviour {
 
         //Check against progress script
         LevelUp(progressScript.level);
+
+        LoadProgress();
     }
 
     public void LevelUp(int level)
@@ -82,6 +84,25 @@ public class ChestPanel : MonoBehaviour {
         }
 
         currentImage.gameObject.SetActive(true);
+    }
+
+    void LoadProgress()
+    {
+        currentSpriteNumber = progressScript.stage * 3;
+        currentSpriteNumber--;
+
+        if (currentSpriteNumber < 0)
+            return;
+
+        currentImage.sprite = currentParts[currentSpriteNumber];
+
+        //Enable bonus
+        if (currentSpriteNumber >= currentParts.Length - 1)
+        {
+            //Test is available
+            bonusExists = true;                //change flag
+            lvlUpBtn.SetActive(true);          //enable btn
+        }
     }
 
     public void addChest()
