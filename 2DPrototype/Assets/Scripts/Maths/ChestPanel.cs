@@ -91,18 +91,23 @@ public class ChestPanel : MonoBehaviour {
         currentSpriteNumber = progressScript.stage * 3;
         currentSpriteNumber--;
 
-        if (currentSpriteNumber < 0)
+        if (currentSpriteNumber < 0 && !progressScript.readyToLevel)
             return;
 
-        currentImage.sprite = currentParts[currentSpriteNumber];
-
         //Enable bonus
-        if (currentSpriteNumber >= currentParts.Length - 1)
+        if (progressScript.readyToLevel)
         {
             //Test is available
             bonusExists = true;                //change flag
             lvlUpBtn.SetActive(true);          //enable btn
+
+            //Load last img
+            currentSpriteNumber = currentParts.Length - 1;
+
+            Debug.Log("Ready to level loaded");
         }
+
+        currentImage.sprite = currentParts[currentSpriteNumber];
     }
 
     public void addChest()
@@ -121,6 +126,7 @@ public class ChestPanel : MonoBehaviour {
             //Test is available
             bonusExists = true;                //change flag
             lvlUpBtn.SetActive(true);          //enable btn
+            progressScript.readyToLevel = true;
         }
 
         //Add money

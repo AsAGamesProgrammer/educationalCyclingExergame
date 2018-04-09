@@ -116,6 +116,10 @@ public class BonusChallenge : MonoBehaviour {
         //New question
         questionScript.generateNewQuestion();   //generate new non bonus question
 
+        //Progress
+        progressScript.readyToLevel = false;
+        progressScript.stage = 0;
+
     }
 
     //--------------HELPERS

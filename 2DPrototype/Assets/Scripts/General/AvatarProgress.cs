@@ -9,6 +9,8 @@ public class AvatarProgress : MonoBehaviour {
     public int level = 0;
     public int stage = 0;
 
+    public bool readyToLevel = false;
+
 	// Use this for initialization
 	void Start ()
     {
