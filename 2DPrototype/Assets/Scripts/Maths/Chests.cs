@@ -28,6 +28,9 @@ public class Chests : MonoBehaviour {
     {
         //Find script
         progressScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarProgress>();
+
+        //Preload
+        PreloadStage(progressScript.stage);
     }
 
     //Chests in a middle of a screen
@@ -88,6 +91,47 @@ public class Chests : MonoBehaviour {
                 }
 
             }
+        }
+    }
+
+    //Function used at Start
+    void PreloadStage(int stage_)
+    {
+        if (stage_ <= 0)
+            return;
+
+        officialStage = stage_;
+
+        switch(stage_)
+        {
+            //Blue
+            case 1: 
+                initialPhase = 2;
+                currentStage = 3;
+                currentChest = 0;
+                chests[0].SetActive(true);
+                chests[1].SetActive(true);
+                break;
+
+            //Purple
+            case 2:
+                initialPhase = 5;
+                currentStage = 7;
+                currentChest = 2;
+                chests[0].SetActive(false);
+                chests[1].SetActive(false);
+                break;
+
+            default:
+                break;
+        }
+
+        currentPhase = initialPhase;
+
+        //Replace sprites
+        foreach (var chest in chests)
+        {
+            chest.GetComponent<SpriteRenderer>().sprite = chestSprites[initialPhase];
         }
     }
 
