@@ -45,9 +45,12 @@ public class ChestPanel : MonoBehaviour {
         //Progress script
         progressScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarProgress>();
 
-        //Initial challenge
+        //Initial collection
         currentParts = mapParts;
         currentImage = mapImage;
+
+        //Check against progress script
+        LevelUp(progressScript.level);
     }
 	
 	// Update is called once per frame
@@ -62,6 +65,11 @@ public class ChestPanel : MonoBehaviour {
 
         switch (level)
         {
+            case 0:
+                currentParts = mapParts;
+                currentImage = mapImage;
+                break;
+
             case 1:
                 currentParts = lighthouseParts;
                 currentImage = lighthouse;

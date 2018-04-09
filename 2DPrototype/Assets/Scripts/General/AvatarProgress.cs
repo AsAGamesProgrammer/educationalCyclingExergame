@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AvatarProgress : MonoBehaviour {
 
@@ -11,8 +12,11 @@ public class AvatarProgress : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        //background change
-        GameObject.FindGameObjectWithTag("Manager").GetComponent<ChangeBackground>().ChangeLevel(level);
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            //background change
+            GameObject.FindGameObjectWithTag("Manager").GetComponent<ChangeBackground>().ChangeLevel(level);
+        }
 
     }
 	
