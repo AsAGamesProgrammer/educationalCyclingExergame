@@ -112,7 +112,10 @@ public class Question : MonoBehaviour {
             Debug.Log(numberB - numberA);
         }
 
- 
+        //Test
+        questionShadowText.text = questionText.text;
+
+
     }
 
     //BONUS------------------------------------------------------------

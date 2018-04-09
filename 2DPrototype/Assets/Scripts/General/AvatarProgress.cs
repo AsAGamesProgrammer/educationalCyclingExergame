@@ -13,6 +13,7 @@ public class AvatarProgress : MonoBehaviour {
     {
         //background change
         GameObject.FindGameObjectWithTag("Manager").GetComponent<ChangeBackground>().ChangeLevel(level);
+
     }
 	
 	// Update is called once per frame
@@ -29,6 +30,25 @@ public class AvatarProgress : MonoBehaviour {
 
         //background change
         GameObject.FindGameObjectWithTag("Manager").GetComponent<ChangeBackground>().ChangeLevel(level);
+
+    }
+
+    public int GetReward()
+    {
+        switch(level)
+        {
+            case 0:
+                return 10;
+
+            case 1:
+                return 100;
+
+            case 2:
+                return 500;
+
+            default:
+                return 10;
+        }
 
     }
 }

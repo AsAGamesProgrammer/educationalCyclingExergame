@@ -34,10 +34,16 @@ public class ChestPanel : MonoBehaviour {
     PlayerMoney moneyScript;
     int reward = 10;
 
+    //Progress
+    AvatarProgress progressScript;
+
     // Use this for initialization
     void Start ()
     {
         moneyScript = GameObject.Find("MoneyManager").GetComponent<PlayerMoney>();
+        
+        //Progress script
+        progressScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarProgress>();
 
         //Initial challenge
         currentParts = mapParts;
@@ -94,7 +100,8 @@ public class ChestPanel : MonoBehaviour {
         }
 
         //Add money
-        moneyScript.addMoney(reward);
+
+        moneyScript.addMoney(progressScript.GetReward());
     }
 
 
