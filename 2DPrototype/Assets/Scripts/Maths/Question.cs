@@ -7,6 +7,7 @@ public class Question : MonoBehaviour {
 
 
     public Text questionText;       //Non-bonus
+    public Text questionShadowText;       //Non-bonus
     public Text bonusQuestionText;  //Bonus
 
     public CheckAnswer answerScript;
@@ -80,6 +81,10 @@ public class Question : MonoBehaviour {
         int numberB = Random.Range(1, difference);      //randomly generate second int
 
         questionText.text = numberA.ToString() + "p + " + numberB + "p";
+
+        //Test
+        questionShadowText.text = questionText.text;
+
         answerScript.setCorrectAnswer(numberA + numberB);  //Set answer
 
         Debug.Log(numberA + numberB);

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LightControl : MonoBehaviour {
 
     public Text taskText;
+    public Text taskShadowText;
     private float currentVisibility = 0.0f;
     public float lightSpeedInc = 0.05f;
     public float lightSpeedDec = 0.01f;
@@ -18,7 +19,9 @@ public class LightControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        //Main question
         Color textColour = taskText.color;
+        Color shadowColor = taskShadowText.color;
 
         float temp = Input.GetAxis("Vertical");
 
@@ -31,7 +34,12 @@ public class LightControl : MonoBehaviour {
             currentVisibility += lightSpeedInc;
         }
 
+        //Main 
         textColour.a = currentVisibility;
         taskText.color = textColour;
+
+        //Shadow
+        shadowColor.a = currentVisibility;
+        taskShadowText.color = shadowColor;
 	}
 }
