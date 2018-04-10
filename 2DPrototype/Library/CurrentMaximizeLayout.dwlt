@@ -21,10 +21,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 713, y: 492}
-  m_MaxSize: {x: 18008, y: 14042}
+  m_MinSize: {x: 713, y: 495}
+  m_MaxSize: {x: 18008, y: 14045}
   vertical: 0
-  controlID: 27911
+  controlID: 28452
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 28151
+  controlID: 28453
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -344,10 +344,10 @@ MonoBehaviour:
     y: 0
     width: 509
     height: 947
-  m_MinSize: {x: 234, y: 492}
-  m_MaxSize: {x: 10004, y: 14042}
+  m_MinSize: {x: 234, y: 495}
+  m_MaxSize: {x: 10004, y: 14045}
   vertical: 1
-  controlID: 27912
+  controlID: 28365
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -366,8 +366,8 @@ MonoBehaviour:
     y: 0
     width: 509
     height: 555
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 11}
@@ -402,8 +402,8 @@ MonoBehaviour:
     height: 534
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 0c070300
-    m_LastClickedID: 198412
+    m_SelectedIDs: f2080300
+    m_LastClickedID: 198898
     m_ExpandedIDs: aa3efcff4041fcff0a53fcfff666fcffeecdfcffbcdefcff38e4fcff6ee9fcff3a31fdff8281fdff7893fdff1e9cfdfffcf9fdff0c14fefffc30feff3848feff784efeff8655feff565cfeff8861feff8a64feff126bfeff2c77feffb2beffffe4fbfffff4ffffff000000001c29000036290000722a0000e6f4000094000100380201009c1601008e2701005a610100d0620100be680200607e02008c7f02000a8002009808030030090300
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -515,18 +515,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts/Maths
+    - Assets/MusicAssets/SoundEffects
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Scripts/Maths
+  - Assets/MusicAssets/SoundEffects
   m_LastFoldersGridSize: 96
   m_LastProjectPath: D:\University\FYP\Repo\educationalCyclingExergame\2DPrototype
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 44260000
-    m_LastClickedID: 9796
+    m_SelectedIDs: 368f0200
+    m_LastClickedID: 167734
     m_ExpandedIDs: 00000000e02400000226000064260000d62b0000d82b0000da2b0000dc2b0000de2b0000e02b00002cff0100ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -580,9 +580,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 0c070300
-    m_LastClickedInstanceID: 198412
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: f2080300
+    m_LastClickedInstanceID: 198898
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: e04effff94260000b62600004227000000000000a4270000be27000012280000282600004627000086280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -607,7 +607,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 31}
+    m_ScrollPosition: {x: 0, y: 62}
     m_GridSize: 96
   m_DirectoriesAreaWidth: 168
 --- !u!114 &15

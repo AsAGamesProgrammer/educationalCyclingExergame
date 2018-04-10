@@ -21,8 +21,8 @@ public class CheckAnswer : MonoBehaviour {
     int bonusReward = 50;
     int reward;
 
-    //Money script
-    //PlayerMoney moneyScript;
+    //Audio
+    MathsAudio audioManager;
 
     //Modes
     bool bonusMode = false;
@@ -33,15 +33,17 @@ public class CheckAnswer : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        //moneyScript = GameObject.Find("MoneyManager").GetComponent<PlayerMoney>();
-
         //Set input field to regular
         inputField = regularField;
         reward = regularReward;
 
         //Bonus challenge script
         bonusChallengeScript = GetComponent<BonusChallenge>();
-	}
+
+        //Audio
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MathsAudio>();
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -77,35 +79,43 @@ public class CheckAnswer : MonoBehaviour {
             }
             else
             {
-                inputField.text = "";
-                int randomPhrase = Random.Range(1, 5);
-                switch (randomPhrase)
-                {
-                    case 1:
-                        inputField.placeholder.GetComponent<Text>().text = "NOT EXACTLY...";
-                        break;
-
-                    case 2:
-                        inputField.placeholder.GetComponent<Text>().text = "TRY AGAIN";
-                        break;
-
-                    case 3:
-                        inputField.placeholder.GetComponent<Text>().text = "MM, NOT REALLY";
-                        break;
-
-                    case 4:
-                        inputField.placeholder.GetComponent<Text>().text = "ARE YOU SURE?..";
-                        break;
-
-                    default:
-                        inputField.placeholder.GetComponent<Text>().text = "NOT EXACTLY...";
-                        break;
-                }
+                HandleIncorrectAnswer();
 
             }
         }
 		
 	}
+
+    void HandleIncorrectAnswer()
+    {
+        //Audio
+        audioManager.PlayIncorrectAnswer();
+
+        inputField.text = "";
+        int randomPhrase = Random.Range(1, 5);
+        switch (randomPhrase)
+        {
+            case 1:
+                inputField.placeholder.GetComponent<Text>().text = "NOT EXACTLY...";
+                break;
+
+            case 2:
+                inputField.placeholder.GetComponent<Text>().text = "TRY AGAIN";
+                break;
+
+            case 3:
+                inputField.placeholder.GetComponent<Text>().text = "MM, NOT REALLY";
+                break;
+
+            case 4:
+                inputField.placeholder.GetComponent<Text>().text = "ARE YOU SURE?..";
+                break;
+
+            default:
+                inputField.placeholder.GetComponent<Text>().text = "NOT EXACTLY...";
+                break;
+        }
+    }
 
     //Set answer
     public void setCorrectAnswer(float answer)
