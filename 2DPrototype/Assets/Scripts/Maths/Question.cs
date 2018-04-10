@@ -75,10 +75,10 @@ public class Question : MonoBehaviour {
     //Example: 10p + 34p
     void generateSimpleAddition()
     {
-        int numberA = Random.Range(1, 90);              //get random int between 1-90
+        int numberA = Random.Range(7, 90);              //get random int between 1-90
 
         int difference = 100 - numberA;                 //get the maximum value of the second int
-        int numberB = Random.Range(1, difference);      //randomly generate second int
+        int numberB = Random.Range(7, difference);      //randomly generate second int
 
         questionText.text = numberA.ToString() + "p + " + numberB + "p";
 
@@ -104,16 +104,25 @@ public class Question : MonoBehaviour {
             questionText.text = numberA.ToString() + "p - " + numberB + "p";
             answerScript.setCorrectAnswer(numberA - numberB);  //Set answer
             Debug.Log(numberA - numberB);
+
+            //TEMP
+            if (numberA - numberB < 10)
+                generateSimpleSubstraction();
         }
         else
         {
             questionText.text = numberB.ToString() + "p - " + numberA + "p";
             answerScript.setCorrectAnswer(numberB - numberA);  //Set answer
             Debug.Log(numberB - numberA);
+
+            //TEMP
+            if (numberB - numberA < 10)
+                generateSimpleSubstraction();
         }
 
         //Test
         questionShadowText.text = questionText.text;
+
 
 
     }
@@ -123,34 +132,34 @@ public class Question : MonoBehaviour {
     //Example: Find the total of 70p and 30p
     public void generateBonusAddition()
     {
-        int numberA = Random.Range(1, 90);              //get random int between 1-90
+        int numberA = Random.Range(7, 90);              //get random int between 1-90
 
         int difference = 100 - numberA;                 //get the maximum value of the second int
-        int numberB = Random.Range(1, difference);      //randomly generate ssecond int
+        int numberB = Random.Range(7, difference);      //randomly generate ssecond int
 
         bonusQuestionText.text = "Find the total of " + numberA + "p and " + numberB + "p";
         answerScript.setCorrectAnswer(numberA + numberB);  //Set answer
     }
 
 
-    //TODO: Link and check book
-    void generateBonusSubstraction()
-    {
-        int numberA = Random.Range(1, 90);              //get random int between 1-90
+    ////TODO: Link and check book
+    //void generateBonusSubstraction()
+    //{
+    //    int numberA = Random.Range(1, 90);              //get random int between 1-90
 
-        int difference = 100 - numberA;                 //get the maximum value of the second int
-        int numberB = Random.Range(1, difference);      //randomly generate second int
+    //    int difference = 100 - numberA;                 //get the maximum value of the second int
+    //    int numberB = Random.Range(1, difference);      //randomly generate second int
 
-        if (numberA > numberB)                          //Substract smaller number from the greater one
-        {
-            bonusQuestionText.text = numberA.ToString() + "p - " + numberB + "p";
-            answerScript.setCorrectAnswer(numberA - numberB);  //Set answer
-        }
-        else
-        {
-            bonusQuestionText.text = numberB.ToString() + "p - " + numberA + "p";
-            answerScript.setCorrectAnswer(numberB - numberA);  //Set answer
-        }
+    //    if (numberA > numberB)                          //Substract smaller number from the greater one
+    //    {
+    //        bonusQuestionText.text = numberA.ToString() + "p - " + numberB + "p";
+    //        answerScript.setCorrectAnswer(numberA - numberB);  //Set answer
+    //    }
+    //    else
+    //    {
+    //        bonusQuestionText.text = numberB.ToString() + "p - " + numberA + "p";
+    //        answerScript.setCorrectAnswer(numberB - numberA);  //Set answer
+    //    }
 
-    }
+    //}
 }
