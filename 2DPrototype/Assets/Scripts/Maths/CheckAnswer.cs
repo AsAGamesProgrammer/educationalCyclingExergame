@@ -48,14 +48,15 @@ public class CheckAnswer : MonoBehaviour {
     {
         if (float.TryParse(inputField.text, out enteredAnswer))
         {
+            if (enteredAnswer < 10)
+                return;
+
             //Correct Answer
             if (enteredAnswer == correctAnswer)
             {
-                ////Add money
-                //moneyScript.addMoney(reward);
-
                 //Feedback
                 inputField.text = "";
+                inputField.placeholder.GetComponent<Text>().text = "Enter answer";
 
                 if (!bonusMode)
                 {
@@ -73,6 +74,34 @@ public class CheckAnswer : MonoBehaviour {
                     //Stop timer
                     bonusChallengeScript.countdownEnabled = false;
                 }
+            }
+            else
+            {
+                inputField.text = "";
+                int randomPhrase = Random.Range(1, 5);
+                switch (randomPhrase)
+                {
+                    case 1:
+                        inputField.placeholder.GetComponent<Text>().text = "NOT EXACTLY...";
+                        break;
+
+                    case 2:
+                        inputField.placeholder.GetComponent<Text>().text = "TRY AGAIN";
+                        break;
+
+                    case 3:
+                        inputField.placeholder.GetComponent<Text>().text = "MM, NOT REALLY";
+                        break;
+
+                    case 4:
+                        inputField.placeholder.GetComponent<Text>().text = "ARE YOU SURE?..";
+                        break;
+
+                    default:
+                        inputField.placeholder.GetComponent<Text>().text = "NOT EXACTLY...";
+                        break;
+                }
+
             }
         }
 		
