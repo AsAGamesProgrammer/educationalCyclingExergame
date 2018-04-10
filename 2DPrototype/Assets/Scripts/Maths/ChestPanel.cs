@@ -37,6 +37,9 @@ public class ChestPanel : MonoBehaviour {
     //Progress
     AvatarProgress progressScript;
 
+    //Audio
+    MathsAudio audioManager;
+
     // Use this for initialization
     void Start ()
     {
@@ -44,6 +47,9 @@ public class ChestPanel : MonoBehaviour {
         
         //Progress script
         progressScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarProgress>();
+
+        //Audio
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MathsAudio>();
 
         //Initial collection
         currentParts = mapParts;
@@ -101,6 +107,9 @@ public class ChestPanel : MonoBehaviour {
             bonusExists = true;                //change flag
             lvlUpBtn.SetActive(true);          //enable btn
 
+            //Lvl up available sound
+            audioManager.PlayLvlUpAvailable();
+
             //Load last img
             currentSpriteNumber = currentParts.Length - 1;
 
@@ -126,6 +135,10 @@ public class ChestPanel : MonoBehaviour {
             //Test is available
             bonusExists = true;                //change flag
             lvlUpBtn.SetActive(true);          //enable btn
+
+            //Lvl up available sound
+            audioManager.PlayLvlUpAvailable();
+
             progressScript.readyToLevel = true;
         }
 
