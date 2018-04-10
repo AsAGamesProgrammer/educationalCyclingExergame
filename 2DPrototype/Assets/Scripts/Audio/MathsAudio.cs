@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// LIST OF AUDIO SOURCES
+/// BACKGROUND - background music
+/// SOUND EFFECTS - btn click, semi-open chest, fully open chest
+/// 
+/// </summary>
+
+
 public class MathsAudio : MonoBehaviour {
 
     //Background audio
@@ -12,6 +20,8 @@ public class MathsAudio : MonoBehaviour {
     public AudioSource soundEffectsSource;
 
     public AudioClip btnClickClip;  //Btn click
+    public AudioClip fireworksClip;  //Fireworks
+    public AudioClip correctAnswer;  //Chest opening
 
     //Scripts
     AvatarProgress progressScript;
@@ -23,12 +33,25 @@ public class MathsAudio : MonoBehaviour {
         progressScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarProgress>();
 
         ChangeBackgroundMusic(progressScript.level);
+
     }
 
     //------------SOUND EFFECTS-------------
     public void PlayBtnClick()
     {
         soundEffectsSource.clip = btnClickClip;
+        soundEffectsSource.Play();
+    }
+
+    public void PlayFireworks()
+    {
+        soundEffectsSource.clip = fireworksClip;
+        soundEffectsSource.Play();
+    }
+
+    public void PlayCorrectAnswer()
+    {
+        soundEffectsSource.clip = correctAnswer;
         soundEffectsSource.Play();
     }
 

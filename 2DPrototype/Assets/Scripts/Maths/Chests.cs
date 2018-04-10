@@ -24,6 +24,9 @@ public class Chests : MonoBehaviour {
     //Avatar progress script
     public AvatarProgress progressScript;
 
+    //Audio
+    MathsAudio audioManager;
+
     public void Start()
     {
         //Find script
@@ -31,6 +34,9 @@ public class Chests : MonoBehaviour {
 
         //Preload
         PreloadStage(progressScript.stage);
+
+        //Audio
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MathsAudio>();
     }
 
     //Chests in a middle of a screen
@@ -169,6 +175,9 @@ public class Chests : MonoBehaviour {
 
         //Swap sprites
         chests[currentChest].GetComponent<SpriteRenderer>().sprite = chestSprites[currentPhase];
+
+        //Play correct answer audio
+        audioManager.PlayCorrectAnswer();
     }
 
     //Finsihed chest
@@ -178,5 +187,8 @@ public class Chests : MonoBehaviour {
         chestPanelScript.addChest();
         //Play particles
         particleScript.playOnceAt(chests[currentChest].transform.position);
+
+        //Fireworks
+        audioManager.PlayFireworks();
     }
 }
