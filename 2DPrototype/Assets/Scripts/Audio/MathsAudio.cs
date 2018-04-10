@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class MathsAudio : MonoBehaviour {
 
-    //Audio
+    //Background audio
     public AudioSource backgrounSource;
     public AudioClip[] backgroundClips = new AudioClip[3];
+
+    //Sound effects audio
+    public AudioSource soundEffectsSource;
+
+    public AudioClip btnClickClip;  //Btn click
 
     //Scripts
     AvatarProgress progressScript;
@@ -19,8 +24,17 @@ public class MathsAudio : MonoBehaviour {
 
         ChangeBackgroundMusic(progressScript.level);
     }
-	
-	public void ChangeBackgroundMusic(int level)
+
+    //------------SOUND EFFECTS-------------
+    public void PlayBtnClick()
+    {
+        soundEffectsSource.clip = btnClickClip;
+        soundEffectsSource.Play();
+    }
+
+
+    //------------BACKGROUND MUSIC-------------
+    public void ChangeBackgroundMusic(int level)
     {
         backgrounSource.clip = backgroundClips[level];
 
