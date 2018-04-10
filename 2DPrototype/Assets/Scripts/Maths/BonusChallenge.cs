@@ -163,6 +163,9 @@ public class BonusChallenge : MonoBehaviour {
         questionPage.SetActive(false);
         losePage.SetActive(false);
         winPage.SetActive(true);
+
+        //Audio
+        audioManager.PlayBonusWon();
     }
 
 }

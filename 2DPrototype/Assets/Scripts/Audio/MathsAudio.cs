@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// LIST OF AUDIO SOURCES
 /// BACKGROUND - background music
-/// SOUND EFFECTS - btn click, semi-open chest, fully open chest, incorrecr answer
+/// SOUND EFFECTS - btn click, semi-open chest, fully open chest, incorrecr answer, bonus won
 /// SOUND EFFECTS 2 - lvl up available
 /// </summary>
 
@@ -25,6 +25,7 @@ public class MathsAudio : MonoBehaviour {
     public AudioClip correctAnswer;  //Chest opening
     public AudioClip incorrectAnswer;  //Incorrect answer
     public AudioClip lvlUpAppearClip; //Lvl up btn appeared
+    public AudioClip bonusWonClip; // Bonus won
 
     //Scripts
     AvatarProgress progressScript;
@@ -72,6 +73,13 @@ public class MathsAudio : MonoBehaviour {
     public void PlayIncorrectAnswer()
     {
         soundEffectsSource.clip = incorrectAnswer;
+        soundEffectsSource.Play();
+    }
+
+    //Bonus won
+    public void PlayBonusWon()
+    {
+        soundEffectsSource.clip = bonusWonClip;
         soundEffectsSource.Play();
     }
 
