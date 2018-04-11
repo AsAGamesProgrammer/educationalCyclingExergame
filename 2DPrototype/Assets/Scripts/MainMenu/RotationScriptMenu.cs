@@ -16,12 +16,21 @@ public class RotationScriptMenu : MonoBehaviour {
 
     //GUI
     public Text selectedText;
+    public GameObject innerCircle;
 
-	// Use this for initialization
-	void Start ()
+    //Colours
+    public Color startColour;
+    public Color optionColour;
+    public Color creditsColour;
+    public Color exitColour;
+
+    // Use this for initialization
+    void Start ()
     {
         //Set middle text to what is currently selected
         selectedText.text = currentZone.ToString().ToUpper();
+
+        ChangeInnerCircleColour();
 	}
 	
 	// Update is called once per frame
@@ -40,6 +49,33 @@ public class RotationScriptMenu : MonoBehaviour {
         currentZone = zone_;
         //Set middle text to what is currently selected
         selectedText.text = currentZone.ToString().ToUpper();
+
+        ChangeInnerCircleColour();
+    }
+
+
+    //Change the colour of the inner circle
+    void ChangeInnerCircleColour()
+    {
+        Debug.Log(currentZone);
+        switch (currentZone)
+        {
+            case MenuZones.Start:
+                innerCircle.GetComponent<SpriteRenderer>().color = startColour;
+                break;
+
+            case MenuZones.Options:
+                innerCircle.GetComponent<SpriteRenderer>().color = optionColour;
+                break;
+
+            case MenuZones.Credits:
+                innerCircle.GetComponent<SpriteRenderer>().color = creditsColour;
+                break;
+
+            case MenuZones.Exit:
+                innerCircle.GetComponent<SpriteRenderer>().color = exitColour;
+                break;
+        }
     }
 }
 
