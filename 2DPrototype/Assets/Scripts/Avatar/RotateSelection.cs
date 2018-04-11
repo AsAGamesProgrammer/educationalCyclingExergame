@@ -37,6 +37,9 @@ public class RotateSelection : MonoBehaviour {
     //Bought Items
     ListOfBoughtItems boughtItemsScript;
 
+    //Audio
+    AvatarAudio audioManager;
+
     //START
     // Use this for initialization
     void Start ()
@@ -45,6 +48,9 @@ public class RotateSelection : MonoBehaviour {
 
         //Script
         boughtItemsScript = GameObject.FindGameObjectWithTag("MoneyManager").GetComponent<ListOfBoughtItems>();
+
+        //Audio
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AvatarAudio>();
     }
 	
     //UPDATE
@@ -208,7 +214,8 @@ public class RotateSelection : MonoBehaviour {
         //Move particles
         partS.transform.position = new Vector2(avatarElements[currentSelectedSprite].getPosition().x, avatarElements[currentSelectedSprite].getPosition().y);
 
-        Debug.Log("Sprite " + currentSelectedSprite + "is owned " + avatarElements[currentSelectedSprite].isOwned);
+        //Audio
+        audioManager.PlaySpriteChange();
 
         //If owned
         if(avatarElements[currentSelectedSprite].isOwned)
