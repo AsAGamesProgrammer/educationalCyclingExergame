@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RotationScriptMenu : MonoBehaviour {
 
@@ -77,7 +78,33 @@ public class RotationScriptMenu : MonoBehaviour {
                 break;
         }
     }
+
+    //------------BUTTON CLICK-------------
+
+    public void OnButtonClick()
+    {
+        switch (currentZone)
+        {
+            case MenuZones.Start:
+                SceneManager.LoadScene("avatarCreation");
+                break;
+
+            case MenuZones.Options:
+                //TODO
+                break;
+
+            case MenuZones.Credits:
+                //TODO
+                break;
+
+            case MenuZones.Exit:
+                Application.Quit();
+                break;
+        }
+    }
 }
+
+
 
 public enum MenuZones
 {
