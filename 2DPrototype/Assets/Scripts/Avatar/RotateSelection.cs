@@ -193,6 +193,28 @@ public class RotateSelection : MonoBehaviour {
         return changeSpriteSelection;
     }
 
+    //ON BUTTON CLICK
+    public void SelectionRight()
+    {
+        if (currentSelectedSprite + 1 < avatarElements.Length)
+            currentSelectedSprite++;
+        else
+            currentSelectedSprite = 0;
+
+        ChangeSelection();
+    }
+
+    //ON BUTTON CLICK
+    public void SelectionLeft()
+    {
+        if (currentSelectedSprite > 0)
+            currentSelectedSprite--;
+        else
+            currentSelectedSprite = avatarElements.Length - 1;
+
+        ChangeSelection();
+    }
+
     //Respond to arrow key input to indicate which picture is selected
     public void ChangeSelection()
     {
