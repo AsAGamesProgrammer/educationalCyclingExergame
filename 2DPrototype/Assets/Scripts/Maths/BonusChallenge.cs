@@ -36,8 +36,10 @@ public class BonusChallenge : MonoBehaviour {
     //Audio
     MathsAudio audioManager;
 
-	// Use this for initialization
-	void Start ()
+    PlayerMoney moneyScript;
+
+    // Use this for initialization
+    void Start ()
     {
         //Get scripts
         questionScript = GetComponent<Question>();
@@ -46,6 +48,8 @@ public class BonusChallenge : MonoBehaviour {
 
         //Audio
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MathsAudio>();
+
+        moneyScript = GameObject.Find("MoneyManager").GetComponent<PlayerMoney>();
     }
 	
 	// Update is called once per frame
@@ -128,6 +132,9 @@ public class BonusChallenge : MonoBehaviour {
 
         //Change background music
         audioManager.ChangeBackgroundMusic(progressScript.level);
+
+        //Reward
+        moneyScript.addMoney(progressScript.GetBonusReward());
 
     }
 

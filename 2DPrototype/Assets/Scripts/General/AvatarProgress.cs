@@ -49,22 +49,29 @@ public class AvatarProgress : MonoBehaviour {
         GameObject.FindGameObjectWithTag("LevelInfo").GetComponent<Text>().text = "Level " + (level + 1).ToString();
     }
 
+    //--------------REWARDS----------------
+    //Get usual reward for opening the chest
     public int GetReward()
     {
-        switch(level)
+        return CalculateReward(10);
+    }
+
+    //Get bigger reward for solving bonus challenge
+    public int GetBonusReward()
+    {
+        return CalculateReward(50);
+    }
+
+    //Reward calculation algorithm
+    int CalculateReward(int initialReward)
+    {
+        int reward = initialReward;
+
+        for (int i = 0; i < level; i++)
         {
-            case 0:
-                return 10;
-
-            case 1:
-                return 100;
-
-            case 2:
-                return 500;
-
-            default:
-                return 10;
+            reward *= 10;
         }
 
+        return reward;
     }
 }

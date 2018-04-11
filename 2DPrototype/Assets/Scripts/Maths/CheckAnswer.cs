@@ -16,11 +16,6 @@ public class CheckAnswer : MonoBehaviour {
     public InputField bonusField;
     InputField inputField;
 
-    //Money
-    int regularReward = 10;
-    int bonusReward = 50;
-    int reward;
-
     //Audio
     MathsAudio audioManager;
 
@@ -38,7 +33,6 @@ public class CheckAnswer : MonoBehaviour {
     {
         //Set input field to regular
         inputField = regularField;
-        reward = regularReward;
 
         //Bonus challenge script
         bonusChallengeScript = GetComponent<BonusChallenge>();
@@ -140,13 +134,11 @@ public class CheckAnswer : MonoBehaviour {
         if(isEnabled)         //Bonus
         {
             inputField = bonusField;
-            reward = bonusReward;
             bonusMode = true;
         }
         else                 //Regular
         {
             inputField = regularField;
-            reward = regularReward;
             bonusMode = false;
         }
     }
