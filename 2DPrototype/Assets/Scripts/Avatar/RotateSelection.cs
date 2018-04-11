@@ -316,6 +316,14 @@ public class RotateSelection : MonoBehaviour {
 
             //Change selection item
             ModifySelectionItem();
+
+            //Audio
+            audioManager.PlayCoins();
+        }
+        else
+        {
+            //Audio
+            audioManager.PlayTooExpensive();
         }
     }
 }

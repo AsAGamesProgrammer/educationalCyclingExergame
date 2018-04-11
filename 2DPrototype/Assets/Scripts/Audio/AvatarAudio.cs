@@ -9,6 +9,8 @@ public class AvatarAudio : MonoBehaviour {
 
     public AudioClip btnClickClip;  //Btn click
     public AudioClip spriteChangeClip;  //Horizontal input received
+    public AudioClip coinsClip;  //Horizontal input received
+    public AudioClip tooExpensiveClip;  //Horizontal input received
 
     // Use this for initialization
     void Start () {
@@ -27,6 +29,20 @@ public class AvatarAudio : MonoBehaviour {
     public void PlaySpriteChange()
     {
         soundEffectsSource.clip = spriteChangeClip;
+        soundEffectsSource.Play();
+    }
+
+    //Item bought
+    public void PlayCoins()
+    {
+        soundEffectsSource.clip = coinsClip;
+        soundEffectsSource.Play();
+    }
+
+    //Cant buy an item
+    public void PlayTooExpensive()
+    {
+        soundEffectsSource.clip = tooExpensiveClip;
         soundEffectsSource.Play();
     }
 }
