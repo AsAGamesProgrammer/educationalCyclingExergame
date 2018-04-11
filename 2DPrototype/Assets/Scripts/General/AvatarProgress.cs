@@ -15,7 +15,7 @@ public class AvatarProgress : MonoBehaviour {
 	void Start ()
     {
 
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().name == "mathsQuestions")
         {
             //background change
             GameObject.FindGameObjectWithTag("Manager").GetComponent<ChangeBackground>().ChangeLevel(level);
