@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Maths\ParticleManager.cs" />
     <Compile Include="Assets\Scripts\Maths\Question.cs" />
     <Compile Include="Assets\Scripts\Money\PlayerMoney.cs" />
+    <Compile Include="Assets\Scripts\OtherScenes\CreditsGoback.cs" />
     <Compile Include="Assets\UETools\Magic_Particle_Effects\Scripts\CameraMovement.cs" />
   </ItemGroup>
   <ItemGroup>
