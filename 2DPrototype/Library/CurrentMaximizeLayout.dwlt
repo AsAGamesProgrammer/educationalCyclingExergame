@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 42586
+  controlID: 47535
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 42515
+  controlID: 47536
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -179,14 +179,14 @@ MonoBehaviour:
     width: 845
     height: 422
   m_SceneLighting: 1
-  lastFramingTime: 179300.32686339974
+  lastFramingTime: 180216.3677420655
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 422.43112, y: 299.79272, z: 0}
+    m_Target: {x: 263.2005, y: 343.53802, z: 0}
     speed: 2
-    m_Value: {x: 422.43112, y: 299.79272, z: 0}
+    m_Value: {x: 263.2005, y: 343.53802, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -213,9 +213,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 324.76694
+    m_Target: 796.34064
     speed: 2
-    m_Value: 324.76694
+    m_Value: 796.34064
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 42538
+  controlID: 47485
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -402,23 +402,23 @@ MonoBehaviour:
     height: 534
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 1ceefaff
-    m_LastClickedID: -332260
-    m_ExpandedIDs: 9022faff48ebfaff7a1ffbff2e24fbff4034fbffa438fbfff048fbff184dfbffd4c7fbffaa3efcff4041fcff0a53fcfff666fcffeecdfcffbcdefcff38e4fcff6ee9fcff3a31fdff8281fdff7893fdff1e9cfdfffcf9fdff0c14fefffc30feff3848feff784efeff8655feff565cfeff8861feff8a64feff126bfeff2c77feffb2beffffe4fbfffff4ffffff000000001c29000036290000722a0000e6f4000094000100380201009c1601008e2701005a610100d0620100be680200607e02008c7f02000a80020098080300300903007446030090460300d0460300e04603004caf030002b103000cb20300a8b5030006b60300eac9030048ca030072cb0300
+    m_SelectedIDs: 4e55f9ff
+    m_LastClickedID: -436914
+    m_ExpandedIDs: 188cf9ff349af9ff9022faff14a5faff48ebfaff7a1ffbff2e24fbff4034fbffa438fbfff048fbff184dfbffd4c7fbffaa3efcff4041fcff0a53fcfff666fcffeecdfcffbcdefcff38e4fcff6ee9fcff3a31fdff8281fdff7893fdff1e9cfdfffcf9fdff0c14fefffc30feff3848feff784efeff8655feff565cfeff8861feff8a64feff126bfeff2c77feffb2beffffe4fbfffff4ffffff000000001c29000036290000722a0000e6f4000094000100380201009c1601008e2701005a610100d0620100be680200607e02008c7f02000a80020098080300300903007446030090460300d0460300e04603004caf030002b103000cb20300a8b5030006b60300eac9030048ca030072cb0300
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Sphere
-      m_OriginalName: Sphere
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: -384368
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -515,18 +515,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/VisualAssets/Bike
+    - Assets/VisualAssets/GUI
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/VisualAssets/Bike
+  - Assets/VisualAssets/GUI
   m_LastFoldersGridSize: 96
   m_LastProjectPath: D:\University\FYP\Repo\educationalCyclingExergame\2DPrototype
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a2270000
-    m_LastClickedID: 10146
+    m_SelectedIDs: d2250000
+    m_LastClickedID: 9682
     m_ExpandedIDs: 00000000e02400000226000036280000d62b0000d82b0000da2b0000dc2b0000de2b0000e02b0000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -580,8 +580,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 1ceefaff
-    m_LastClickedInstanceID: -332260
+    m_SelectedInstanceIDs: 4e55f9ff
+    m_LastClickedInstanceID: -436914
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: e04effff94260000b626000042270000a4270000be2700001228000028260000462700008628000000000000
     m_RenameOverlay:
