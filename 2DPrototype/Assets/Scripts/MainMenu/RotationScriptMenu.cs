@@ -90,7 +90,7 @@ public class RotationScriptMenu : MonoBehaviour {
                 break;
 
             case MenuZones.Options:
-                //TODO
+                SceneManager.LoadScene("Options");
                 break;
 
             case MenuZones.Credits:
