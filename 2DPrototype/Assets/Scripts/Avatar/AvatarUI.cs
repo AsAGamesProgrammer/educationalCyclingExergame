@@ -11,6 +11,9 @@ public class AvatarUI : MonoBehaviour {
     {
         avatarTransferScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarTransfer>();
 
+        //Progress script
+        AvatarProgress avatarProgressScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarProgress>();
+        avatarProgressScript.ChangeBanner();
     }
 
     public void OnAdventureBtnClick()

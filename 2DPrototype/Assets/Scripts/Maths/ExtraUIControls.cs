@@ -21,13 +21,12 @@ public class ExtraUIControls : MonoBehaviour {
     {
         avatar = GameObject.FindGameObjectWithTag("MainAvatar");
 
+        //Progress script
+        AvatarProgress avatarProgressScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarProgress>();
+        avatarProgressScript.ChangeBanner();
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
+    //Return to the avatar creation scene
     public void OnGoBackClick()
     {
         //Money manager

@@ -6,6 +6,7 @@ public class AvatarAudio : MonoBehaviour {
 
     //Sound effects audio
     public AudioSource soundEffectsSource;
+    public AudioSource soundEffectsSource2; //Used for longer sounds, such as change applied
 
     public AudioClip btnClickClip;      //Btn click
     public AudioClip spriteChangeClip;  //Horizontal input received
@@ -45,7 +46,7 @@ public class AvatarAudio : MonoBehaviour {
     //Change applied to the avatar
     public void PlayChangeApplied()
     {
-        soundEffectsSource.clip = changeAppliedClip;
-        soundEffectsSource.Play();
+        soundEffectsSource2.clip = changeAppliedClip;
+        soundEffectsSource2.Play();
     }
 }

@@ -110,6 +110,9 @@ public class RotateSelection : MonoBehaviour {
 
                 //Set selection to none
                 spriteOnBike.GetComponent<SpriteRenderer>().sprite = null;
+
+                //Audio
+                audioManager.PlayChangeApplied();
             }
         }
     }

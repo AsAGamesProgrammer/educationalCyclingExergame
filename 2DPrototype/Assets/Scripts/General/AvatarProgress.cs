@@ -14,6 +14,7 @@ public class AvatarProgress : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             //background change
@@ -40,6 +41,12 @@ public class AvatarProgress : MonoBehaviour {
         //background change
         GameObject.FindGameObjectWithTag("Manager").GetComponent<ChangeBackground>().ChangeLevel(level);
 
+    }
+
+    public void ChangeBanner()
+    {
+        //Change banner
+        GameObject.FindGameObjectWithTag("LevelInfo").GetComponent<Text>().text = "Level " + (level + 1).ToString();
     }
 
     public int GetReward()
