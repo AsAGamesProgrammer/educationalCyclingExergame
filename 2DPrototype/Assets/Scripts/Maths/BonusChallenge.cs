@@ -10,7 +10,7 @@ public class BonusChallenge : MonoBehaviour {
     public GameObject firstPage;
     public GameObject questionPage;
     public GameObject losePage;
-    public GameObject winPage;
+    public GameObject[] winPage = new GameObject[3];   //One per level
 
     //Button for lvl up
     public GameObject lvlUpBtn;
@@ -137,7 +137,9 @@ public class BonusChallenge : MonoBehaviour {
         firstPage.SetActive(true);
         questionPage.SetActive(false);
         losePage.SetActive(false);
-        winPage.SetActive(false);
+
+        foreach(var page in winPage)
+            page.SetActive(false);
     }
 
     private void enableQuestionPage()
@@ -145,7 +147,9 @@ public class BonusChallenge : MonoBehaviour {
         firstPage.SetActive(false);
         questionPage.SetActive(true);
         losePage.SetActive(false);
-        winPage.SetActive(false);
+
+        foreach (var page in winPage)
+            page.SetActive(false);
     }
 
     private void enableLosePage()
@@ -153,16 +157,19 @@ public class BonusChallenge : MonoBehaviour {
         firstPage.SetActive(false);
         questionPage.SetActive(false);
         losePage.SetActive(true);
-        winPage.SetActive(false);
+
+        foreach (var page in winPage)
+            page.SetActive(false);
     }
 
     //Called from the check answer script
-    public void enableWinPage()
+    public void enableWinPage(int level)
     {
         firstPage.SetActive(false);
         questionPage.SetActive(false);
         losePage.SetActive(false);
-        winPage.SetActive(true);
+
+        winPage[level].SetActive(true);
 
         //Audio
         audioManager.PlayBonusWon();

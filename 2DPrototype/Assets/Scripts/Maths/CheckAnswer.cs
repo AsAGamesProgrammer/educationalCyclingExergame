@@ -30,6 +30,9 @@ public class CheckAnswer : MonoBehaviour {
     //Bonus challenge script
     BonusChallenge bonusChallengeScript;
 
+    //Avatar progress
+    AvatarProgress progressScript;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -42,6 +45,8 @@ public class CheckAnswer : MonoBehaviour {
 
         //Audio
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MathsAudio>();
+
+        progressScript = GameObject.FindGameObjectWithTag("AvatarTransfer").GetComponent<AvatarProgress>();
 
     }
 	
@@ -71,7 +76,7 @@ public class CheckAnswer : MonoBehaviour {
                 else
                 {
                     //Show bonus challenge win page
-                    bonusChallengeScript.enableWinPage();
+                    bonusChallengeScript.enableWinPage(progressScript.level);
 
                     //Stop timer
                     bonusChallengeScript.countdownEnabled = false;
