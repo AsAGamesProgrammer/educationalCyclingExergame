@@ -88,6 +88,7 @@ public class MathsAudio : MonoBehaviour {
     public void ChangeBackgroundMusic(int level)
     {
         backgrounSource.clip = backgroundClips[level];
+        backgrounSource.loop = true;
 
         backgrounSource.Play();
     }
