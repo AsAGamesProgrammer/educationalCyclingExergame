@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AvatarAudio : MonoBehaviour {
 
+    //Background source
+    public AudioSource backgroundSource;
+
     //Sound effects audio
     public AudioSource soundEffectsSource;
     public AudioSource soundEffectsSource2; //Used for longer sounds, such as change applied
@@ -13,6 +16,22 @@ public class AvatarAudio : MonoBehaviour {
     public AudioClip coinsClip;         //Item was bought
     public AudioClip tooExpensiveClip;  //Cant buy an item
     public AudioClip changeAppliedClip; //Change applied to the avatar
+
+    //OPTIONS
+    private void Start()
+    {
+        OptionsScript optionsManager = GameObject.FindGameObjectWithTag("Options").GetComponent<OptionsScript>();
+
+        //Disable music if needed
+        if (!optionsManager.MusicOn)
+            backgroundSource.gameObject.SetActive(false);
+
+        if (!optionsManager.SFXOn)
+        {
+            soundEffectsSource.gameObject.SetActive(false);
+            soundEffectsSource2.gameObject.SetActive(false);
+        }
+    }
 
     //------------SOUND EFFECTS-------------
     //Btn click

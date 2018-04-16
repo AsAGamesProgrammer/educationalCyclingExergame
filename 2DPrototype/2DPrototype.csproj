@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Audio\AvatarAudio.cs" />
+    <Compile Include="Assets\Scripts\Audio\GenericAudioManager.cs" />
     <Compile Include="Assets\Scripts\Audio\MathsAudio.cs" />
     <Compile Include="Assets\Scripts\Avatar\AvatarDescription.cs" />
     <Compile Include="Assets\Scripts\Avatar\AvatarPartsCollection.cs" />

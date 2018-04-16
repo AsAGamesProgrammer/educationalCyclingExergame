@@ -38,6 +38,19 @@ public class MathsAudio : MonoBehaviour {
 
         ChangeBackgroundMusic(progressScript.level);
 
+        //OPTIONS
+        OptionsScript optionsManager = GameObject.FindGameObjectWithTag("Options").GetComponent<OptionsScript>();
+
+        //Disable music if needed
+        if (!optionsManager.MusicOn)
+            backgrounSource.gameObject.SetActive(false);
+
+        if (!optionsManager.SFXOn)
+        {
+            soundEffectsSource.gameObject.SetActive(false);
+            soundEffectsSource2.gameObject.SetActive(false);
+        }
+
     }
 
     //------------SOUND EFFECTS-------------
