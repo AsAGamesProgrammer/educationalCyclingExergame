@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerMoney : MonoBehaviour {
 
-    int balance = 0;
+    public int balance = 0;
 
     //Flag used to remove duplicates
     public bool isNewest = false;
