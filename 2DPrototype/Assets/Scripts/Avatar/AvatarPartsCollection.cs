@@ -39,10 +39,9 @@ public class AvatarPartsCollection : MonoBehaviour {
         folders[8] = "Assets/VisualAssets/AvatarElements/Nose";
 
 
-        var tests = AssetDatabase.FindAssets("t:Sprite", folders);
-        foreach (string guid in tests)
+        var paths = AssetDatabase.FindAssets("t:Sprite", folders);
+        foreach (string guid in paths)
         {
-
             //Load sprite from path to a list
             LoadSprite(guid);
         }
@@ -67,12 +66,6 @@ public class AvatarPartsCollection : MonoBehaviour {
 
         //Assign sprite object
         newInstance.spriteObject = (Sprite)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(path), typeof(Sprite));
-
-        //Switch depending on colour
-        if(components.Length>2)
-        {
-            //newInstance.colour = GetColourFromComponent(components[2]);
-        }
 
         //Switch depending on the avatar part
         AssignToListByType(components[0], components[2], newInstance);

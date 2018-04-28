@@ -24,11 +24,6 @@ public class Question : MonoBehaviour {
         generateNewQuestion();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void generateSimpleMix()
     {
@@ -75,19 +70,19 @@ public class Question : MonoBehaviour {
     //Example: 10p + 34p
     void generateSimpleAddition()
     {
-        int numberA = Random.Range(7, 90);              //get random int between 1-90
+        //Generate values
+        int numberA = Random.Range(7, 90);                //Get random int between 1-90
 
-        int difference = 100 - numberA;                 //get the maximum value of the second int
-        int numberB = Random.Range(7, difference);      //randomly generate second int
+        int difference = 100 - numberA;                   //Get the maximum value of the second int
+        int numberB = Random.Range(7, difference);        //Randomly generate second int
 
-        questionText.text = numberA.ToString() + "p + " + numberB + "p";
-
-        //Test
-        questionShadowText.text = questionText.text;
+        //Display the question
+        questionText.text = numberA.ToString() + "p + " + numberB + "p"; 
+        questionShadowText.text = questionText.text;       
 
         answerScript.setCorrectAnswer(numberA + numberB);  //Set answer
 
-        Debug.Log(numberA + numberB);
+        Debug.Log(numberA + numberB);                      //Debug
     }
 
     //TYPE B

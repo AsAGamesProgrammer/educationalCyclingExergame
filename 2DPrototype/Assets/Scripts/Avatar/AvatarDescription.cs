@@ -26,16 +26,6 @@ public class AvatarDescription : MonoBehaviour {
 
     public int spriteId = -1;
 
-    private void Awake()
-    {
-        //Own the first item
-        //if (spriteId < 2)
-        //{
-        //    Debug.Log("Changed zero item to be owned");
-        //    isOwned = true;
-        //}
-    }
-
     //Public getters used by other scripts
     public Sprite getSprite()
     {

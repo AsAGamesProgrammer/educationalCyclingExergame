@@ -21,10 +21,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 709, y: 471}
-  m_MaxSize: {x: 18004, y: 14021}
+  m_MinSize: {x: 713, y: 492}
+  m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 2793
+  controlID: 2920
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 2728
+  controlID: 2967
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -179,14 +179,14 @@ MonoBehaviour:
     width: 838
     height: 421
   m_SceneLighting: 1
-  lastFramingTime: 347.68057059533015
+  lastFramingTime: 172410.0477661046
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 415, y: 233.5, z: 0}
+    m_Target: {x: -3.9414923, y: -1.9066755, z: 0}
     speed: 2
-    m_Value: {x: 415, y: 233.5, z: 0}
+    m_Value: {x: -3.9414923, y: -1.9066755, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -213,9 +213,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1600.2699
+    m_Target: 22
     speed: 2
-    m_Value: 1600.2699
+    m_Value: 22
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -344,10 +344,10 @@ MonoBehaviour:
     y: 0
     width: 516
     height: 947
-  m_MinSize: {x: 230, y: 471}
-  m_MaxSize: {x: 10000, y: 14021}
+  m_MinSize: {x: 234, y: 492}
+  m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 2794
+  controlID: 2921
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -402,9 +402,9 @@ MonoBehaviour:
     height: 536
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 9c250000
-    m_LastClickedID: 0
-    m_ExpandedIDs: f4c7ffffd0ccfffff4faffffe4fbfffff4ffffff00000000d82b0000
+    m_SelectedIDs: 56560000
+    m_LastClickedID: 22102
+    m_ExpandedIDs: 8cb8ffffeec2fffff4c7ffffd0ccfffff4faffffe4fbfffff4ffffff00000000d82b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -515,18 +515,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts/Avatar
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts/Avatar
   m_LastFoldersGridSize: 96
   m_LastProjectPath: D:\University\FYP\Repo\educationalCyclingExergame\2DPrototype
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 62}
-    m_SelectedIDs: f4260000
-    m_LastClickedID: 9972
+    m_SelectedIDs: d4250000
+    m_LastClickedID: 9684
     m_ExpandedIDs: 00000000f22400001c26000082260000a8260000e027000080280000b6290000b8290000ba290000bc290000be290000c0290000c2290000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -580,8 +580,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 9c250000
-    m_LastClickedInstanceID: 9628
+    m_SelectedInstanceIDs: 56560000
+    m_LastClickedInstanceID: 22102
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: e04effff94260000b626000042270000a4270000be2700001228000028260000462700008628000000000000
     m_RenameOverlay:
@@ -607,7 +607,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 32}
     m_GridSize: 96
   m_DirectoriesAreaWidth: 168
 --- !u!114 &15

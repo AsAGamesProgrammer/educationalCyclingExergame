@@ -142,8 +142,8 @@ public class CategorySelection : MonoBehaviour {
                 newItem.GetComponent<AvatarDescription>().spriteId = item.spriteId;
 
                 //POPULATE AVATAR DESCIPTION
-                //TODO: REDO MONEY
-                    
+
+                #region PopulateAvatarDescription
                 //Skin
                 if(item.type==spriteType.skin)
                 {
@@ -186,6 +186,7 @@ public class CategorySelection : MonoBehaviour {
                     //Price
                     newItem.GetComponent<AvatarDescription>().price = 1000 * item.spriteId;
                 }
+                #endregion
 
                 //Instantiate
                 selectableItems.Add(newItem);

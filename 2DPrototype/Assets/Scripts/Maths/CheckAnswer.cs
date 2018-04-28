@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class CheckAnswer : MonoBehaviour {
 
+    //Reference to a question script
     public Question questionScript;
+
+    //Correct and enntered answers
     float correctAnswer = 56;
     float enteredAnswer;
 
+    //Reference to the bonus script
     public Chests chestScript;
 
     //Input fields
@@ -91,7 +95,11 @@ public class CheckAnswer : MonoBehaviour {
         audioManager.PlayIncorrectAnswer();
 
         inputField.text = "";
+
+        //Generate a random number between 1 and 4
         int randomPhrase = Random.Range(1, 5);
+
+        //Choose a feedback phrase based on the random number
         switch (randomPhrase)
         {
             case 1:
