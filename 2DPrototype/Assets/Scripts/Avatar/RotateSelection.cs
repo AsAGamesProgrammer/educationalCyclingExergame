@@ -22,10 +22,12 @@ public class RotateSelection : MonoBehaviour {
     public Text priceTag;
     public GameObject buyBtn;
 
+    //Sprites
     public GameObject bike;
     public GameObject spriteOnBike;
     private int currentSelectedSprite = 0;
 
+    //Selection and pedalling
     public float progressToUnlock = 100.0f;
     private bool verticalSelectionActive = false;
     private float currentVerticalProgress = 0.03f;
@@ -36,6 +38,7 @@ public class RotateSelection : MonoBehaviour {
 
     //Bought Items
     ListOfBoughtItems boughtItemsScript;
+    public GameObject buyButton;
 
     //Audio
     AvatarAudio audioManager;
@@ -70,7 +73,7 @@ public class RotateSelection : MonoBehaviour {
         }
 
         //Space bar to buy
-        if(Input.GetKeyUp("space"))
+        if(Input.GetKeyUp("space") && buyButton.activeSelf)
         {
             OnBuyItemClick();
         }
@@ -328,7 +331,7 @@ public class RotateSelection : MonoBehaviour {
     {
         PlayerMoney playerMoney = GameObject.FindGameObjectWithTag("MoneyManager").GetComponent<PlayerMoney>();
 
-        if (playerMoney.getBalance() > avatarElements[currentSelectedSprite].price)
+        if (playerMoney.getBalance() >= avatarElements[currentSelectedSprite].price)
         {
             //Reduce balane
             playerMoney.pay(avatarElements[currentSelectedSprite].price);
